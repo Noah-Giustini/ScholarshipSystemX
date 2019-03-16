@@ -130,4 +130,13 @@ public class Manager{
             }
         }
 	
+        public ArrayList<String> showApplications( Scholarship s){
+            ArrayList<String> toReturn = new ArrayList<String>();
+            ArrayList<Application> apps = s.getApplications();
+            for (int i=0; i<apps.size(); i++){
+                Application temp = apps.get(i);
+                toReturn.add(temp.simpleToString());
+            }
+            return toReturn;
+        }
 }
