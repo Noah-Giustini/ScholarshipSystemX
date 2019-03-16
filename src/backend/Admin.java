@@ -5,20 +5,10 @@ import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import backend.Application; 
 
 //The Admin class is used to contain the methods that can be used only by an administrator of the system
 public class Admin{
-    /**
-	 * view the current applications in the system
-	 * @param allApplications is an ArrayList with type Application that contains the applications in the system
-     * @return void
-	 */
-    public void viewApplications(ArrayList<Application> allApplications) {
-        for (int i=0; i < allApplications.size(); i++){
-            System.out.println(allApplications.get(i).toString());
-        }
-    }
+
     /**
 	 * confirm an application
 	 * @param s is of type Scholarship and is the scholarship that the students application is associated with
