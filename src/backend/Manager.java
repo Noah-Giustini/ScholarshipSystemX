@@ -106,6 +106,11 @@ public class Manager{
         }
         
         public ArrayList<String> showSubmittedScholarships(){
+            try {
+                findScholarships();
+            } catch (Exception ex) {
+               System.out.println("There was an error when reading the files");
+            }
             ArrayList<String> toReturn = new ArrayList<String>();
             for (int i=0; i<scholarships.size(); i++){
                 Scholarship temp = scholarships.get(i);
