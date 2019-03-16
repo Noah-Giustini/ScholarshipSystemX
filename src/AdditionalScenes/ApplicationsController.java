@@ -5,7 +5,6 @@
  */
 package AdditionalScenes;
 
-import backend.ApplicationManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -73,6 +72,7 @@ public class ApplicationsController implements Initializable {
     @FXML
     private void backToMain(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/seng300/adminMainPage.fxml"));
+        ///REFRESH AND LOAD APPROPRIATE ITEMS - a call to action for main page 
         Scene sc = new Scene(root);
         Stage s = Seng300.mainStage; 
         s.setTitle("Home");
@@ -92,6 +92,7 @@ public class ApplicationsController implements Initializable {
 
     @FXML
     private void openEditApplication(ActionEvent event) {
+        String rootFilePath = "";
         if (radio1.isSelected()){
         
         } else if (radio2.isSelected()){
@@ -102,10 +103,21 @@ public class ApplicationsController implements Initializable {
         
         } else if (radio5.isSelected()){
         
-        } else {
-        
-        
-        }    
+        }
+        try {
+            openView();
+        } catch (IOException ex) {
+            System.out.println("There was a problem loading the file.");
+        }
+    }
+    
+    private void openView() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/ApplicationView.fxml"));
+        Scene sc = new Scene(root);
+        Stage s = Seng300.mainStage; 
+        s.setTitle("Home");
+        s.setScene(sc);
+        s.show();
     }
     
     
