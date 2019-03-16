@@ -10,6 +10,8 @@ import java.util.List;
 import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Manager{
@@ -112,12 +114,20 @@ public class Manager{
             return toReturn;
         }
         
-        public void addSubmittedScholarship(){
-            
+        public void addSubmittedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3){
+            try {
+                scholarships.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3));
+            } catch (Exception ex) {
+                System.out.println("There was an error when adding the scholarship ");
+            }
         }
         
-        public void addSavedScholarship(){
-            
+        public void addSavedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3){
+            try {
+                scholarshipdrafts.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3));
+            } catch (Exception ex) {
+                System.out.println("There was an error when adding the scholarship draft");
+            }
         }
 	
 }
