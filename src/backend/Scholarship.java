@@ -197,7 +197,9 @@ public class Scholarship{
 		return this.levels;
 	}
 	
-	
+	public ArrayList<Application> getApplications(){
+            return this.applications;
+        }
 	//Setters
 
 	/**
