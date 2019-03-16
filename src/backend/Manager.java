@@ -95,11 +95,21 @@ public class Manager{
 	}
         
         public ArrayList<String> showSubmittedScholarships(){
-            return null;
+            ArrayList<String> toReturn = new ArrayList<String>();
+            for (int i=0; i<scholarships.size(); i++){
+                Scholarship temp = scholarships.get(i);
+                toReturn.add(temp.simpleToString());
+            }
+            return toReturn;
         }
         
         public ArrayList<String> showSavedScholarships(){
-            return null;
+            ArrayList<String> toReturn = new ArrayList<String>();
+            for (int i=0; i<scholarshipdrafts.size(); i++){
+                Scholarship temp = scholarshipdrafts.get(i);
+                toReturn.add(temp.simpleToString());
+            }
+            return toReturn;
         }
         
         public void addSubmittedScholarship(){
