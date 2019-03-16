@@ -59,6 +59,8 @@ public class ApplicationsController implements Initializable {
     private RadioButton radio5;
     @FXML
     private ToggleGroup ListView;
+    @FXML
+    private Button refresh;
 
     /**
      * Initializes the controller class.
@@ -72,7 +74,6 @@ public class ApplicationsController implements Initializable {
     @FXML
     private void backToMain(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/seng300/adminMainPage.fxml"));
-        ///REFRESH AND LOAD APPROPRIATE ITEMS - a call to action for main page 
         Scene sc = new Scene(root);
         Stage s = Seng300.mainStage; 
         s.setTitle("Home");
@@ -92,7 +93,6 @@ public class ApplicationsController implements Initializable {
 
     @FXML
     private void openEditApplication(ActionEvent event) {
-        String rootFilePath = "";
         if (radio1.isSelected()){
         
         } else if (radio2.isSelected()){
@@ -103,21 +103,15 @@ public class ApplicationsController implements Initializable {
         
         } else if (radio5.isSelected()){
         
-        }
-        try {
-            openView();
-        } catch (IOException ex) {
-            System.out.println("There was a problem loading the file.");
-        }
+        } else {
+        
+        
+        }    
     }
     
-    private void openView() throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/ApplicationView.fxml"));
-        Scene sc = new Scene(root);
-        Stage s = Seng300.mainStage; 
-        s.setTitle("Home");
-        s.setScene(sc);
-        s.show();
+    @FXML
+    private void refreshPage(ActionEvent event){
+        
     }
     
     
