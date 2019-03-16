@@ -139,11 +139,23 @@ public class CreateScholarshipFXMLController implements Initializable {
                 String cus2;
                 String cus3;
                 String desc;
+                int day;
+                int month;
+                int year;
 		
+ 
 		LocalDate date = dateGetter.getValue();
-		int day = date.getDayOfMonth();
-		int month = date.getMonthValue();
-		int year = date.getYear();
+                
+                try{
+                    day = date.getDayOfMonth();
+                    month = date.getMonthValue();
+                    year = date.getYear();
+                }
+                catch (Exception e){
+                    day = 0;
+                    month = 0;
+                    year = 0;
+                }
 		String strDay;
 		String strMonth;
 		String strYear = Integer.toString(year);
