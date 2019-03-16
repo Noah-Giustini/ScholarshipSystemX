@@ -18,6 +18,7 @@ public class Manager{
 
 	private ArrayList<Scholarship> scholarships = new ArrayList<Scholarship>(); 
 	private ArrayList<Scholarship> scholarshipdrafts = new ArrayList<Scholarship>(); 
+        private Scholarship currentScholarship;
 
 	
 	/**
@@ -95,6 +96,14 @@ public class Manager{
 		
 		return 	newsch;	
 	}
+        
+        public Scholarship getCurrentScholarship(){
+            return this.currentScholarship;
+        }
+        
+        public void setCurrentScholarship(Scholarship s){
+            this.currentScholarship = s;
+        }
         
         public ArrayList<String> showSubmittedScholarships(){
             ArrayList<String> toReturn = new ArrayList<String>();
