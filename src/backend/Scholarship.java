@@ -555,7 +555,7 @@ public class Scholarship{
 			}
 		}
 		
-		return this.name + ", Due: " + this.duedate + ", Amount: " + this.amount + "$, Recipient(s): " + this.recipients + ", Recipient(s) Chosen: " + this.chosen + ", Education Levels: " + EduLvls;
+		return this.name + "\n Due: " + this.duedate + "\n Amount: " + this.amount + "$ \n Recipient(s): " + this.recipients + "\n Recipient(s) Chosen: " + this.chosen + "\n Education Levels: " + EduLvls;
 	}
         
         public String simpleToString(){

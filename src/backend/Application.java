@@ -303,7 +303,7 @@ public class Application{
 	 */
 	public String toString(){
 		 
-		return this.scholarship + ": " + this.student + ", Date Submitted: " + this.date + ", GPA: " + this.gpa + ", Education Level: " + this.edulvl + ", Priority: " + this.priority + ", Status: " + this.status;
+		return this.scholarship + "\n " + this.student + "\n Date Submitted: " + this.date + "\n GPA: " + this.gpa + "\n Education Level: " + this.edulvl + "\n Priority: " + this.priority + "\n Status: " + this.status;
 	}
         
         public String simpleToString(){
