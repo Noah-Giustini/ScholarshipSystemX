@@ -305,6 +305,10 @@ public class Application{
 		 
 		return this.scholarship + ": " + this.student + ", Date Submitted: " + this.date + ", GPA: " + this.gpa + ", Education Level: " + this.edulvl + ", Priority: " + this.priority + ", Status: " + this.status;
 	}
+        
+        public String simpleToString(){
+            return this.student + "\n Submitted: " + this.date + "\n Status: " + this.status;
+        }
 
 	/**
 	 * Loads all application files into the applicationList in ScholarshipSystem class
