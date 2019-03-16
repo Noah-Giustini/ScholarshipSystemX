@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -65,6 +66,10 @@ public class CreateScholarshipFXMLController implements Initializable {
     private Color x4;
     @FXML
     private Font x3;
+    @FXML
+    private TextArea txtCustom3;
+    @FXML
+    private Label statustxt;
 
     /**
      * Initializes the controller class.
