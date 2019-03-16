@@ -5,6 +5,7 @@
  */
 package seng300;
 
+import backend.Manager;
 import java.awt.event.ActionEvent;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 
 public class Seng300 extends Application {
 public static Stage mainStage;
+public static Manager theManager;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -28,6 +30,7 @@ public static Stage mainStage;
         //this will be stored here as instance variables
         
         Seng300.mainStage = stage;
+        Seng300.theManager = new Manager();
         Parent root = FXMLLoader.load(getClass().getResource("adminMainPage.fxml"));
         
         Scene scene = new Scene(root);

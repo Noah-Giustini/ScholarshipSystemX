@@ -111,7 +111,11 @@ public class ApplicationsController implements Initializable {
     
     @FXML
     private void refreshPage(ActionEvent event){
-        
+        //load all applications from a scholarship provided by the manager
+        //1st step Manager.getCurrentScholarship()
+        //2nd step showSubmittedScholarships() gives an arraylist of strings 
+        // 3rd loop through the list, if it goes past 5 don't do anything otherwise just fill however many you can 
+        //probably don't actually need to loop but it will be good if we end up having more windows - no use limiting ourselves
     }
     
     
