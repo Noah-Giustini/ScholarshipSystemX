@@ -1,5 +1,3 @@
-package backend;
-
 import java.io.File;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
@@ -17,11 +15,16 @@ public class Scholarship{
 	private String name = "--";
 	private String schfile = "--";
 	private String duedate = "--";
+        private boolean gpareq = false;
 	private double amount = 0;
 	private int recipients = 0;
 	private int chosen = 0;
 	private ArrayList<String> levels = new ArrayList<String>();
 	private ArrayList<Application> applications = new ArrayList<Application>();
+        private String custom1 = "--";
+        private String custom2 = "--";
+        private String custom3 = "--";
+        private String description = "--";
 
 	/**
 	* Constructor.
@@ -76,6 +79,15 @@ public class Scholarship{
 		
 		return this.duedate;
 	}
+        
+        /**
+	* Returns boolean, true if gpa is required, false otherwise
+	* @return boolean
+	 */
+	public boolean getGPAReq(){
+		
+		return this.gpareq;
+	}
 	
 	/**
 	* Returns the amount of money awarded by the scholarship
@@ -102,6 +114,42 @@ public class Scholarship{
 	public int getChosen(){
 		
 		return this.chosen;
+	}
+        
+        /**
+	* Returns the first custom question
+	* @return String of first question
+	 */
+	public String getCustom1(){
+		
+		return this.custom1;
+	}
+        
+        /**
+	* Returns the second custom question
+	* @return String of second question
+	 */
+	public String getCustom2(){
+		
+		return this.custom2;
+	}
+        
+        /**
+	* Returns the third custom question
+	* @return String of third question
+	 */
+	public String getCustom3(){
+		
+		return this.custom3;
+	}
+        
+        /**
+	* Returns the scholarship description
+	* @return String of description
+	 */
+	public String getDescription(){
+		
+		return this.description;
 	}
 	
 	/**
@@ -159,11 +207,25 @@ public class Scholarship{
 		}
 	
 	}
+        
+        /**
+	* Changes gpa required 
+        * @param req boolean true if gpa is required
+	 */
+	public void setGPAReq(boolean req)throws Exception{
+		this.gpareq = req;
+                if (this.gpareq){
+                    overWriteLine("GPA Required", "true");
+                }
+                else {
+                    overWriteLine("GPA Required", "false");
+                }
+	}    
 	
 	//will only change if amount given is a postive number
 	/**
 	* Changes amount if it is a positive number
-	* @param newAmount should be a postive double
+	* @param newAmount should be a positive double
 	 */
 	public void setAmount(double newAmount)throws Exception{
 		
@@ -202,7 +264,43 @@ public class Scholarship{
 		}
 	
 	}
-	
+        
+        /**
+	* Changes first custom question
+	* @param cus1 the custom question
+	 */
+	public void setCustom1(String cus1)throws Exception{
+		this.custom1 = cus1;
+                overWriteLine("Custom1", cus1);
+	}
+        
+        /**
+	* Changes second custom question
+	* @param cus2 the custom question
+	 */
+	public void setCustom2(String cus2)throws Exception{
+		this.custom2 = cus2;
+                overWriteLine("Custom2", cus2);
+	}
+        
+        /**
+	* Changes thrid custom question
+	* @param cus3 the custom question
+	 */
+	public void setCustom3(String cus3)throws Exception{
+		this.custom3 = cus3;
+                overWriteLine("Custom3", cus3);
+	}
+        
+        /**
+	* Changes scholarship description
+	* @param desc the new description
+	 */
+	public void setDescription(String desc)throws Exception{
+		this.description = desc;
+                overWriteLine("Description", desc);
+	}
+        
 	//this needs to be revised!!!!
 	/**
 	* Replaces ArrapList in levels to new education levels
@@ -306,6 +404,15 @@ public class Scholarship{
 				double newAmount = Double.parseDouble(line);
 				setAmount(newAmount);
 			}
+                        else if (line.equals("GPA Required")){
+                                line = br.readLine();
+                                if (line.trim().equals("true")){
+                                    setGPAReq(true);
+                                }
+                                else {
+                                    setGPAReq(false);
+                                }
+                        }
 			else if (line.equals("Recipients")){
 				line = br.readLine();
 				int newRecipients = Integer.parseInt(line);
@@ -322,6 +429,22 @@ public class Scholarship{
 				ArrayList<String> newLevels = new ArrayList(Arrays.asList(tmpLevels));
 				setLevels(newLevels);
 			}
+                        else if (line.equals("Custom1")){
+                                line = br.readLine();
+                                setCustom1(line);
+                        }
+                        else if (line.equals("Custom2")){
+                                line = br.readLine();
+                                setCustom2(line);
+                        }
+                        else if (line.equals("Custom3")){
+                                line = br.readLine();
+                                setCustom3(line);
+                        }
+                        else if (line.equals("Description")){
+                                line = br.readLine();
+                                setDescription(line);
+                        }
 		}
 		
 		findApplications();
@@ -343,6 +466,9 @@ public class Scholarship{
 		writer.println("Due Date");
 		writer.println(this.duedate);
 		writer.println();
+                writer.println("GPA Required");
+                writer.println(this.gpareq);
+                writer.println();
 		writer.println("Amount");
 		writer.println(this.amount);
 		writer.println();
@@ -359,7 +485,20 @@ public class Scholarship{
 		}
 		writer.println();
 		writer.println();
-
+                writer.println("Custom1");
+		writer.println(this.custom1);
+                writer.println();
+                writer.println("Custom2");
+		writer.println(this.custom2);
+                writer.println();
+                writer.println("Custom3");
+		writer.println(this.custom3);
+                writer.println();
+                writer.println("Description");
+		writer.println(this.description);
+                writer.println();
+                writer.println();
+                
 		writer.close();
 		
 	}
@@ -407,5 +546,3 @@ public class Scholarship{
 	//}
 	
 }
-	
-	
