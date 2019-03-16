@@ -380,6 +380,10 @@ public class Scholarship{
 		
 		return this.name + ", Due: " + this.duedate + ", Amount: " + this.amount + "$, Recipient(s): " + this.recipients + ", Recipient(s) Chosen: " + this.chosen + ", Education Levels: " + EduLvls;
 	}
+        
+        public String simpleToString(){
+            return this.name + "\n Due: " + this.duedate;
+        }
 	
 	/**
 	* Reads in all scholarships and adds them to the scholarshipList in the ScholarshipSystem
