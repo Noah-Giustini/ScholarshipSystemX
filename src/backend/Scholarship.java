@@ -30,7 +30,7 @@ public class Scholarship {
 
     /**
      * Constructor. Scholarship constructor that creates a new scholarship
-     * object and file or load an old scholarship if a scholarhip file with the
+     * object and file or load an old scholarship if a scholarship file with the
      * given name already exists.
      *
      * @param schname is the name of the scholarship given by the user
@@ -574,25 +574,14 @@ public class Scholarship {
     public String simpleToString() {
         return this.name + "\n Due: " + this.duedate;
     }
-
+    
     /**
-     * Reads in all scholarships and adds them to the scholarshipList in the
-     * ScholarshipSystem
+     * Deletes a scholarship from the file system
+     * object should be deleted after use. 
      */
-    //public static void startUp(){
-    //File folder = new File("Scholarships");
-    //File[] listOfFiles = folder.listFiles();
-    //for(File a : listOfFiles){
-    //	if(a.isFile()){
-//String name = a.getName().substring(0, (a.getName().length() - 4));
-    //		try {
-//TODO: handle exception
-    //		Scholarship sch = new Scholarship(name);
-//ScholarshipSystem.scholarshipList.add(sch);
-//
-//catch (Exception e){
-//
-    //}	
-    //}
-    //}
+    public void delete(){
+        File f = new File(this.schfile);
+        f.delete();
+    }
+   
 }
