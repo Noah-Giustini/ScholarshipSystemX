@@ -5,7 +5,6 @@
  */
 package AdditionalScenes;
 
-import backend.ApplicationManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
