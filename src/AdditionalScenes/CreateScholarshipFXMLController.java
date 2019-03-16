@@ -7,6 +7,8 @@ package AdditionalScenes;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -81,6 +83,71 @@ public class CreateScholarshipFXMLController implements Initializable {
 
     @FXML
     private void handleSaveScholarship(MouseEvent event) {
+        
+//        	String name = txtEnterSchName.getText().trim();
+//                String duedate;
+//                boolean gpa = false;
+//                double amount;
+//                int recips;
+//                int recipsch;
+//                ArrayList<String> edulvl = new ArrayList<String>();
+//		
+//		if (name.equals("")){
+//			statustxt.setText("Unable to Save: Scholarship Requires Name"); 
+//			return;
+//		}
+//		
+//		LocalDate date = dateGetter.getValue();
+//		int day = date.getDayOfMonth();
+//		int month = date.getMonthValue();
+//		int year = date.getYear();
+//		String strDay;
+//		String strMonth;
+//		String strYear = Integer.toString(year);
+//		
+//		
+//		if (day < 10){
+//			strDay = "0" + Integer.toString(day);
+//		}
+//		else {
+//			strDay = Integer.toString(day);
+//		}
+//		
+//		if (month < 10){
+//			strMonth = "0" + Integer.toString(month);
+//		}
+//		else {
+//			strMonth = Integer.toString(month);
+//		}
+//		
+//		String duedate = strDay + "/" + strMonth + "/" + strYear;
+//		
+//		if (chkGPA.isSelected()){
+//                    gpa = true;
+//                }
+//                
+//		
+//                gpa
+//                      private CheckBox chkGPA;  
+//		double amount = 
+//		
+//		int recipients
+//		
+//		ArrayList<String> levels
+//                        
+//                        private TextArea txtCustom1;
+//    @FXML
+//    private TextArea txtCustom2;
+//			
+//         private TextField txtAmount;
+//    @FXML
+//    private TextField txtNumRecipients;
+//    @FXML
+//    private CheckBox chkbach;
+//    @FXML
+//    private CheckBox chkmaster;
+//    @FXML
+//    private CheckBox chkDoctorate;
     }
 
     @FXML
