@@ -5,6 +5,7 @@
  */
 package AdditionalScenes;
 
+import backend.Manager;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -84,74 +85,32 @@ public class CreateScholarshipFXMLController implements Initializable {
     @FXML
     private void handleSaveScholarship(MouseEvent event) {
         
-//        	String name = txtEnterSchName.getText().trim();
-//                String duedate;
-//                boolean gpa = false;
-//                double amount;
-//                int recips;
-//                int recipsch;
-//                ArrayList<String> edulvl = new ArrayList<String>();
-//		
-//		if (name.equals("")){
-//			statustxt.setText("Unable to Save: Scholarship Requires Name"); 
-//			return;
-//		}
-//		
-//		LocalDate date = dateGetter.getValue();
-//		int day = date.getDayOfMonth();
-//		int month = date.getMonthValue();
-//		int year = date.getYear();
-//		String strDay;
-//		String strMonth;
-//		String strYear = Integer.toString(year);
-//		
-//		
-//		if (day < 10){
-//			strDay = "0" + Integer.toString(day);
-//		}
-//		else {
-//			strDay = Integer.toString(day);
-//		}
-//		
-//		if (month < 10){
-//			strMonth = "0" + Integer.toString(month);
-//		}
-//		else {
-//			strMonth = Integer.toString(month);
-//		}
-//		
-//		String duedate = strDay + "/" + strMonth + "/" + strYear;
-//		
-//		if (chkGPA.isSelected()){
-//                    gpa = true;
-//                }
-//                
-//		
-//                gpa
-//                      private CheckBox chkGPA;  
-//		double amount = 
-//		
-//		int recipients
-//		
-//		ArrayList<String> levels
-//                        
-//                        private TextArea txtCustom1;
-//    @FXML
-//    private TextArea txtCustom2;
-//			
-//         private TextField txtAmount;
-//    @FXML
-//    private TextField txtNumRecipients;
-//    @FXML
-//    private CheckBox chkbach;
-//    @FXML
-//    private CheckBox chkmaster;
-//    @FXML
-//    private CheckBox chkDoctorate;
+        if (txtEnterSchName.getText().trim().equals("")){
+            statustxt.setText("Unable to Save: Scholarship Requires Name"); 
+		return;
+	}
+        
+        getFields(false);
+        
+        statustxt.setText("Save Succesful");
     }
 
     @FXML
-    private void handleSubmitScholarship(MouseEvent event) {
+    private void handleSubmitScholarship(MouseEvent event) throws IOException{
+        
+        if (txtEnterSchName.getText().trim().equals("")){
+            statustxt.setText("Unable to Submit: Scholarship Requires Name"); 
+		return;
+	}
+        
+        getFields(true);
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/seng300/adminMainPage.fxml"));
+        Scene sc = new Scene(root);
+        Stage s = Seng300.mainStage; 
+        s.setTitle("Home");
+        s.setScene(sc);
+        s.show();
     }
 
     @FXML
@@ -164,4 +123,87 @@ public class CreateScholarshipFXMLController implements Initializable {
         s.show();
     }
     
+    private void getFields(boolean sub){
+        
+                boolean submit = sub;
+                String name = txtEnterSchName.getText().trim();
+                String duedate;
+                boolean gpa = false;
+                double amount;
+                int recips;
+                int recipsch;
+                boolean bach;
+                boolean mast;
+                boolean doc;
+                String cus1;
+                String cus2;
+                String cus3;
+                String desc;
+		
+		LocalDate date = dateGetter.getValue();
+		int day = date.getDayOfMonth();
+		int month = date.getMonthValue();
+		int year = date.getYear();
+		String strDay;
+		String strMonth;
+		String strYear = Integer.toString(year);
+		
+		try{
+                    if (day < 10){
+                    	strDay = "0" + Integer.toString(day);
+                    }
+                    else {
+                    	strDay = Integer.toString(day);
+                    }
+		
+                    if (month < 10){
+                    	strMonth = "0" + Integer.toString(month);
+                    }
+                    else {
+                    	strMonth = Integer.toString(month);
+                    }
+                    
+                    duedate = strDay + "/" + strMonth + "/" + strYear;
+                }
+                catch (Exception e){
+                    duedate = "--";    
+                     }
+		
+		gpa = chkGPA.isSelected();
+                
+                try{
+                    amount = Double.parseDouble(txtAmount.getText());
+                    
+                }
+                catch (Exception e){
+                    amount = 0.0;
+                }
+                
+                try{
+                    recips = Integer.parseInt(txtNumRecipients.getText());
+                }
+                catch (Exception e){
+                    recips = 0;
+                }
+                
+                bach = chkbach.isSelected();
+                mast = chkmaster.isSelected();
+                doc = chkDoctorate.isSelected();
+                
+                cus1 = txtCustom1.getText();
+                cus2 = txtCustom2.getText();
+                cus3 = txtCustom3.getText();
+                desc = txtSchDescription.getText();
+              
+                
+                if (submit){
+                    Seng300.theManager.addSubmittedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3);
+                }
+                else {
+                    Seng300.theManager.addSavedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3);
+                }
+    }
+
 }
+    
+
