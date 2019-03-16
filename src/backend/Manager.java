@@ -93,5 +93,21 @@ public class Manager{
 		
 		return 	newsch;	
 	}
+        
+        public ArrayList<String> showSubmittedScholarships(){
+            return null;
+        }
+        
+        public ArrayList<String> showSavedScholarships(){
+            return null;
+        }
+        
+        public void addSubmittedScholarship(){
+            
+        }
+        
+        public void addSavedScholarship(){
+            
+        }
 	
 }
