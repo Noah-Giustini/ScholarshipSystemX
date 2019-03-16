@@ -15,7 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -36,6 +39,28 @@ public class MainPageController implements Initializable {
     private Button createNewScholarshipButton;
     @FXML
     private Button viewApplicationsButton;
+    @FXML
+    private TextArea scholarship1;
+    @FXML
+    private TextArea scholarshipArea2;
+    @FXML
+    private TextArea scholarshipArea3;
+    @FXML
+    private TextArea scholarshipArea4;
+    @FXML
+    private TextArea scholarshipArea5;
+    @FXML
+    private RadioButton radioSchol1;
+    @FXML
+    private ToggleGroup ListOfSchols;
+    @FXML
+    private RadioButton radioSchol2;
+    @FXML
+    private RadioButton radioSchol3;
+    @FXML
+    private RadioButton radioSchol4;
+    @FXML
+    private RadioButton radioSchol5;
 
     /**
      * Initializes the controller class.

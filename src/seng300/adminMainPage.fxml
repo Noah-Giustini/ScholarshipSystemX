@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng300.MainPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng300.MainPageController">
    <children>
       <ScrollPane fx:id="currentScholarshipScrollPane" layoutX="28.0" layoutY="114.0" prefHeight="328.0" prefWidth="727.0">
         <content>
@@ -37,7 +37,7 @@
                         <TextArea fx:id="scholarshipArea5" layoutX="16.0" layoutY="235.0" prefHeight="46.0" prefWidth="578.0" />
                      </content>
                   </ScrollPane>
-                  <RadioButton fx:id="radioSchol1" layoutX="629.0" layoutY="24.0" mnemonicParsing="false">
+                  <RadioButton fx:id="radioSchol1" layoutX="629.0" layoutY="24.0" mnemonicParsing="false" selected="true">
                      <toggleGroup>
                         <ToggleGroup fx:id="ListOfSchols" />
                      </toggleGroup>
