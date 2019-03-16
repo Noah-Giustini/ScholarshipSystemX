@@ -3,3 +3,4 @@
 *.jar
 *.jnlp
 *.class
+build/built-jar.properties
