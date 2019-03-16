@@ -1,5 +1,5 @@
+package backend;
 
-import backend.Application;
 import java.io.File;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
@@ -11,54 +11,56 @@ import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
 
-public class Scholarship {
+public class Scholarship{
+	
+	private boolean submit = false;
+	private String name = "--";
+	private String schfile = "--";
+	private String duedate = "--";
+        private boolean gpareq = false;
+	private double amount = 0;
+	private int recipients = 0;
+	private int chosen = 0;
+	private ArrayList<String> levels = new ArrayList<String>();
+	private ArrayList<Application> applications = new ArrayList<Application>();
+        private String custom1 = "--";
+        private String custom2 = "--";
+        private String custom3 = "--";
+        private String description = "--";
 
-    private boolean submit = false;
-    private String name = "--";
-    private String schfile = "--";
-    private String duedate = "--";
-    private boolean gpareq = false;
-    private double amount = 0;
-    private int recipients = 0;
-    private int chosen = 0;
-    private ArrayList<String> levels = new ArrayList<String>();
-    private ArrayList<Application> applications = new ArrayList<Application>();
-    private String custom1 = "--";
-    private String custom2 = "--";
-    private String custom3 = "--";
-    private String description = "--";
-
-    /**
-     * Constructor. Scholarship constructor that creates a new scholarship
-     * object and file or load an old scholarship if a scholarhip file with the
-     * given name already exists.
-     *
-     * @param schname is the name of the scholarship given by the user
-     */
-    public Scholarship(String schname, boolean submit) throws Exception {
-
-        this.name = schname;
-        this.submit = submit;
-
-        if (this.submit) {
-            this.schfile = "Scholarships\\" + schname + ".txt";
-        } else {
-            this.schfile = "ScholarshipDrafts\\" + schname + ".txt";
-        }
-
-        File f = new File(this.schfile);
-        if (f.exists() && !f.isDirectory()) {
-            loadScholarship();
-        } else {
-            newScholarship();
-        }
-    }
-
-    /**
-     * Constructor. Scholarship constructor used when loading in all
-     * scholarships to the ScholarshipSystem.
-     */
-    public Scholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3) throws Exception {
+	/**
+	* Constructor.
+	* Scholarship constructor that creates a new scholarship object and file
+	* or load an old scholarship if a scholarhip file with the given name already exists.
+	* @param schname is the name of the scholarship given by the user
+	 */
+	public Scholarship(String schname, boolean submit) throws Exception{
+		
+		this.name = schname;
+		this.submit = submit;
+		
+		if (this.submit){
+			this.schfile = "Scholarships\\" + schname + ".txt";
+		}
+		else{
+			this.schfile = "ScholarshipDrafts\\" + schname + ".txt";
+		}
+			
+		
+		File f = new File(this.schfile);
+		if(f.exists() && !f.isDirectory()) { 
+			loadScholarship();
+		}
+		else{
+			newScholarship();
+		}		
+	}
+	
+	/**
+	* Constructor.
+	* Scholarship constructor used when loading in all scholarships to the ScholarshipSystem.
+	 */
+	public Scholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3) throws Exception {
         this.name = schname;
         this.submit = submit;
         setGPAReq(gpa);
@@ -94,370 +96,165 @@ public class Scholarship {
             newScholarship();
         }
     }
-    //Getters
 
-    /**
-     * Returns the name of the scholarship
-     *
-     * @return name of the scholarship
-     */
-    public String getName() {
+	//Getters
+	/**
+	* Returns the name of the scholarship
+	* @return name of the scholarship
+	 */
+	public String getName(){
+		
+		return this.name;
+	}
+	
+	/**
+	* Returns the name of the scholarship
+	* @return Name of the scholarship of type String
+	 */
+	public String getDueDate(){
+		
+		return this.duedate;
+	}
+        
+        /**
+	* Returns boolean, true if gpa is required, false otherwise
+	* @return boolean
+	 */
+	public boolean getGPAReq(){
+		
+		return this.gpareq;
+	}
+	
+	/**
+	* Returns the amount of money awarded by the scholarship
+	* @return Amount of type double
+	 */
+	public double getAmount(){
+		
+		return this.amount;
+	}
+	
+	/**
+	* Returns the number of recipients a scholarship has
+	* @return Number of recipient of type int
+	 */
+	public int getRecipients(){
+		
+		return this.recipients;
+	}
+	
+	/**
+	* Returns the number of applicants chosen for a scholarship
+	* @return Number of chosen applicants of type int
+	 */
+	public int getChosen(){
+		
+		return this.chosen;
+	}
+        
+        /**
+	* Returns the first custom question
+	* @return String of first question
+	 */
+	public String getCustom1(){
+		
+		return this.custom1;
+	}
+        
+        /**
+	* Returns the second custom question
+	* @return String of second question
+	 */
+	public String getCustom2(){
+		
+		return this.custom2;
+	}
+        
+        /**
+	* Returns the third custom question
+	* @return String of third question
+	 */
+	public String getCustom3(){
+		
+		return this.custom3;
+	}
+        
+        /**
+	* Returns the scholarship description
+	* @return String of description
+	 */
+	public String getDescription(){
+		
+		return this.description;
+	}
+	
+	/**
+	* Returns eligible education levels for a scholarship
+	* @return ArrayList of levels of type ArrayList<String>
+	 */
+	public ArrayList<String> getLevels(){
+		
+		return this.levels;
+	}
+	
+	
+	//Setters
 
-        return this.name;
-    }
-
-    /**
-     * Returns the name of the scholarship
-     *
-     * @return Name of the scholarship of type String
-     */
-    public String getDueDate() {
-
-        return this.duedate;
-    }
-
-    /**
-     * Returns boolean, true if gpa is required, false otherwise
-     *
-     * @return boolean
-     */
-    public boolean getGPAReq() {
-
-        return this.gpareq;
-    }
-
-    /**
-     * Returns the amount of money awarded by the scholarship
-     *
-     * @return Amount of type double
-     */
-    public double getAmount() {
-
-        return this.amount;
-    }
-
-    /**
-     * Returns the number of recipients a scholarship has
-     *
-     * @return Number of recipient of type int
-     */
-    public int getRecipients() {
-
-        return this.recipients;
-    }
-
-    /**
-     * Returns the number of applicants chosen for a scholarship
-     *
-     * @return Number of chosen applicants of type int
-     */
-    public int getChosen() {
-
-        return this.chosen;
-    }
-
-    /**
-     * Returns the first custom question
-     *
-     * @return String of first question
-     */
-    public String getCustom1() {
-
-        return this.custom1;
-    }
-
-    /**
-     * Returns the second custom question
-     *
-     * @return String of second question
-     */
-    public String getCustom2() {
-
-        return this.custom2;
-    }
-
-    /**
-     * Returns the third custom question
-     *
-     * @return String of third question
-     */
-    public String getCustom3() {
-
-        return this.custom3;
-    }
-
-    /**
-     * Returns the scholarship description
-     *
-     * @return String of description
-     */
-    public String getDescription() {
-
-        return this.description;
-    }
-
-    /**
-     * Returns eligible education levels for a scholarship
-     *
-     * @return ArrayList of levels of type ArrayList<String>
-     */
-    public ArrayList<String> getLevels() {
-
-        return this.levels;
-    }
-
-    //Setters
-    /**
-     * Changes name of scholarship if new one is given if blank name is given it
-     * will not be changed
-     *
-     * @param newName should be a String to change name to
-     */
-    public void setName(String newName) throws Exception {
-
-        String newschfile;
-
-        if (!(newName.trim().equals(""))) {
-            this.name = newName;
-
-            if (this.submit) {
-                newschfile = "Scholarships\\" + this.name + ".txt";
-            } else {
-                newschfile = "ScholarshipDrafts\\" + this.name + ".txt";
-            }
-
-            File f1 = new File(newschfile);
-            File f2 = new File(this.schfile);
-            boolean b = f2.renameTo(f1);
-            File f = new File(this.schfile);
-            f.delete();
-
-            this.schfile = newschfile;
-
-            overWriteLine("Name", this.name);
-        }
-    }
-
-    /**
-     * Changes due date if given in correct format: 00/00/0000
-     *
-     * @param newDueDate should be a String in correct format: 00/00/0000
-     */
-    public void setDueDate(String newDueDate) throws Exception {
-
-        if (Pattern.matches("\\d\\d/\\d\\d/\\d\\d\\d\\d", newDueDate)) {
-            this.duedate = newDueDate;
-            overWriteLine("Due Date", newDueDate);
-        }
-
-    }
-
-    /**
-     * Changes gpa required
-     *
-     * @param req boolean true if gpa is required
-     */
-    public void setGPAReq(boolean req) throws Exception {
-        this.gpareq = req;
-        if (this.gpareq) {
-            overWriteLine("GPA Required", "true");
-        } else {
-            overWriteLine("GPA Required", "false");
-        }
-    }
-
-    //will only change if amount given is a postive number
-    /**
-     * Changes amount if it is a positive number
-     *
-     * @param newAmount should be a positive double
-     */
-    public void setAmount(double newAmount) throws Exception {
-
-        if (newAmount >= 0) {
-            this.amount = newAmount;
-            String txt = Double.toString(newAmount);
-            overWriteLine("Amount", txt);
-        }
-
-    }
-
-    /**
-     * Changes number of recipients if given a natural number
-     *
-     * @param newRecipients should be a natural number of type int
-     */
-    public void setRecipients(int newRecipients) throws Exception {
-
-        if (newRecipients >= 0) {
-            this.recipients = newRecipients;
-            String txt = Integer.toString(newRecipients);
-            overWriteLine("Recipients", txt);
-        }
-
-    }
-
-    /**
-     * Changes number of recipients chosen if given a natural number
-     *
-     * @param newChosen should be a natural number of type int
-     */
-    public void setChosen(int newChosen) throws Exception {
-
-        if (newChosen >= 0) {
-            this.chosen = newChosen;
-            String txt = Integer.toString(newChosen);
-            overWriteLine("Chosen", txt);
-        }
-
-    }
-
-    /**
-     * Changes first custom question
-     *
-     * @param cus1 the custom question
-     */
-    public void setCustom1(String cus1) throws Exception {
-        this.custom1 = cus1;
-        overWriteLine("Custom1", cus1);
-    }
-
-    /**
-     * Changes second custom question
-     *
-     * @param cus2 the custom question
-     */
-    public void setCustom2(String cus2) throws Exception {
-        this.custom2 = cus2;
-        overWriteLine("Custom2", cus2);
-    }
-
-    /**
-     * Changes thrid custom question
-     *
-     * @param cus3 the custom question
-     */
-    public void setCustom3(String cus3) throws Exception {
-        this.custom3 = cus3;
-        overWriteLine("Custom3", cus3);
-    }
-
-    /**
-     * Changes scholarship description
-     *
-     * @param desc the new description
-     */
-    public void setDescription(String desc) throws Exception {
-        this.description = desc;
-        overWriteLine("Description", desc);
-    }
-
-    //this needs to be revised!!!!
-    /**
-     * Replaces ArrapList in levels to new education levels
-     *
-     * @param newLevels of type ArrayList<String>
-     */
-    public void setLevels(ArrayList<String> newLevels) throws Exception {
-
-        this.levels = newLevels;
-
-        String txt = "";
-        for (int i = 0; i < this.levels.size(); i++) {
-            txt = txt + this.levels.get(i) + " ";
-        }
-        overWriteLine("Education Level", txt);
-    }
-
-    /**
-     * Looks through Applications folder and adds all applications for the
-     * scholarship to the arraylist applications
-     */
-    public void findApplications() throws Exception {
-
-        File dir = new File("Applications\\");
-        File[] directoryListing = dir.listFiles();
-
-        if (directoryListing != null) {
-            for (File child : directoryListing) {
-                if (child.getName().indexOf(this.name) == 0) {
-
-                    String appname = child.getName();
-                    String stuname = appname.substring(this.name.length(), appname.length() - 4);
-                    //System.out.println(stuname);
-                    Application a = new Application(this.name, stuname, true);
-                    applications.add(a);
+	/**
+	* Changes name of scholarship if new one is given
+	* if blank name is given it will not be changed
+	* @param newName should be a String to change name to
+	 */
+	public void setName(String newName) throws Exception{
+		
+		String newschfile;
+		
+		if (!(newName.trim().equals(""))){
+			this.name = newName;
+			
+			if (this.submit){
+				newschfile = "Scholarships\\" + this.name + ".txt";
+			}
+			else {
+				newschfile = "ScholarshipDrafts\\" + this.name + ".txt";
+			}
+			
+			File f1 = new File(newschfile);
+			File f2 = new File(this.schfile);
+			boolean b = f2.renameTo(f1);
+			File f = new File(this.schfile);
+			f.delete();
+			
+			this.schfile = newschfile;
+			
+			overWriteLine("Name", this.name);
+		}
+	}
+	
+	/**
+	* Changes due date if given in correct format: 00/00/0000
+	* @param newDueDate should be a String in correct format: 00/00/0000
+	 */
+	public void setDueDate(String newDueDate)throws Exception{
+		
+		if (Pattern.matches("\\d\\d/\\d\\d/\\d\\d\\d\\d", newDueDate)){
+			this.duedate = newDueDate;
+			overWriteLine("Due Date", newDueDate);
+		}
+	
+	}
+        
+        /**
+	* Changes gpa required 
+        * @param req boolean true if gpa is required
+	 */
+	public void setGPAReq(boolean req)throws Exception{
+		this.gpareq = req;
+                if (this.gpareq){
+                    overWriteLine("GPA Required", "true");
                 }
-            }
-        }
-        //for (int i = 0; i < applications.size(); i++){
-        //	System.out.println(applications.get(i));
-        //}	
-    }
-
-    /**
-     * Changes a line in scholarship file given the name of the parameter that
-     * needs to be changed and the new value for that parameter
-     *
-     * @param tag is a String of the name of the parameter to be changed
-     * @param newtext is a String of the value to change to parameter's value to
-     */
-    private void overWriteLine(String tag, String newtext) throws Exception {
-
-        String tmpfile;
-
-        tmpfile = "Scholarships\\" + this.name + ".temp";
-
-        PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(tmpfile)));
-        BufferedReader br = new BufferedReader(new FileReader(this.schfile));
-
-        String line;
-
-        while ((line = br.readLine()) != null) {
-            if (line.equals(tag)) {
-                writer.println(line);
-                line = br.readLine();
-                line = newtext;
-            }
-
-            writer.println(line);
-        }
-
-        br.close();
-        writer.close();
-
-        File f = new File(this.schfile);
-        boolean b = f.delete();
-        File f1 = new File(this.schfile);
-        File f2 = new File(tmpfile);
-        b = f2.renameTo(f1);
-        File f3 = new File(tmpfile);
-        b = f3.delete();
-    }
-
-    //load and generate scholarships
-    /**
-     * Loads scholarship from a file into a scholarship object
-     */
-    private void loadScholarship() throws Exception {
-
-        BufferedReader br = new BufferedReader(new FileReader(this.schfile));
-        String line;
-
-        while ((line = br.readLine()) != null) {
-            if (line.equals("Due Date")) {
-                line = br.readLine();
-                setDueDate(line);
-            } else if (line.equals("Amount")) {
-                line = br.readLine();
-                double newAmount = Double.parseDouble(line);
-                setAmount(newAmount);
-            } else if (line.equals("GPA Required")) {
-                line = br.readLine();
-                if (line.trim().equals("true")) {
-                    setGPAReq(true);
-                } else {
-                    setGPAReq(false);
+                else {
+                    overWriteLine("GPA Required", "false");
                 }
 	}    
 	
@@ -772,14 +569,16 @@ public class Scholarship {
 		//for(File a : listOfFiles){
 		//	if(a.isFile()){
 //String name = a.getName().substring(0, (a.getName().length() - 4));
-    //		try {
+		//		try {
 //TODO: handle exception
-    //		Scholarship sch = new Scholarship(name);
+		//		Scholarship sch = new Scholarship(name);
 //ScholarshipSystem.scholarshipList.add(sch);
 //
 //catch (Exception e){
+
 //
-    //}	
-    //}
-    //}
+			//}	
+		//}
+	//}
+	
 }
