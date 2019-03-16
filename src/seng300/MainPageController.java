@@ -61,6 +61,8 @@ public class MainPageController implements Initializable {
     private RadioButton radioSchol4;
     @FXML
     private RadioButton radioSchol5;
+    @FXML
+    private Button refreshMainAdminPage;
 
     /**
      * Initializes the controller class.
@@ -89,6 +91,10 @@ public class MainPageController implements Initializable {
         s.setTitle("Create Scholarship");
         s.setScene(sc);
         s.show();
+    }
+
+    @FXML
+    private void handleRefresh(javafx.event.ActionEvent event) {
     }
     
 }
