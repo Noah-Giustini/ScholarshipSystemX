@@ -34,35 +34,7 @@ public class Admin{
         String student = a.getStudent();
         System.out.println("The application from student" + student + " has been rejected for the scholarship " + name);
     }
-    /**
-	 * Create a new scholarship to be entered in the system
-	 * @param name is the file name given by user 
-     * @param dueDate is the due date of the new scholarship
-     * @param amt is the amount that the scholarship is worth
-     * @param recipients is the integer number of recipients that the scholarship can go out to
-     * @param levels an array list of the levels that can recieve the scholarship
-     * @return The newly created scholarship is returned as an output
-	 */
-//    public Scholarship createScholarship(String name, String dueDate, double amt, int recipients, ArrayList<String> levels) throws Exception{
-//    
-//        Scholarship s = new Scholarship(name);
-//        s.setDueDate(dueDate);
-//        s.setAmount(amt);
-//        s.setRecipients(recipients);
-//        s.setLevels(levels);
-//        return s;
-//    
-//
-//    }
-    public void modRemovScholarship() {
-        //to be implemented
-    }
-    /**
-	 * Check the status of a scholarship
-	 * @param s is of type Scholarship and is the scholarship we wish to check the status of
-     * @return status is returned with type boolean. True us returned indicating the scholarship is closed,
-     * false is returned indicating the scholarship is still pending
-	 */
+    
     public boolean status(Scholarship s) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
