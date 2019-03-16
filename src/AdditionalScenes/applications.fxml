@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdditionalScenes.ApplicationsController">
+   <children>
+      <Label layoutX="76.0" layoutY="14.0" text="Applications">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="backFromApplicationWindow" layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#backToMain" text="Back" />
+      <ScrollPane layoutX="76.0" layoutY="91.0" prefHeight="442.0" prefViewportHeight="440.0" prefViewportWidth="525.0" prefWidth="486.0">
+         <content>
+            <AnchorPane>
+               <children>
+                  <ScrollPane layoutY="2.0" prefHeight="68.0" prefWidth="477.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="ApplicationText1" prefHeight="66.0" prefWidth="462.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ScrollPane layoutY="94.0" prefHeight="68.0" prefWidth="477.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="ApplicationText2" layoutX="-1.0" layoutY="1.0" prefHeight="64.0" prefWidth="468.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane layoutY="182.0" prefHeight="68.0" prefWidth="477.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="ApplicationText3" prefHeight="67.0" prefWidth="462.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane layoutY="276.0" prefHeight="68.0" prefWidth="477.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="ApplicationText4" prefHeight="66.0" prefWidth="465.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane layoutY="371.0" prefHeight="68.0" prefWidth="477.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="ApplicationText5" prefHeight="66.0" prefWidth="460.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="EditApplicationList" layoutX="656.0" layoutY="139.0" mnemonicParsing="false" onAction="#openEditApplication" prefHeight="37.0" prefWidth="67.0" text="Edit" />
+      <Button fx:id="view1" layoutX="656.0" layoutY="91.0" mnemonicParsing="false" onAction="#openViewApplication" prefHeight="37.0" prefWidth="67.0" text="View" />
+      <RadioButton fx:id="radio1" layoutX="581.0" layoutY="120.0" mnemonicParsing="false" selected="true">
+         <toggleGroup>
+            <ToggleGroup fx:id="ListView" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radio2" layoutX="581.0" layoutY="211.0" mnemonicParsing="false" toggleGroup="$ListView" />
+      <RadioButton fx:id="radio3" layoutX="581.0" layoutY="298.0" mnemonicParsing="false" toggleGroup="$ListView" />
+      <RadioButton fx:id="radio4" layoutX="581.0" layoutY="394.0" mnemonicParsing="false" toggleGroup="$ListView" />
+      <RadioButton fx:id="radio5" layoutX="581.0" layoutY="493.0" mnemonicParsing="false" toggleGroup="$ListView" />
+   </children>
+</AnchorPane>
