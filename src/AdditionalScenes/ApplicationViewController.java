@@ -35,6 +35,8 @@ public class ApplicationViewController implements Initializable {
     private ScrollPane scrollWindow;
     @FXML
     private TextArea applicationInfo;
+    @FXML
+    private Button refreshButton;
 
     /**
      * Initializes the controller class.
@@ -55,6 +57,11 @@ public class ApplicationViewController implements Initializable {
 
     @FXML
     private void award(ActionEvent event) {
+    }
+
+    @FXML
+    private void refreshAction(ActionEvent event) {
+        this.applicationInfo.setText(Seng300.theManager.getCurrentApplication().toString());
     }
     
 }

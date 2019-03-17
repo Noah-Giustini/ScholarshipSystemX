@@ -111,28 +111,22 @@ public class MainPageController implements Initializable {
     private void openApplicationsWindow(javafx.event.ActionEvent event) throws IOException {
         ArrayList<Scholarship> schols = Seng300.theManager.getScholarships();
         int index = 0;
-        if (radioSchol1.isSelected()){
+        if (radioSchol1.isSelected()) {
             index = 0;
-        }
-        else if (radioSchol2.isSelected()){
+        } else if (radioSchol2.isSelected()) {
             index = 1;
-        }
-        else if (radioSchol3.isSelected()){
+        } else if (radioSchol3.isSelected()) {
             index = 2;
-        }
-        else if (radioSchol4.isSelected()){
+        } else if (radioSchol4.isSelected()) {
             index = 3;
-        }
-        else if (radioSchol5.isSelected()){
+        } else if (radioSchol5.isSelected()) {
             index = 4;
-        }
-        else if (radioSchol6.isSelected()){
+        } else if (radioSchol6.isSelected()) {
             index = 5;
-        }
-        else if (radioSchol7.isSelected()){
+        } else if (radioSchol7.isSelected()) {
             index = 6;
         }
-        try{
+        try {
             Seng300.theManager.setCurrentScholarship(schols.get(index));
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/applications.fxml"));
             Scene sc = new Scene(root);
@@ -140,22 +134,21 @@ public class MainPageController implements Initializable {
             s.setTitle("Create Scholarship");
             s.setScene(sc);
             s.show();
+        } catch (IndexOutOfBoundsException e) {
+
         }
-        catch(IndexOutOfBoundsException e){
-            
-        }
-        
+
     }
 
-    private void showScholarshipInView(String s, Label l, Label d, RadioButton r){
+    private void showScholarshipInView(String s, Label l, Label d, RadioButton r) {
         l.setText(s.substring(0, s.length() - 11));
-            d.setText(s.substring(s.length() - 11));
-            l.setVisible(true);
-            d.setVisible(true);
-            r.setVisible(true);
-    
+        d.setText(s.substring(s.length() - 11));
+        l.setVisible(true);
+        d.setVisible(true);
+        r.setVisible(true);
+
     }
-    
+
     @FXML
     private void handleRefresh(javafx.event.ActionEvent event) {
         //load all applications from a scholarship provided by the manager
@@ -168,9 +161,8 @@ public class MainPageController implements Initializable {
         int size = allTheCurrentScholarships.size();
         if (size > 0) {
             String toAdd = allTheCurrentScholarships.get(0);
-            
+
             showScholarshipInView(toAdd, lblScholarship1, lbldate1, radioSchol1);
-            
 
             if (size > 1) {
                 toAdd = allTheCurrentScholarships.get(1);
