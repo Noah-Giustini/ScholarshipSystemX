@@ -10,6 +10,3 @@ build/built-jar.properties
 build/classes/AdditionalScenes/ApplicationsController.class
 *.class
 build/classes/backend/Scholarship.class
-*.properties
-*.class
-*.jar
