@@ -18,6 +18,7 @@ public class Manager{
 
 	private ArrayList<Scholarship> scholarships = new ArrayList<Scholarship>(); 
 	private ArrayList<Scholarship> scholarshipdrafts = new ArrayList<Scholarship>(); 
+        private Scholarship currentScholarship;
 
 	
 	/**
@@ -33,7 +34,7 @@ public class Manager{
 		
 		if (directoryListing != null) {
 			for (File child : directoryListing) { 	
-				String schname = child.getName();
+				String schname = child.getName().substring(0, child.getName().length() - 4);
 				Scholarship s = new Scholarship(schname, true);
 					scholarships.add(s);
 				}
@@ -58,7 +59,7 @@ public class Manager{
 		
 		if (directoryListing != null) {
 			for (File child : directoryListing) { 	
-				String schname = child.getName();
+				String schname = child.getName().substring(0, child.getName().length() - 4);
 				Scholarship s = new Scholarship(schname, false);
 				
 				
@@ -96,6 +97,14 @@ public class Manager{
 		return 	newsch;	
 	}
         
+        public Scholarship getCurrentScholarship(){
+            return this.currentScholarship;
+        }
+        
+        public void setCurrentScholarship(Scholarship s){
+            this.currentScholarship = s;
+        }
+        
         public ArrayList<String> showSubmittedScholarships(){
             try {
                 findScholarships();
@@ -127,6 +136,10 @@ public class Manager{
         public void addSubmittedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3){
             try {
                 scholarships.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3));
+                //delete saved scholarship
+                Scholarship olddraft = new Scholarship(schname, false);
+                olddraft.delete();
+                findScholarshipDrafts(); 
             } catch (Exception ex) {
                 System.out.println("There was an error when adding the scholarship ");
             }

@@ -6,6 +6,7 @@
 package AdditionalScenes;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -22,6 +23,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import seng300.Seng300;
+import backend.*;
 
 /**
  * FXML Controller class
@@ -111,6 +113,24 @@ public class ApplicationsController implements Initializable {
     
     @FXML
     private void refreshPage(ActionEvent event){
+        Scholarship s = Seng300.theManager.getCurrentScholarship();
+        ArrayList<String> apps = Seng300.theManager.showApplications(s);
+        if (apps.size()>0){
+            ApplicationText1.setText(apps.get(0));
+        }
+        if (apps.size()>1){
+            ApplicationText2.setText(apps.get(1));
+        }
+        if (apps.size()>2){
+            ApplicationText3.setText(apps.get(2));
+        }
+        if (apps.size()>3){
+            ApplicationText4.setText(apps.get(3));
+        }
+        if (apps.size()>4){
+            ApplicationText5.setText(apps.get(4));
+        }
+        
         //load all applications from a scholarship provided by the manager
         //1st step Manager.getCurrentScholarship()
         //2nd step showSubmittedScholarships() gives an arraylist of strings 
