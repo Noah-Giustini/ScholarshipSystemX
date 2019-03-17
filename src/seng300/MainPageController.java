@@ -113,7 +113,14 @@ public class MainPageController implements Initializable {
                         scholarshipArea4.setText(allTheCurrentScholarships.get(3));
                         if (size > 4) {
                             scholarshipArea5.setText(allTheCurrentScholarships.get(4));
+                            if (size > 5) {
+                                scholarshipArea5.setText(allTheCurrentScholarships.get(5));
+                                if (size > 6) {
+                                    scholarshipArea5.setText(allTheCurrentScholarships.get(6));
 
+                                }
+
+                            }
                         }
                     }
                 }
