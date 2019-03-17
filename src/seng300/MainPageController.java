@@ -132,13 +132,19 @@ public class MainPageController implements Initializable {
         else if (radioSchol7.isSelected()){
             index = 6;
         }
-        Seng300.theManager.setCurrentScholarship(schols.get(index));
-        Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/applications.fxml"));
-        Scene sc = new Scene(root);
-        Stage s = Seng300.mainStage;
-        s.setTitle("Create Scholarship");
-        s.setScene(sc);
-        s.show();
+        try{
+            Seng300.theManager.setCurrentScholarship(schols.get(index));
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/applications.fxml"));
+            Scene sc = new Scene(root);
+            Stage s = Seng300.mainStage;
+            s.setTitle("Create Scholarship");
+            s.setScene(sc);
+            s.show();
+        }
+        catch(IndexOutOfBoundsException e){
+            
+        }
+        
     }
 
     private void showScholarshipInView(String s, Label l, Label d, RadioButton r){
