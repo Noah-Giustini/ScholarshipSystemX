@@ -1,17 +1,17 @@
 Name
-no date
+Jason Lang
 
 Due Date
-dd/mm/yyyy
+02/04/2019
 
 GPA Required
 true
 
 Amount
-0.0
+300.0
 
 Recipients
-0
+30
 
 Recipients Chosen
 0
@@ -20,7 +20,7 @@ Education Level
 Bachelors Masters 
 
 Custom1
-asdf
+
 
 Custom2
 
@@ -29,6 +29,6 @@ Custom3
 
 
 Description
-erfafgaserg
+
 
 

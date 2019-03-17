@@ -117,8 +117,8 @@ public class MainPageController implements Initializable {
     }
 
     private void showScholarshipInView(String s, Label l, Label d, RadioButton r){
-        l.setText(s.substring(0, s.length() - 10));
-            d.setText(s.substring(s.length() - 10));
+        l.setText(s.substring(0, s.length() - 11));
+            d.setText(s.substring(s.length() - 11));
             l.setVisible(true);
             d.setVisible(true);
             r.setVisible(true);

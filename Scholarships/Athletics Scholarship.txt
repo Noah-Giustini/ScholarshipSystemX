@@ -1,0 +1,34 @@
+Name
+Athletics Scholarship
+
+Due Date
+06/03/2020
+
+GPA Required
+false
+
+Amount
+700.0
+
+Recipients
+100
+
+Recipients Chosen
+0
+
+Education Level
+Bachelors Masters Doctorate 
+
+Custom1
+What sport do you play?
+
+Custom2
+Is your sport of choice challenging?
+
+Custom3
+
+
+Description
+This is for those sporty dinos!!!!! GGOOOOOOO DINNNOOOS!!
+
+

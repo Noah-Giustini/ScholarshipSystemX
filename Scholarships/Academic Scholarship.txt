@@ -1,0 +1,34 @@
+Name
+Academic Scholarship
+
+Due Date
+31/03/2019
+
+GPA Required
+true
+
+Amount
+500.0
+
+Recipients
+50
+
+Recipients Chosen
+0
+
+Education Level
+Bachelors 
+
+Custom1
+What is your greatest educational achievement?
+
+Custom2
+
+
+Custom3
+
+
+Description
+The is a scholarship for students who have shown great strides in their education.
+
+
