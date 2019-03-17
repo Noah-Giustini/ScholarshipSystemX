@@ -16,7 +16,7 @@ public class Scholarship {
     private boolean submit = false;
     private String name = "--";
     private String schfile = "--";
-    private String duedate = "dd/mm/yyyy";
+    private String duedate = "--";
     private boolean gpareq = false;
     private double amount = 0;
     private int recipients = 0;

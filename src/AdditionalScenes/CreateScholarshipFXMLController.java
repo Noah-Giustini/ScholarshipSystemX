@@ -178,7 +178,7 @@ public class CreateScholarshipFXMLController implements Initializable {
                     duedate = strDay + "/" + strMonth + "/" + strYear;
                 }
                 catch (Exception e){
-                    duedate = "dd/mm/yyyy";    
+                    duedate = "--";    
                      }
 		
 		gpa = chkGPA.isSelected();
