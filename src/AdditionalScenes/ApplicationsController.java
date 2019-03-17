@@ -85,12 +85,37 @@ public class ApplicationsController implements Initializable {
 
     @FXML
     private void openViewApplication(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/ApplicationView.fxml"));
-        Scene sc = new Scene(root);
-        Stage s = Seng300.mainStage; 
-        s.setTitle("Home");
-        s.setScene(sc);
-        s.show();
+        Scholarship schol = Seng300.theManager.getCurrentScholarship();
+        ArrayList<Application> apps = schol.getApplications();
+        int index = 0;
+        if (radio1.isSelected()){
+            index = 0;
+        }
+        else if (radio2.isSelected()){
+            index = 1;
+        }
+        else if (radio3.isSelected()){
+            index = 2;
+        }
+        else if (radio4.isSelected()){
+            index = 3;
+        }
+        else if (radio5.isSelected()){
+            index = 4;
+        }
+        try{
+            Seng300.theManager.setCurrentApplication(apps.get(index));
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/ApplicationView.fxml"));
+            Scene sc = new Scene(root);
+            Stage s = Seng300.mainStage; 
+            s.setTitle("Home");
+            s.setScene(sc);
+            s.show();
+        }
+        catch(IndexOutOfBoundsException e){
+            
+        }
+        
     }
 
     @FXML
