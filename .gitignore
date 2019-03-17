@@ -8,3 +8,4 @@ build/built-jar.properties
 *.class
 *.class
 build/classes/AdditionalScenes/ApplicationsController.class
+*.class

@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -41,16 +42,6 @@ public class MainPageController implements Initializable {
     @FXML
     private Button viewApplicationsButton;
     @FXML
-    private TextArea scholarship1;
-    @FXML
-    private TextArea scholarshipArea2;
-    @FXML
-    private TextArea scholarshipArea3;
-    @FXML
-    private TextArea scholarshipArea4;
-    @FXML
-    private TextArea scholarshipArea5;
-    @FXML
     private RadioButton radioSchol1;
     @FXML
     private ToggleGroup ListOfSchols;
@@ -64,6 +55,38 @@ public class MainPageController implements Initializable {
     private RadioButton radioSchol5;
     @FXML
     private Button refreshMainAdminPage;
+    @FXML
+    private Label lblScholarship1;
+    @FXML
+    private Label lbldate1;
+    @FXML
+    private Label lblScholarship2;
+    @FXML
+    private Label lbldate2;
+    @FXML
+    private Label lblScholarship3;
+    @FXML
+    private Label lbldate3;
+    @FXML
+    private Label lblScholarship4;
+    @FXML
+    private Label lbldate4;
+    @FXML
+    private Label lblScholarship5;
+    @FXML
+    private Label lbldate5;
+    @FXML
+    private Label lbldate6;
+    @FXML
+    private Label lblScholarship7;
+    @FXML
+    private Label lbldate7;
+    @FXML
+    private RadioButton radioSchol6;
+    @FXML
+    private RadioButton radioSchol7;
+    @FXML
+    private Label lblScholarship6;
 
     /**
      * Initializes the controller class.
@@ -93,6 +116,15 @@ public class MainPageController implements Initializable {
         s.show();
     }
 
+    private void showScholarshipInView(String s, Label l, Label d, RadioButton r){
+        l.setText(s.substring(0, s.length() - 9));
+            d.setText(s.substring(s.length() - 9));
+            l.setVisible(true);
+            d.setVisible(true);
+            r.setVisible(true);
+    
+    }
+    
     @FXML
     private void handleRefresh(javafx.event.ActionEvent event) {
         //load all applications from a scholarship provided by the manager
@@ -104,19 +136,30 @@ public class MainPageController implements Initializable {
         System.out.println(allTheCurrentScholarships);
         int size = allTheCurrentScholarships.size();
         if (size > 0) {
-            scholarship1.setText(allTheCurrentScholarships.get(0));
+            String toAdd = allTheCurrentScholarships.get(0);
+            
+            showScholarshipInView(toAdd, lblScholarship1, lbldate1, radioSchol1);
+            
+
             if (size > 1) {
-                scholarshipArea2.setText(allTheCurrentScholarships.get(1));
+                toAdd = allTheCurrentScholarships.get(1);
+                showScholarshipInView(toAdd, lblScholarship2, lbldate2, radioSchol2);
                 if (size > 2) {
-                    scholarshipArea3.setText(allTheCurrentScholarships.get(2));
+                    toAdd = allTheCurrentScholarships.get(2);
+                    showScholarshipInView(toAdd, lblScholarship3, lbldate3, radioSchol3);
+
                     if (size > 3) {
-                        scholarshipArea4.setText(allTheCurrentScholarships.get(3));
+                        toAdd = allTheCurrentScholarships.get(3);
+                        showScholarshipInView(toAdd, lblScholarship4, lbldate4, radioSchol4);
                         if (size > 4) {
-                            scholarshipArea5.setText(allTheCurrentScholarships.get(4));
+                            toAdd = allTheCurrentScholarships.get(4);
+                            showScholarshipInView(toAdd, lblScholarship5, lbldate5, radioSchol5);
                             if (size > 5) {
-                                scholarshipArea6.setText(allTheCurrentScholarships.get(5));
+                                toAdd = allTheCurrentScholarships.get(5);
+                                showScholarshipInView(toAdd, lblScholarship6, lbldate6, radioSchol6);
                                 if (size > 6) {
-                                    scholarshipArea7.setText(allTheCurrentScholarships.get(6));
+                                    toAdd = allTheCurrentScholarships.get(1);
+                                    showScholarshipInView(toAdd, lblScholarship7, lbldate7, radioSchol7);
 
                                 }
 
