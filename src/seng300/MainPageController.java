@@ -23,6 +23,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import backend.*;
 
 /**
  * FXML Controller class
@@ -108,6 +109,30 @@ public class MainPageController implements Initializable {
 
     @FXML
     private void openApplicationsWindow(javafx.event.ActionEvent event) throws IOException {
+        ArrayList<Scholarship> schols = Seng300.theManager.getScholarships();
+        int index = 0;
+        if (radioSchol1.isSelected()){
+            index = 0;
+        }
+        else if (radioSchol2.isSelected()){
+            index = 1;
+        }
+        else if (radioSchol3.isSelected()){
+            index = 2;
+        }
+        else if (radioSchol4.isSelected()){
+            index = 3;
+        }
+        else if (radioSchol5.isSelected()){
+            index = 4;
+        }
+        else if (radioSchol6.isSelected()){
+            index = 5;
+        }
+        else if (radioSchol7.isSelected()){
+            index = 6;
+        }
+        Seng300.theManager.setCurrentScholarship(schols.get(index));
         Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/applications.fxml"));
         Scene sc = new Scene(root);
         Stage s = Seng300.mainStage;
