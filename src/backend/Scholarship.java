@@ -572,7 +572,7 @@ public class Scholarship {
     }
 
     public String simpleToString() {
-        return this.name + "\n Due: " + this.duedate;
+        return this.name + " " + this.duedate;
     }
     
     /**
