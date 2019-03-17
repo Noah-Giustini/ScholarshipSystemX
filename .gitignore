@@ -4,3 +4,7 @@
 *.jnlp
 *.class
 build/built-jar.properties
+*.properties
+*.class
+*.class
+build/classes/AdditionalScenes/ApplicationsController.class
