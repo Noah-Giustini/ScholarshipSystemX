@@ -43,6 +43,7 @@ public class ApplicationViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.applicationInfo.setText(Seng300.theManager.getCurrentApplication().toString());
     }    
 
     @FXML

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="AdditionalScenes.ApplicationViewController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdditionalScenes.ApplicationViewController">
   <children>
     <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToViewApplications" text="Back" />
     <Button fx:id="awardButton" layoutX="493.0" layoutY="355.0" mnemonicParsing="false" onAction="#award" text="Award" />
@@ -13,10 +13,11 @@
       <content>
         <AnchorPane prefHeight="282.0" prefWidth="466.0">
           <children>
-            <TextArea fx:id="applicationInfo" editable="false" layoutX="13.0" layoutY="14.0" prefHeight="269.0" prefWidth="439.0" text="Scholarship Name&#10;Student Name&#10;Date Submitted: dd/mm/yyyy&#10;GPA: x.xx&#10;Education Level: Education level here&#10;Priority: x&#10;Status: Pending" />
+            <TextArea fx:id="applicationInfo" editable="false" layoutX="13.0" layoutY="14.0" prefHeight="269.0" prefWidth="439.0" />
           </children>
         </AnchorPane>
       </content>
     </ScrollPane>
+      <Button fx:id="refreshButton" layoutX="530.0" layoutY="14.0" mnemonicParsing="false" onAction="#refreshAction" text="Refresh" />
   </children>
 </Pane>

@@ -171,4 +171,26 @@ public class Manager{
             }
             return toReturn;
         }
+
+    public void addSch(Scholarship newSch) {
+        this.scholarships.add(newSch);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void startUp() {
+        File folder = new File("Scholarships");
+        File[] listOfFiles = folder.listFiles();
+        for (File a : listOfFiles) {
+            if (a.isFile()) {
+                String name = a.getName().substring(0, (a.getName().length() - 4));
+                try {
+                    Scholarship newSch = new Scholarship(name, true);
+
+                    addSch(newSch);
+                } catch (Exception e) {
+                    System.out.println("Something done fucked up loading scholarships");
+                }
+            }
+        }
+    }
 }

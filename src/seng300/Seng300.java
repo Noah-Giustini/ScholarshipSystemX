@@ -6,7 +6,9 @@
 package seng300;
 
 import backend.Manager;
+import backend.Scholarship;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,5 +47,6 @@ public static Manager theManager;
     public static void main(String[] args) {
         launch(args);
     }
+    
     
 }

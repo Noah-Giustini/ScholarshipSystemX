@@ -69,8 +69,7 @@ public class ApplicationsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
+        startUp();
     }    
     
     @FXML
@@ -138,7 +137,12 @@ public class ApplicationsController implements Initializable {
     
     @FXML
     private void refreshPage(ActionEvent event){
-        Scholarship s = Seng300.theManager.getCurrentScholarship();
+        
+    }
+    
+    
+    private void startUp(){
+         Scholarship s = Seng300.theManager.getCurrentScholarship();
         ArrayList<String> apps = Seng300.theManager.showApplications(s);
         if (apps.size()>0){
             ApplicationText1.setText(apps.get(0));
@@ -162,13 +166,12 @@ public class ApplicationsController implements Initializable {
         // 3rd loop through the list, if it goes past 5 don't do anything otherwise just fill however many you can 
         //probably don't actually need to loop but it will be good if we end up having more windows - no use limiting ourselves
         
-        
-        
     }
-    
-    
-    
-    
-    
-    
 }
+    
+    
+    
+    
+    
+    
+
