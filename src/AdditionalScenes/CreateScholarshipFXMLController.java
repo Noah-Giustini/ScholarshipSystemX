@@ -73,6 +73,36 @@ public class CreateScholarshipFXMLController implements Initializable {
     private TextArea txtCustom3;
     @FXML
     private Label statustxt;
+    @FXML
+    private Label lblcus1;
+    @FXML
+    private Label lblcus2;
+    @FXML
+    private Label lblcus3;
+    @FXML
+    private Label lblcus4;
+    @FXML
+    private TextArea txtCustom4;
+    @FXML
+    private Label lblcus5;
+    @FXML
+    private TextArea txtCustom5;
+    @FXML
+    private TextArea txtCustom6;
+    @FXML
+    private Label lblcus6;
+    @FXML
+    private Label lblcus7;
+    @FXML
+    private TextArea txtCustom7;
+    @FXML
+    private Label lblcus8;
+    @FXML
+    private TextArea txtCustom8;
+    @FXML
+    private Label lblcus9;
+    @FXML
+    private TextArea txtCustom9;
 
     /**
      * Initializes the controller class.
@@ -93,6 +123,50 @@ public class CreateScholarshipFXMLController implements Initializable {
         getFields(false);
         
         statustxt.setText("Save Succesful");
+    }
+    
+    @FXML
+    private void addCustomQuestion(MouseEvent event) {
+        
+        if (!(lblcus1.isVisible())){
+            lblcus1.setVisible(true);
+            txtCustom1.setVisible(true);
+        }
+        else if (!(lblcus2.isVisible())){
+            lblcus2.setVisible(true);
+            txtCustom2.setVisible(true);
+        }
+        else if (!(lblcus3.isVisible())){
+            lblcus3.setVisible(true);
+            txtCustom3.setVisible(true);
+        }
+        else if (!(lblcus4.isVisible())){
+            lblcus4.setVisible(true);
+            txtCustom4.setVisible(true);
+        }
+        else if (!(lblcus5.isVisible())){
+            lblcus5.setVisible(true);
+            txtCustom5.setVisible(true);
+        }
+        else if (!(lblcus6.isVisible())){
+            lblcus6.setVisible(true);
+            txtCustom6.setVisible(true);
+        }
+        else if (!(lblcus7.isVisible())){
+            lblcus7.setVisible(true);
+            txtCustom7.setVisible(true);
+        }
+        else if (!(lblcus8.isVisible())){
+            lblcus8.setVisible(true);
+            txtCustom8.setVisible(true);
+        }
+        else if (!(lblcus9.isVisible())){
+            lblcus9.setVisible(true);
+            txtCustom9.setVisible(true);
+        }
+        else {
+            statustxt.setText("Maximum Number of Questions Reached");
+        }
     }
 
     @FXML

@@ -26,6 +26,12 @@ public class Scholarship {
     private String custom1 = "--";
     private String custom2 = "--";
     private String custom3 = "--";
+    private String custom4 = "--";
+    private String custom5 = "--";
+    private String custom6 = "--";
+    private String custom7 = "--";
+    private String custom8 = "--";
+    private String custom9 = "--";
     private String description = "--";
 
     /**
@@ -58,7 +64,7 @@ public class Scholarship {
      * Constructor. Scholarship constructor used when loading in all
      * scholarships to the ScholarshipSystem.
      */
-    public Scholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3) throws Exception {
+    public Scholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3, String cs4, String cs5, String cs6, String cs7, String cs8, String cs9) throws Exception {
         this.name = schname;
         this.submit = submit;
 
@@ -96,8 +102,12 @@ public class Scholarship {
         setCustom1(cs1);
         setCustom2(cs2);
         setCustom3(cs3);
-
-
+        setCustom4(cs4);
+        setCustom5(cs5);
+        setCustom6(cs6);
+        setCustom7(cs7);
+        setCustom8(cs8);
+        setCustom9(cs9);
     }
 
     //Getters
@@ -189,6 +199,66 @@ public class Scholarship {
     public String getCustom3() {
 
         return this.custom3;
+    }
+    
+    /**
+     * Returns the fourth custom question
+     *
+     * @return String of fourth question
+     */
+    public String getCustom4() {
+
+        return this.custom4;
+    }
+    
+    /**
+     * Returns the fifth custom question
+     *
+     * @return String of fifth question
+     */
+    public String getCustom5() {
+
+        return this.custom5;
+    }
+    
+    /**
+     * Returns the sixth custom question
+     *
+     * @return String of sixth question
+     */
+    public String getCustom6() {
+
+        return this.custom6;
+    }
+    
+    /**
+     * Returns the seventh custom question
+     *
+     * @return String of seventh question
+     */
+    public String getCustom7() {
+
+        return this.custom7;
+    }
+    
+    /**
+     * Returns the eighth custom question
+     *
+     * @return String of eighth question
+     */
+    public String getCustom8() {
+
+        return this.custom8;
+    }
+    
+    /**
+     * Returns the ninth custom question
+     *
+     * @return String of ninth question
+     */
+    public String getCustom9() {
+
+        return this.custom9;
     }
 
     /**
@@ -342,13 +412,73 @@ public class Scholarship {
     }
 
     /**
-     * Changes thrid custom question
+     * Changes third custom question
      *
      * @param cus3 the custom question
      */
     public void setCustom3(String cus3) throws Exception {
         this.custom3 = cus3;
         overWriteLine("Custom3", cus3);
+    }
+    
+    /**
+     * Changes fourth custom question
+     *
+     * @param cus4 the custom question
+     */
+    public void setCustom4(String cus4) throws Exception {
+        this.custom4 = cus4;
+        overWriteLine("Custom4", cus4);
+    }
+    
+    /**
+     * Changes fifth custom question
+     *
+     * @param cus5 the custom question
+     */
+    public void setCustom5(String cus5) throws Exception {
+        this.custom5 = cus5;
+        overWriteLine("Custom5", cus5);
+    }
+    
+    /**
+     * Changes sixth custom question
+     *
+     * @param cus6 the custom question
+     */
+    public void setCustom6(String cus6) throws Exception {
+        this.custom6 = cus6;
+        overWriteLine("Custom6", cus6);
+    }
+    
+    /**
+     * Changes seventh custom question
+     *
+     * @param cus7 the custom question
+     */
+    public void setCustom7(String cus7) throws Exception {
+        this.custom7 = cus7;
+        overWriteLine("Custom7", cus7);
+    }
+    
+    /**
+     * Changes eighth custom question
+     *
+     * @param cus8 the custom question
+     */
+    public void setCustom8(String cus8) throws Exception {
+        this.custom8 = cus8;
+        overWriteLine("Custom8", cus8);
+    }
+    
+    /**
+     * Changes ninth custom question
+     *
+     * @param cus9 the custom question
+     */
+    public void setCustom9(String cus9) throws Exception {
+        this.custom9 = cus9;
+        overWriteLine("Custom9", cus9);
     }
 
     /**
@@ -490,6 +620,24 @@ public class Scholarship {
             } else if (line.equals("Custom3")) {
                 line = br.readLine();
                 setCustom3(line);
+            } else if (line.equals("Custom4")) {
+                line = br.readLine();
+                setCustom3(line);
+            } else if (line.equals("Custom5")) {
+                line = br.readLine();
+                setCustom3(line);
+            } else if (line.equals("Custom6")) {
+                line = br.readLine();
+                setCustom3(line);
+            } else if (line.equals("Custom7")) {
+                line = br.readLine();
+                setCustom3(line);
+            } else if (line.equals("Custom8")) {
+                line = br.readLine();
+                setCustom3(line);
+            } else if (line.equals("Custom9")) {
+                line = br.readLine();
+                setCustom3(line);
             } else if (line.equals("Description")) {
                 line = br.readLine();
                 setDescription(line);
@@ -542,6 +690,24 @@ public class Scholarship {
         writer.println();
         writer.println("Custom3");
         writer.println(this.custom3);
+        writer.println();
+        writer.println("Custom4");
+        writer.println(this.custom4);
+        writer.println();
+        writer.println("Custom5");
+        writer.println(this.custom5);
+        writer.println();
+        writer.println("Custom6");
+        writer.println(this.custom6);
+        writer.println();
+        writer.println("Custom7");
+        writer.println(this.custom7);
+        writer.println();
+        writer.println("Custom8");
+        writer.println(this.custom8);
+        writer.println();
+        writer.println("Custom9");
+        writer.println(this.custom9);
         writer.println();
         writer.println("Description");
         writer.println(this.description);

@@ -19,7 +19,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="566.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdditionalScenes.CreateScholarshipFXMLController">
+<VBox prefHeight="602.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdditionalScenes.CreateScholarshipFXMLController">
   <children>
       <ToolBar prefHeight="0.0" prefWidth="817.0">
         <items>
@@ -63,9 +63,9 @@
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
           <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="707.0" prefWidth="707.0">
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="1143.0" prefWidth="707.0">
               <children>
-                        <ImageView fitHeight="711.0" fitWidth="706.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true">
+                        <ImageView fitHeight="1115.0" fitWidth="706.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true">
                            <image>
                               <Image url="@pink-marble-texture-background-abstract-marble-texture-natural-patterns_41389-205.jpg" />
                            </image>
@@ -125,31 +125,72 @@
                               <Font name="Georgia" size="13.0" />
                            </font>
                         </CheckBox>
-                        <Label layoutX="14.0" layoutY="438.0" text="Custom Question 1 :">
+                        <Label fx:id="lblcus1" layoutX="14.0" layoutY="438.0" text="Custom Question 1 :" visible="false">
                            <font>
                               <Font name="Georgia" size="16.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="txtCustom1" layoutX="14.0" layoutY="457.0" prefHeight="41.0" prefWidth="545.0" />
-                        <Label layoutX="12.0" layoutY="510.0" text="Custom Question 2 :">
+                        <TextArea fx:id="txtCustom1" layoutX="14.0" layoutY="457.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus2" layoutX="12.0" layoutY="510.0" text="Custom Question 2 :" visible="false">
                            <font>
                               <Font name="Georgia" size="16.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="txtCustom2" layoutX="9.0" layoutY="536.0" prefHeight="41.0" prefWidth="545.0" />
-                        <Label layoutX="12.0" layoutY="588.0" text="Custom Question 3 :">
+                        <TextArea fx:id="txtCustom2" layoutX="9.0" layoutY="536.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus3" layoutX="12.0" layoutY="588.0" text="Custom Question 3 :" visible="false">
                            <font>
                               <Font name="Georgia" size="16.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="txtCustom3" layoutX="9.0" layoutY="616.0" prefHeight="41.0" prefWidth="545.0" />
+                        <TextArea fx:id="txtCustom3" layoutX="9.0" layoutY="616.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus4" layoutX="13.0" layoutY="667.0" text="Custom Question 4 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom4" layoutX="9.0" layoutY="694.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus5" layoutX="12.0" layoutY="747.0" text="Custom Question 5:" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom5" layoutX="9.0" layoutY="773.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <TextArea fx:id="txtCustom6" layoutX="9.0" layoutY="854.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus6" layoutX="12.0" layoutY="823.0" text="Custom Question 6 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblcus7" layoutX="13.0" layoutY="905.0" text="Custom Question 7 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom7" layoutX="9.0" layoutY="933.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus8" layoutX="12.0" layoutY="985.0" text="Custom Question 8 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom8" layoutX="9.0" layoutY="1014.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus9" layoutX="13.0" layoutY="1061.0" text="Custom Question 9 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom9" layoutX="9.0" layoutY="1091.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Button layoutX="329.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#addCustomQuestion" text="Add Custom Question">
+                           <font>
+                              <Font name="Georgia" size="14.0" />
+                           </font>
+                        </Button>
               </children>
             </AnchorPane>
           </content>
         </ScrollPane>
       </items>
     </SplitPane>
-    <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="91.0" prefWidth="970.0" spacing="5.0" VBox.vgrow="NEVER">
+    <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="18.0" prefWidth="934.0" spacing="5.0" VBox.vgrow="NEVER">
       <children>
         <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" HBox.hgrow="ALWAYS">
           <font>
