@@ -109,7 +109,9 @@ public class CreateScholarshipFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        if (Seng300.theManager.getEditMode()){
+            
+        }
     }    
 
     @FXML
@@ -179,6 +181,7 @@ public class CreateScholarshipFXMLController implements Initializable {
         
         getFields(true);
         
+        Seng300.theManager.setEditMode(false);
         Parent root = FXMLLoader.load(getClass().getResource("/seng300/adminMainPage.fxml"));
         Scene sc = new Scene(root);
         Stage s = Seng300.mainStage; 
@@ -189,6 +192,7 @@ public class CreateScholarshipFXMLController implements Initializable {
 
     @FXML
     private void backFromScholarshipCreator(MouseEvent event) throws IOException {
+        Seng300.theManager.setEditMode(false);
         Parent root = FXMLLoader.load(getClass().getResource("/seng300/adminMainPage.fxml"));
         Scene sc = new Scene(root);
         Stage s = Seng300.mainStage; 

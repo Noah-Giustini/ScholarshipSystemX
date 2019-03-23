@@ -198,6 +198,7 @@ public class MainPageController implements Initializable {
         }
         try {
             Seng300.theManager.setCurrentScholarship(schs.get(index));
+            Seng300.theManager.setEditMode(true);
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateScholarship.fxml"));
             Scene sc = new Scene(root);
             Stage s = Seng300.mainStage;
