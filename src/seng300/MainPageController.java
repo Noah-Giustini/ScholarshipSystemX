@@ -179,7 +179,7 @@ public class MainPageController implements Initializable {
     
     @FXML
     private void editDraft(javafx.event.ActionEvent event) throws IOException {
-        ArrayList<Scholarship> schols = Seng300.theManager.getScholarshipDrafts();
+        ArrayList<Scholarship> schs = Seng300.theManager.getScholarshipDrafts();
         int index = 0;
         if (rdoDraft1.isSelected()) {
             index = 0;
@@ -197,7 +197,7 @@ public class MainPageController implements Initializable {
             index = 6;
         }
         try {
-            Seng300.theManager.setCurrentScholarship(schols.get(index));
+            Seng300.theManager.setCurrentScholarship(schs.get(index));
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateScholarship.fxml"));
             Scene sc = new Scene(root);
             Stage s = Seng300.mainStage;
