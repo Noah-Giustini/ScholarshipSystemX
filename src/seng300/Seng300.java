@@ -33,7 +33,7 @@ public static Manager theManager;
         
         Seng300.mainStage = stage;
         Seng300.theManager = new Manager();
-        Parent root = FXMLLoader.load(getClass().getResource("adminMainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         
         Scene scene = new Scene(root);
         

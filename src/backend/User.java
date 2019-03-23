@@ -19,6 +19,18 @@ public class User {
         this.storingFile += this.username + ".txt";
 
     }
+    
+    /**
+     * Constructor that takes in type. Used in loginPageController.
+     * @param user The username of the user
+     * @param password The password of the user
+     * @param type The account type of the user (student, admin)
+     */
+    public User(String user, String password, String type){
+        this.username = user;
+        this.password = password;
+        this.type = type;
+    }
     // checks to see if what is entered is the same as what we know exists
     public boolean login (String userGiven, String pswdGiven){
       return this.username.equals(userGiven) && this.password.equals(pswdGiven);
