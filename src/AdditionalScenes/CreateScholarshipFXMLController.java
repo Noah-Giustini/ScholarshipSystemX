@@ -212,6 +212,12 @@ public class CreateScholarshipFXMLController implements Initializable {
                 String cus1;
                 String cus2;
                 String cus3;
+                String cus4;
+                String cus5;
+                String cus6;
+                String cus7;
+                String cus8;
+                String cus9;
                 String desc;
                 int day;
                 int month;
@@ -276,17 +282,23 @@ public class CreateScholarshipFXMLController implements Initializable {
                 mast = chkmaster.isSelected();
                 doc = chkDoctorate.isSelected();
                 
-                cus1 = txtCustom1.getText();
-                cus2 = txtCustom2.getText();
-                cus3 = txtCustom3.getText();
-                desc = txtSchDescription.getText();
+                cus1 = txtCustom1.getText().replace("\n", "");
+                cus2 = txtCustom2.getText().replace("\n", "");
+                cus3 = txtCustom3.getText().replace("\n", "");
+                cus4 = txtCustom4.getText().replace("\n", "");
+                cus5 = txtCustom5.getText().replace("\n", "");
+                cus6 = txtCustom6.getText().replace("\n", "");
+                cus7 = txtCustom7.getText().replace("\n", "");
+                cus8 = txtCustom8.getText().replace("\n", "");
+                cus9 = txtCustom9.getText().replace("\n", "");
+                desc = txtSchDescription.getText().replace("\n", "");
               
                 
                 if (submit){
-                    Seng300.theManager.addSubmittedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3);
+                    Seng300.theManager.addSubmittedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3, cus4, cus5, cus6, cus7, cus8, cus9);
                 }
                 else {
-                    Seng300.theManager.addSavedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3);
+                    Seng300.theManager.addSavedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3, cus4, cus5, cus6, cus7, cus8, cus9);
                 }
     }
 

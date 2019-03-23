@@ -142,9 +142,9 @@ public class Manager{
             return toReturn;
         }
         
-        public void addSubmittedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3){
+        public void addSubmittedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3, String cs4, String cs5, String cs6, String cs7, String cs8, String cs9){
             try {
-                scholarships.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3));
+                scholarships.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3, cs4, cs5, cs6, cs7, cs8, cs9));
                 //delete saved scholarship
                 Scholarship olddraft = new Scholarship(schname, false);
                 olddraft.delete();
@@ -154,9 +154,9 @@ public class Manager{
             }
         }
         
-        public void addSavedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3){
+        public void addSavedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3, String cs4, String cs5, String cs6, String cs7, String cs8, String cs9){
             try {
-                scholarshipdrafts.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3));
+                scholarshipdrafts.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3, cs4, cs5, cs6, cs7, cs8, cs9));
             } catch (Exception ex) {
                 System.out.println("There was an error when adding the scholarship draft");
             }

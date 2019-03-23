@@ -22,6 +22,15 @@ public class Application{
 	private double gpa = 0;
 	private String edulvl = "--";
 	private String status = "--";
+        private String ans1 = "--";
+        private String ans2 = "--";
+        private String ans3 = "--";
+        private String ans4 = "--";
+        private String ans5 = "--";
+        private String ans6 = "--";
+        private String ans7 = "--";
+        private String ans8 = "--";
+        private String ans9 = "--";
 	private int priority = 0;
 
 	
@@ -123,8 +132,89 @@ public class Application{
 		
 		return this.priority;
 	}
-	
-	
+        
+        /**
+	 * Returns answer to first custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer1(){
+		
+		return this.ans1;
+	}
+        /**
+	 * Returns answer to second custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer2(){
+		
+		return this.ans2;
+	}
+        
+        /**
+	 * Returns answer to third custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer3(){
+		
+		return this.ans3;
+	}
+        
+        /**
+	 * Returns answer to fourth custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer4(){
+		
+		return this.ans4;
+	}
+        
+        /**
+	 * Returns answer to fifth custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer5(){
+		
+		return this.ans5;
+	}
+        
+        /**
+	 * Returns answer to sixth custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer6(){
+		
+		return this.ans6;
+	}
+        
+        
+        /**
+	 * Returns answer to seventh custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer7(){
+		
+		return this.ans7;
+	}
+        
+        /**
+	 * Returns answer to eighth custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer8(){
+		
+		return this.ans8;
+	}
+        
+        /**
+	 * Returns answer to ninth custom question
+	 * @return Answer of type String
+	 */
+	public String getAnswer9(){
+		
+		return this.ans9;
+	}
+        
+    
 	//Setters
 	
 	/**
@@ -187,7 +277,97 @@ public class Application{
 		}
 	
 	}
-	
+        
+        /**
+	 * Changes answer to first custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer1(String newAnswer)throws Exception{
+		
+		this.ans1 = newAnswer;
+		overWriteLine("Answer1", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to second custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer2(String newAnswer)throws Exception{
+		
+		this.ans2 = newAnswer;
+		overWriteLine("Answer2", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to third custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer3(String newAnswer)throws Exception{
+		
+		this.ans3 = newAnswer;
+		overWriteLine("Answer3", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to fourth custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer4(String newAnswer)throws Exception{
+		
+		this.ans4 = newAnswer;
+		overWriteLine("Answer4", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to fifth custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer5(String newAnswer)throws Exception{
+		
+		this.ans5 = newAnswer;
+		overWriteLine("Answer5", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to sixth custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer6(String newAnswer)throws Exception{
+		
+		this.ans6 = newAnswer;
+		overWriteLine("Answer6", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to seventh custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer7(String newAnswer)throws Exception{
+		
+		this.ans7 = newAnswer;
+		overWriteLine("Answer7", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to eighth custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer8(String newAnswer)throws Exception{
+		
+		this.ans8 = newAnswer;
+		overWriteLine("Answer8", newAnswer);
+	}
+        
+        /**
+	 * Changes answer to ninth custom question
+	 * @param newAnswer of type String
+	 */
+	public void setAnswer9(String newAnswer)throws Exception{
+		
+		this.ans9 = newAnswer;
+		overWriteLine("Answer9", newAnswer);
+	}
+        
 	/**
 	* Changes a line in scholarship file given the name of the parameter that needs to be 
 	* changed and the new value for that parameter
@@ -257,6 +437,42 @@ public class Application{
 				int newPriority = Integer.parseInt(line);
 				setPriority(newPriority);
 			}
+                        else if (line.equals("Answer1")){
+				line = br.readLine();
+				setAnswer1(line);
+			}
+                        else if (line.equals("Answer2")){
+				line = br.readLine();
+				setAnswer2(line);
+			}
+                        else if (line.equals("Answer3")){
+				line = br.readLine();
+				setAnswer3(line);
+			}
+                        else if (line.equals("Answer4")){
+				line = br.readLine();
+				setAnswer4(line);
+			}
+                        else if (line.equals("Answer5")){
+				line = br.readLine();
+				setAnswer5(line);
+			}
+                        else if (line.equals("Answer6")){
+				line = br.readLine();
+				setAnswer6(line);
+			}
+                        else if (line.equals("Answer7")){
+				line = br.readLine();
+				setAnswer7(line);
+			}
+                        else if (line.equals("Answer8")){
+				line = br.readLine();
+				setAnswer8(line);
+			}
+                        else if (line.equals("Answer9")){
+				line = br.readLine();
+				setAnswer9(line);
+			}
 		}
 		br.close();	
 	}
@@ -292,6 +508,33 @@ public class Application{
 		writer.println("Priority");
 		writer.println(this.priority);
 		writer.println();
+                writer.println("Answer1");
+		writer.println(this.ans1);
+		writer.println();
+                writer.println("Answer2");
+		writer.println(this.ans2);
+		writer.println();
+                writer.println("Answer3");
+		writer.println(this.ans3);
+		writer.println();
+                writer.println("Answer4");
+		writer.println(this.ans4);
+		writer.println();
+                writer.println("Answer5");
+		writer.println(this.ans5);
+		writer.println();
+                writer.println("Answer6");
+		writer.println(this.ans6);
+		writer.println();
+                writer.println("Answer7");
+		writer.println(this.ans7);
+		writer.println();
+                writer.println("Answer8");
+		writer.println(this.ans8);
+		writer.println();
+                writer.println("Answer9");
+		writer.println(this.ans9);
+		writer.println();
 
 		writer.close();
 		
@@ -309,28 +552,4 @@ public class Application{
         public String simpleToString(){
             return this.student + "\n Submitted: " + this.date + "\n Status: " + this.status;
         }
-
-	/**
-	 * Loads all application files into the applicationList in ScholarshipSystem class
-	 */
-//	public static void startUp() {
-	//	File folder = new File("Applications\\");
-	//	File[] listOfFiles = folder.listFiles();
-//for(File a : listOfFiles){
-		//	if(a.isFile()){
-		//		String name = a.getName().substring(0, (a.getName().length() - 4));	//takes away the .txt
-				
-		//		String schName = name.substring(0, name.length() - 3);	//gets scholarship name
-		//		name = name.substring(name.length() - 3);	//gets jim
-			//	try {
-					//TODO: handle exception
-//Application app = new Application(schName, name);
-			//	ScholarshipSystem.applicationList.add(app);
-			//	}
-			//	catch (Exception e){
-
-			//	}
-			//}	
-	//	}
-	//}
 }

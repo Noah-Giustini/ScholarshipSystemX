@@ -5,6 +5,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -107,9 +108,57 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <ScrollPane fx:id="historyScrollPane" layoutX="30.0" layoutY="437.0" prefHeight="237.0" prefWidth="727.0">
+      <ScrollPane fx:id="historyScrollPane" layoutX="30.0" layoutY="437.0" prefHeight="238.0" prefWidth="727.0">
          <content>
-            <AnchorPane prefHeight="242.0" prefWidth="609.0" />
+            <AnchorPane prefHeight="426.0" prefWidth="725.0">
+               <children>
+                  <Label fx:id="lblDraft1" layoutX="14.0" layoutY="21.0" prefHeight="39.0" prefWidth="483.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDraft2" layoutX="14.0" layoutY="81.0" prefHeight="39.0" prefWidth="483.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDraft3" layoutX="14.0" layoutY="137.0" prefHeight="39.0" prefWidth="483.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDraft4" layoutX="14.0" layoutY="192.0" prefHeight="39.0" prefWidth="483.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDraft5" layoutX="14.0" layoutY="248.0" prefHeight="39.0" prefWidth="483.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDraft6" layoutX="14.0" layoutY="302.0" prefHeight="39.0" prefWidth="483.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDraft7" layoutX="14.0" layoutY="349.0" prefHeight="39.0" prefWidth="483.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="rdoDraft1" layoutX="627.0" layoutY="32.0" mnemonicParsing="false" visible="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="ListOfDrafts" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rdoDraft2" layoutX="627.0" layoutY="92.0" mnemonicParsing="false" toggleGroup="$ListOfDrafts" visible="false" />
+                  <RadioButton fx:id="rdoDraft3" layoutX="627.0" layoutY="148.0" mnemonicParsing="false" toggleGroup="$ListOfDrafts" visible="false" />
+                  <RadioButton fx:id="rdoDraft4" layoutX="627.0" layoutY="203.0" mnemonicParsing="false" toggleGroup="$ListOfDrafts" visible="false" />
+                  <RadioButton fx:id="rdoDraft5" layoutX="627.0" layoutY="259.0" mnemonicParsing="false" toggleGroup="$ListOfDrafts" visible="false" />
+                  <RadioButton fx:id="rdoDraft6" layoutX="627.0" layoutY="313.0" mnemonicParsing="false" toggleGroup="$ListOfDrafts" visible="false" />
+                  <RadioButton fx:id="rdoDraft7" layoutX="627.0" layoutY="360.0" mnemonicParsing="false" toggleGroup="$ListOfDrafts" visible="false" />
+               </children></AnchorPane>
          </content>
       </ScrollPane>
       <Button fx:id="adminMainPageLogoutButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="76.0" text="Logout">
@@ -126,7 +175,7 @@
             <Font name="Georgia" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="viewApplicationsButton" layoutX="768.0" layoutY="200.0" mnemonicParsing="false" onAction="#openApplicationsWindow" text="View Applications">
+      <Button fx:id="viewApplicationsButton" layoutX="768.0" layoutY="185.0" mnemonicParsing="false" onAction="#openApplicationsWindow" text="View Applications">
          <font>
             <Font name="Georgia" size="13.0" />
          </font></Button>
@@ -139,11 +188,29 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="29.0" layoutY="660.0" minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="608.0" />
       <Label layoutX="29.0" layoutY="386.0" prefHeight="42.0" prefWidth="191.0" text="Scholarship Drafts">
          <font>
             <Font name="Georgia" size="21.0" />
          </font>
       </Label>
+      <Button fx:id="buttonEditDraft" layoutX="791.0" layoutY="543.0" mnemonicParsing="false" text="Edit Draft">
+         <font>
+            <Font name="Georgia" size="13.0" />
+         </font>
+      </Button>
+      <ToolBar layoutX="-2.0" layoutY="778.0" prefHeight="31.0" prefWidth="980.0">
+         <items>
+            <Label fx:id="schstatuslbl" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="891.0">
+               <font>
+                  <Font name="Georgia" size="13.0" />
+               </font>
+            </Label>
+         </items>
+      </ToolBar>
+      <Button fx:id="buttonEdit" layoutX="806.0" layoutY="234.0" mnemonicParsing="false" text="Edit ">
+         <font>
+            <Font name="Georgia" size="13.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

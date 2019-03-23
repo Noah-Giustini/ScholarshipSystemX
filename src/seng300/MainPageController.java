@@ -88,6 +88,42 @@ public class MainPageController implements Initializable {
     private RadioButton radioSchol7;
     @FXML
     private Label lblScholarship6;
+    @FXML
+    private Label lblDraft1;
+    @FXML
+    private Label lblDraft2;
+    @FXML
+    private Label lblDraft3;
+    @FXML
+    private Label lblDraft4;
+    @FXML
+    private Label lblDraft5;
+    @FXML
+    private Label lblDraft6;
+    @FXML
+    private Label lblDraft7;
+    @FXML
+    private RadioButton rdoDraft1;
+    @FXML
+    private ToggleGroup ListOfDrafts;
+    @FXML
+    private RadioButton rdoDraft2;
+    @FXML
+    private RadioButton rdoDraft3;
+    @FXML
+    private RadioButton rdoDraft4;
+    @FXML
+    private RadioButton rdoDraft5;
+    @FXML
+    private RadioButton rdoDraft6;
+    @FXML
+    private RadioButton rdoDraft7;
+    @FXML
+    private Button buttonEditDraft;
+    @FXML
+    private Label schstatuslbl;
+    @FXML
+    private Button buttonEdit;
 
     /**
      * Initializes the controller class.
@@ -140,6 +176,39 @@ public class MainPageController implements Initializable {
         }
 
     }
+    
+    @FXML
+    private void editDraft(javafx.event.ActionEvent event) throws IOException {
+        ArrayList<Scholarship> schols = Seng300.theManager.getScholarshipDrafts();
+        int index = 0;
+        if (rdoDraft1.isSelected()) {
+            index = 0;
+        } else if (rdoDraft2.isSelected()) {
+            index = 1;
+        } else if (rdoDraft3.isSelected()) {
+            index = 2;
+        } else if (rdoDraft4.isSelected()) {
+            index = 3;
+        } else if (rdoDraft5.isSelected()) {
+            index = 4;
+        } else if (rdoDraft6.isSelected()) {
+            index = 5;
+        } else if (rdoDraft7.isSelected()) {
+            index = 6;
+        }
+        try {
+            Seng300.theManager.setCurrentScholarship(schols.get(index));
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateScholarship.fxml"));
+            Scene sc = new Scene(root);
+            Stage s = Seng300.mainStage;
+            s.setTitle("Create Scholarship");
+            s.setScene(sc);
+            s.show();
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+
+    }
 
     private void showScholarshipInView(String s, Label l, Label d, RadioButton r) {
         l.setText(s.substring(0, s.length() - 11));
@@ -148,6 +217,12 @@ public class MainPageController implements Initializable {
         d.setVisible(true);
         r.setVisible(true);
 
+    }
+    
+    private void showDraftScholarshipInView(String s, Label l, RadioButton r) {
+        l.setText(s.substring(0, s.length() - 11));
+        l.setVisible(true);
+        r.setVisible(true);
     }
 
     @FXML
@@ -181,7 +256,7 @@ public class MainPageController implements Initializable {
                                 toAdd = allTheCurrentScholarships.get(5);
                                 showScholarshipInView(toAdd, lblScholarship6, lbldate6, radioSchol6);
                                 if (size > 6) {
-                                    toAdd = allTheCurrentScholarships.get(1);
+                                    toAdd = allTheCurrentScholarships.get(7);
                                     showScholarshipInView(toAdd, lblScholarship7, lbldate7, radioSchol7);
 
                                 }
@@ -192,7 +267,38 @@ public class MainPageController implements Initializable {
                 }
             }
         }
-    
+        
+        ArrayList<String> allTheDraftScholarships = Seng300.theManager.showSavedScholarships();
+        System.out.println(allTheDraftScholarships);
+        int sizeDraft = allTheDraftScholarships.size();
+        if (sizeDraft > 0) {
+            String toAdd = allTheDraftScholarships.get(0);
+            showDraftScholarshipInView(toAdd, lblDraft1, rdoDraft1);
+            if (size > 1) {
+                toAdd = allTheDraftScholarships.get(1);
+                showDraftScholarshipInView(toAdd, lblDraft2, rdoDraft2);
+                if (size > 2) {
+                    toAdd = allTheDraftScholarships.get(2);
+                    showDraftScholarshipInView(toAdd, lblDraft3, rdoDraft3);
+                    if (size > 3) {
+                        toAdd = allTheDraftScholarships.get(3);
+                        showDraftScholarshipInView(toAdd, lblDraft4, rdoDraft4);
+                        if (size > 4) {
+                            toAdd = allTheDraftScholarships.get(4);
+                            showDraftScholarshipInView(toAdd, lblDraft5, rdoDraft5);
+                            if (size > 5) {
+                                toAdd = allTheDraftScholarships.get(5);
+                                showDraftScholarshipInView(toAdd, lblDraft6, rdoDraft6);
+                                if (size > 6) {
+                                    toAdd = allTheDraftScholarships.get(7);
+                                    showDraftScholarshipInView(toAdd, lblDraft7, rdoDraft7);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
