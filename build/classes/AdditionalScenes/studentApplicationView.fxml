@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="AdditionalScenes.StudentApplicationViewController">
+  <children>
+    <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToViewApplications" text="Back" />
+    <Button id="awardButton" fx:id="acceptButton" layoutX="493.0" layoutY="355.0" mnemonicParsing="false" onAction="#accept" text="Accept" />
+    <ScrollPane fx:id="scrollWindow" layoutX="66.0" layoutY="53.0" prefHeight="283.0" prefWidth="490.0">
+      <content>
+        <AnchorPane prefHeight="282.0" prefWidth="466.0">
+          <children>
+            <TextArea fx:id="applicationInfo" editable="false" layoutX="13.0" layoutY="14.0" prefHeight="269.0" prefWidth="439.0" />
+          </children>
+        </AnchorPane>
+      </content>
+    </ScrollPane>
+    <Button fx:id="withdrawButton" layoutX="408.0" layoutY="356.0" mnemonicParsing="false" onAction="#withdraw" text="Withdraw" />
+  </children>
+</Pane>

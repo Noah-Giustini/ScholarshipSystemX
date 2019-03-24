@@ -5,16 +5,21 @@
  */
 package seng300;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -154,21 +159,36 @@ public class StudentMainPageController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void openApplicationsWindow(ActionEvent event) {
-    }
 
     @FXML
     private void handleRefresh(ActionEvent event) {
+        
+        
+        
     }
 
 
     @FXML
-    private void editDraft(ActionEvent event) {
+    private void openStudentApplicationsWindow(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/StudentApplicationView.fxml"));
+        Scene sc = new Scene(root);
+        Stage s = Seng300.mainStage; 
+        s.setTitle("Home");
+        s.setScene(sc);
+        s.show(); 
+        
     }
 
     @FXML
-    private void editSubmitted(ActionEvent event) {
+    private void openEditDraftPage(ActionEvent event) {
+        
+        
+    }
+
+    @FXML
+    private void openApplyToScholarshipWindow(ActionEvent event) {
+        
+        
     }
     
 }
