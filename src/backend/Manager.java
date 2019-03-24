@@ -20,6 +20,7 @@ public class Manager{
 	private ArrayList<Scholarship> scholarshipdrafts = new ArrayList<Scholarship>(); 
         private Scholarship currentScholarship;
         private Application currentApplication;
+        private ArrayList<Application> studentApplications = new ArrayList<Application>();
         private boolean editMode = false;
 
 	
@@ -121,6 +122,10 @@ public class Manager{
         
         public void setEditMode(boolean ed){
             this.editMode = ed;
+        }
+        
+        public ArrayList<Application> getStudentApplications (){
+            return this.studentApplications;
         }
         
         
