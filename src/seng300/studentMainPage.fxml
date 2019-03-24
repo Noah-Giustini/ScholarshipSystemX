@@ -170,7 +170,7 @@
             <Font name="Georgia" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="viewApplicationsButton" layoutX="768.0" layoutY="185.0" mnemonicParsing="false" onAction="#openApplicationsWindow" text="View Applications">
+      <Button fx:id="viewApplicationsButton" layoutX="768.0" layoutY="185.0" mnemonicParsing="false" onAction="#openStudentApplicationsWindow" text="View Application">
          <font>
             <Font name="Georgia" size="13.0" />
          </font></Button>
@@ -188,7 +188,7 @@
             <Font name="Georgia" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="buttonEdit" layoutX="806.0" layoutY="234.0" mnemonicParsing="false" onAction="#editSubmitted" text="Edit ">
+      <Button fx:id="buttonEdit" layoutX="806.0" layoutY="234.0" mnemonicParsing="false" onAction="#editSubmitted" text="Apply">
          <font>
             <Font name="Georgia" size="13.0" />
          </font>
