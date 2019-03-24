@@ -65,7 +65,7 @@
           <content>
             <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="1143.0" prefWidth="707.0">
               <children>
-                        <ImageView fitHeight="1115.0" fitWidth="706.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true">
+                        <ImageView fitHeight="1199.0" fitWidth="713.0" layoutY="-11.0" pickOnBounds="true">
                            <image>
                               <Image url="@pink-marble-texture-background-abstract-marble-texture-natural-patterns_41389-205.jpg" />
                            </image>
@@ -130,7 +130,7 @@
                               <Font name="Georgia" size="16.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="txtCustom1" layoutX="14.0" layoutY="457.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <TextArea fx:id="txtCustom1" layoutX="9.0" layoutY="457.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
                         <Label fx:id="lblcus2" layoutX="12.0" layoutY="510.0" text="Custom Question 2 :" visible="false">
                            <font>
                               <Font name="Georgia" size="16.0" />

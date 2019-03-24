@@ -140,7 +140,7 @@ public class Manager{
         
         public ArrayList<String> showSavedScholarships(){
             try {
-                findScholarships();
+                findScholarshipDrafts();
             } catch (Exception ex) {
                System.out.println("There was an error when reading the files");
             }

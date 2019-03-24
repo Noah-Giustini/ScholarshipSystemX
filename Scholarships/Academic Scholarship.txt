@@ -14,13 +14,13 @@ Recipients
 50
 
 Recipients Chosen
-0
+1
 
 Education Level
 Bachelors 
 
 Custom1
-What is your greatest educational achievement?
+What is your greatest educational?
 
 Custom2
 

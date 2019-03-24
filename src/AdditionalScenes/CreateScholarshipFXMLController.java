@@ -6,9 +6,12 @@
 package AdditionalScenes;
 
 import backend.Manager;
+import backend.Scholarship;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.Month;
+import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -109,8 +112,94 @@ public class CreateScholarshipFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
         if (Seng300.theManager.getEditMode()){
             
+            Scholarship sch = Seng300.theManager.getCurrentScholarship();
+            
+            txtEnterSchName.insertText(0, sch.getName());
+           
+            if (!(sch.getDescription().equals("--") || sch.getDescription().trim().equals(""))){
+                txtSchDescription.insertText(0, sch.getDescription());
+            }
+            
+            if (!(sch.getDueDate().trim().equals("") || sch.getDueDate().equals("dd/mm/yyyy"))){
+                int day = Integer.parseInt(sch.getDueDate().substring(0, 2));
+                int month = Integer.parseInt(sch.getDueDate().substring(3,5));
+                int year = Integer.parseInt(sch.getDueDate().substring(6,10));
+                dateGetter.setValue(LocalDate.of(year, month, day));
+            }
+            
+            if (!(sch.getCustom1().trim().equals("") || sch.getCustom1().equals("--"))){
+                txtCustom1.setVisible(true);
+                lblcus1.setVisible(true);
+                txtCustom1.insertText(0, sch.getCustom1());
+            }
+            if (!(sch.getCustom2().trim().equals("") || sch.getCustom2().equals("--"))){
+                txtCustom2.setVisible(true);
+                lblcus2.setVisible(true);
+                txtCustom2.insertText(0, sch.getCustom2());
+            }
+            if (!(sch.getCustom3().trim().equals("") || sch.getCustom3().equals("--"))){
+                txtCustom3.setVisible(true);
+                lblcus3.setVisible(true);
+                txtCustom3.insertText(0, sch.getCustom3());
+            }
+            if (!(sch.getCustom4().trim().equals("") || sch.getCustom4().equals("--"))){
+                txtCustom4.setVisible(true);
+                lblcus4.setVisible(true);
+                txtCustom4.insertText(0, sch.getCustom4());
+            }
+            if (!(sch.getCustom5().trim().equals("") || sch.getCustom5().equals("--"))){
+                txtCustom5.setVisible(true);
+                lblcus5.setVisible(true);
+                txtCustom5.insertText(0, sch.getCustom5());
+            }
+            if (!(sch.getCustom6().trim().equals("") || sch.getCustom6().equals("--"))){
+                txtCustom6.setVisible(true);
+                lblcus6.setVisible(true);
+                txtCustom6.insertText(0, sch.getCustom6());
+            }
+            if (!(sch.getCustom7().trim().equals("") || sch.getCustom7().equals("--"))){
+                txtCustom7.setVisible(true);
+                lblcus7.setVisible(true);
+                txtCustom7.insertText(0, sch.getCustom7());
+            }
+            if (!(sch.getCustom8().trim().equals("") || sch.getCustom8().equals("--"))){
+                txtCustom8.setVisible(true);
+                lblcus8.setVisible(true);
+                txtCustom8.insertText(0, sch.getCustom8());
+            }
+            if (!(sch.getCustom9().trim().equals("") || sch.getCustom9().equals("--"))){
+                txtCustom9.setVisible(true);
+                lblcus9.setVisible(true);
+                txtCustom9.insertText(0, sch.getCustom9());
+            }
+            
+            if (sch.getAmount() > 0){
+                txtAmount.insertText(0, Double.toString(sch.getAmount()));
+            }
+          
+            if (sch.getGPAReq()){
+                chkGPA.setSelected(true);
+            }
+            
+            if (sch.getRecipients() > 0){
+                txtNumRecipients.insertText(0, Integer.toString(sch.getRecipients()));
+            }
+            
+            ArrayList<String> lvl = sch.getLevels();
+            
+            if (lvl.contains("Bachelors")){
+                chkbach.setSelected(true);
+            }
+            if (lvl.contains("Masters")){
+                chkmaster.setSelected(true);
+            }
+            if (lvl.contains("Doctorate")){
+                chkDoctorate.setSelected(true);
+            }
         }
     }    
 

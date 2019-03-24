@@ -178,6 +178,45 @@ public class MainPageController implements Initializable {
     }
     
     @FXML
+    private void editSubmitted(javafx.event.ActionEvent event) throws IOException {
+        ArrayList<Scholarship> schols = Seng300.theManager.getScholarships();
+        int index = 0;
+        if (radioSchol1.isSelected()) {
+            index = 0;
+        } else if (radioSchol2.isSelected()) {
+            index = 1;
+        } else if (radioSchol3.isSelected()) {
+            index = 2;
+        } else if (radioSchol4.isSelected()) {
+            index = 3;
+        } else if (radioSchol5.isSelected()) {
+            index = 4;
+        } else if (radioSchol6.isSelected()) {
+            index = 5;
+        } else if (radioSchol7.isSelected()) {
+            index = 6;
+        }
+        try {
+            if (schols.get(index).getChosen() != 0){
+                schstatuslbl.setText("Scholarship Already Has Applications: Cannot be Edited");
+            }
+            else{
+                Seng300.theManager.setCurrentScholarship(schols.get(index));
+                Seng300.theManager.setEditMode(true);
+                Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateScholarshipFXML.fxml"));
+                Scene sc = new Scene(root);
+                Stage s = Seng300.mainStage;
+                s.setTitle("Create Scholarship");
+                s.setScene(sc);
+                s.show();
+            }
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+
+    }
+    
+    @FXML
     private void editDraft(javafx.event.ActionEvent event) throws IOException {
         ArrayList<Scholarship> schs = Seng300.theManager.getScholarshipDrafts();
         int index = 0;
@@ -199,7 +238,7 @@ public class MainPageController implements Initializable {
         try {
             Seng300.theManager.setCurrentScholarship(schs.get(index));
             Seng300.theManager.setEditMode(true);
-            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateScholarship.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateScholarshipFXML.fxml"));
             Scene sc = new Scene(root);
             Stage s = Seng300.mainStage;
             s.setTitle("Create Scholarship");
@@ -275,22 +314,22 @@ public class MainPageController implements Initializable {
         if (sizeDraft > 0) {
             String toAdd = allTheDraftScholarships.get(0);
             showDraftScholarshipInView(toAdd, lblDraft1, rdoDraft1);
-            if (size > 1) {
+            if (sizeDraft > 1) {
                 toAdd = allTheDraftScholarships.get(1);
                 showDraftScholarshipInView(toAdd, lblDraft2, rdoDraft2);
-                if (size > 2) {
+                if (sizeDraft > 2) {
                     toAdd = allTheDraftScholarships.get(2);
                     showDraftScholarshipInView(toAdd, lblDraft3, rdoDraft3);
-                    if (size > 3) {
+                    if (sizeDraft > 3) {
                         toAdd = allTheDraftScholarships.get(3);
                         showDraftScholarshipInView(toAdd, lblDraft4, rdoDraft4);
-                        if (size > 4) {
+                        if (sizeDraft > 4) {
                             toAdd = allTheDraftScholarships.get(4);
                             showDraftScholarshipInView(toAdd, lblDraft5, rdoDraft5);
-                            if (size > 5) {
+                            if (sizeDraft > 5) {
                                 toAdd = allTheDraftScholarships.get(5);
                                 showDraftScholarshipInView(toAdd, lblDraft6, rdoDraft6);
-                                if (size > 6) {
+                                if (sizeDraft > 6) {
                                     toAdd = allTheDraftScholarships.get(7);
                                     showDraftScholarshipInView(toAdd, lblDraft7, rdoDraft7);
                                 }
