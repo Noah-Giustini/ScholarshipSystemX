@@ -5,11 +5,15 @@
  */
 package AdditionalScenes;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -19,6 +23,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import seng300.Seng300;
 
 /**
  * FXML Controller class
@@ -105,7 +111,14 @@ public class CreateApplicationFXMLController implements Initializable {
     }
 
     @FXML
-    private void backFromApplicationCreator(ActionEvent event) {
+    private void backFromApplicationCreator (ActionEvent event) throws IOException {
+        Seng300.theManager.setEditMode(false);
+        Parent root = FXMLLoader.load(getClass().getResource("/seng300/studentMainPage.fxml"));
+        Scene sc = new Scene(root);
+        Stage s = Seng300.mainStage; 
+        s.setTitle("Home");
+        s.setScene(sc);
+        s.show();
     }
 
     @FXML

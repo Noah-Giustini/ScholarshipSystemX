@@ -180,10 +180,6 @@
          <font>
             <Font name="Georgia" size="13.0" />
          </font></Button>
-      <Button fx:id="refreshMainAdminPage" layoutX="821.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" visible="false">
-         <font>
-            <Font name="Georgia" size="12.0" />
-         </font></Button>
       <Label layoutX="27.0" layoutY="226.0" prefHeight="42.0" prefWidth="174.0" text="Open Scholarships">
          <font>
             <Font name="Georgia" size="21.0" />

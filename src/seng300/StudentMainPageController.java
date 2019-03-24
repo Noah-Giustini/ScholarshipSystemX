@@ -213,8 +213,13 @@ public class StudentMainPageController implements Initializable {
     }
 
     @FXML
-    private void openApplyToScholarshipWindow(ActionEvent event) {
-        
+    private void openApplyToScholarshipWindow(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
+        Scene sc = new Scene(root);
+        Stage s = Seng300.mainStage; 
+        s.setTitle("Home");
+        s.setScene(sc);
+        s.show(); 
         
     }
     
