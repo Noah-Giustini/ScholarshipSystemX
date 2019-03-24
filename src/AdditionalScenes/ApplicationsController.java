@@ -61,8 +61,7 @@ public class ApplicationsController implements Initializable {
     private RadioButton radio5;
     @FXML
     private ToggleGroup ListView;
-    @FXML
-    private Button refresh;
+    
 
     /**
      * Initializes the controller class.
@@ -135,10 +134,7 @@ public class ApplicationsController implements Initializable {
         }    
     }
     
-    @FXML
-    private void refreshPage(ActionEvent event){
-        
-    }
+    
     
     
     private void startUp(){

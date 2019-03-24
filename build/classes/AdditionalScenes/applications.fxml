@@ -78,6 +78,5 @@
     <RadioButton fx:id="radio3" layoutX="581.0" layoutY="298.0" mnemonicParsing="false" toggleGroup="$ListView" />
     <RadioButton fx:id="radio4" layoutX="581.0" layoutY="394.0" mnemonicParsing="false" toggleGroup="$ListView" />
     <RadioButton fx:id="radio5" layoutX="581.0" layoutY="493.0" mnemonicParsing="false" toggleGroup="$ListView" />
-    <Button fx:id="refresh" layoutX="498.0" layoutY="60.0" mnemonicParsing="false" onAction="#refreshPage" text="Refresh" />
   </children>
 </AnchorPane>
