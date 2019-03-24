@@ -74,7 +74,7 @@ public class loginPageController implements Initializable {
      * @param event The event of clicking the login button
      */
     @FXML
-    private void login(ActionEvent event) {
+    private void login(ActionEvent event) throws IOException{
         String enteredUsername = loginUsernameField.getText();
         String enteredPassword = loginPasswordField.getText();
         String type = "invalid";
@@ -136,16 +136,14 @@ public class loginPageController implements Initializable {
 
         }
         if (type.equals("student")) {
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("seng300/studentMainPage.fxml"));
+                
+                    Parent root = FXMLLoader.load(getClass().getResource("studentMainPage.fxml"));
                     Scene sc = new Scene(root);
                     Stage s = Seng300.mainStage;
                     s.setTitle("Student Main");
                     s.setScene(sc);
                     s.show();
-                } catch (Exception e) {
-                    System.out.println("Something done fucked up");
-                }
+                
             }
     }
 
