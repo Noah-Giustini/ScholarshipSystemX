@@ -19,11 +19,15 @@ import java.nio.file.Path;
 import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**This class controls the loginPage fxml file and deals with logging in the user
  *
@@ -113,6 +117,33 @@ public class loginPageController implements Initializable{
             System.out.println("Successfully logged in as: " + type);   //temporary confirmation message!
             //change view to either admin or student portal
         }
+        
+        if(type.equals("admin")){
+            try{
+            Parent root = FXMLLoader.load(getClass().getResource("adminMainPage.fxml"));
+            Scene sc = new Scene(root);
+            Stage s = Seng300.mainStage;
+            s.setTitle("Admin Main");
+            s.setScene(sc);
+            s.show();
+            }
+            catch (IOException e) {
+                System.out.println("Something done fucked up");
+            }
+            if(type.equals("student")){
+            try{
+            Parent root = FXMLLoader.load(getClass().getResource("adminMainPage.fxml"));
+            Scene sc = new Scene(root);
+            Stage s = Seng300.mainStage;
+            s.setTitle("Admin Main");
+            s.setScene(sc);
+            s.show();
+            }
+            catch (Exception e) {
+                System.out.println("Something done fucked up");
+            }
+        }
+    }
  }
     
     /**
