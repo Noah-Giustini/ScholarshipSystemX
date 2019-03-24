@@ -14,6 +14,7 @@ import java.time.Month;
 import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,8 +24,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -44,25 +47,15 @@ public class CreateScholarshipFXMLController implements Initializable {
     private Font x1;
     @FXML
     private Button buttonSaveProgress;
-    @FXML
-    private Button buttonSubmitScholarship;
-    @FXML
     private TextField txtEnterSchName;
     @FXML
     private TextArea txtSchDescription;
-    @FXML
     private CheckBox chkGPA;
-    @FXML
     private DatePicker dateGetter;
-    @FXML
     private TextField txtAmount;
-    @FXML
     private TextField txtNumRecipients;
-    @FXML
     private CheckBox chkbach;
-    @FXML
     private CheckBox chkmaster;
-    @FXML
     private CheckBox chkDoctorate;
     @FXML
     private TextArea txtCustom1;
@@ -106,6 +99,20 @@ public class CreateScholarshipFXMLController implements Initializable {
     private Label lblcus9;
     @FXML
     private TextArea txtCustom9;
+    @FXML
+    private Button buttonSubmitApplication;
+    @FXML
+    private Label lblScholarshipName;
+    @FXML
+    private TextField txtGPA;
+    @FXML
+    private RadioButton rdioBachelors;
+    @FXML
+    private ToggleGroup EDUlevel;
+    @FXML
+    private RadioButton rdioMasters;
+    @FXML
+    private RadioButton rdioDoctorate;
 
     /**
      * Initializes the controller class.
@@ -216,7 +223,6 @@ public class CreateScholarshipFXMLController implements Initializable {
         statustxt.setText("Save Succesful");
     }
     
-    @FXML
     private void addCustomQuestion(MouseEvent event) {
         
         if (!(lblcus1.isVisible())){
@@ -393,6 +399,18 @@ public class CreateScholarshipFXMLController implements Initializable {
                 else {
                     Seng300.theManager.addSavedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3, cus4, cus5, cus6, cus7, cus8, cus9);
                 }
+    }
+
+    @FXML
+    private void backFromApplicationCreator(ActionEvent event) {
+    }
+
+    @FXML
+    private void saveApplication(ActionEvent event) {
+    }
+
+    @FXML
+    private void submitApplication(ActionEvent event) {
     }
 
 }

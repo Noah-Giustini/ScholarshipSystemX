@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="602.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdditionalScenes.CreateScholarshipFXMLController">
+  <children>
+      <ToolBar prefHeight="0.0" prefWidth="817.0">
+        <items>
+          <Button fx:id="buttonBack" mnemonicParsing="false" onAction="#backFromApplicationCreator" onMouseClicked="#backFromScholarshipCreator" text="Back">
+               <font>
+                  <Font name="Georgia" size="11.0" />
+               </font>
+            </Button>
+        </items>
+      </ToolBar>
+    <SplitPane dividerPositions="0.23162583518930957" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane>
+          <children>
+                  <ImageView fitHeight="551.0" fitWidth="213.0" layoutY="1.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@destop-wallpaper-February16-phone.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="56.0" fitWidth="186.0" layoutX="10.0" layoutY="48.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@pink-marble-texture-background-abstract-marble-texture-natural-patterns_41389-205.jpg" />
+                     </image>
+                  </ImageView>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="62.0" minWidth="60.0" prefHeight="27.0" prefWidth="186.0" style="&#10;" text="Application" textAlignment="CENTER" textFill="#574753" wrapText="false">
+              <font>
+                <Font name="Georgia Bold" size="18.0" fx:id="x1" />
+              </font>
+            </Label>
+                  <Button fx:id="buttonSaveProgress" layoutX="51.0" layoutY="477.0" mnemonicParsing="false" onAction="#saveApplication" onMouseClicked="#handleSaveScholarship" text="Save Progress" textFill="#574753">
+                     <font>
+                        <Font name="Georgia" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonSubmitApplication" layoutX="37.0" layoutY="513.0" mnemonicParsing="false" onAction="#submitApplication" onMouseClicked="#handleSubmitScholarship" text="Submit Application" textFill="#574753">
+                     <font>
+                        <Font name="Georgia" size="13.0" />
+                     </font>
+                  </Button>
+          </children>
+        </AnchorPane>
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="1143.0" prefWidth="707.0">
+              <children>
+                        <ImageView fitHeight="1199.0" fitWidth="713.0" layoutY="-11.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@pink-marble-texture-background-abstract-marble-texture-natural-patterns_41389-205.jpg" />
+                           </image>
+                        </ImageView>
+                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" textAlignment="CENTER" wrapText="false" />
+                        <TextArea fx:id="txtSchDescription" editable="false" layoutX="14.0" layoutY="93.0" prefHeight="125.0" prefWidth="545.0" />
+                        <Label layoutX="14.0" layoutY="64.0" text="Scholarship Description :">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="260.0" text="Select Education Level : ">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblcus1" layoutX="14.0" layoutY="438.0" text="Custom Question 1 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom1" layoutX="9.0" layoutY="457.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus2" layoutX="12.0" layoutY="510.0" text="Custom Question 2 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom2" layoutX="9.0" layoutY="536.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus3" layoutX="12.0" layoutY="588.0" text="Custom Question 3 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom3" layoutX="9.0" layoutY="616.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus4" layoutX="13.0" layoutY="667.0" text="Custom Question 4 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom4" layoutX="9.0" layoutY="694.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus5" layoutX="12.0" layoutY="747.0" text="Custom Question 5:" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom5" layoutX="9.0" layoutY="773.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <TextArea fx:id="txtCustom6" layoutX="9.0" layoutY="854.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus6" layoutX="12.0" layoutY="823.0" text="Custom Question 6 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblcus7" layoutX="13.0" layoutY="905.0" text="Custom Question 7 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom7" layoutX="9.0" layoutY="933.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus8" layoutX="12.0" layoutY="985.0" text="Custom Question 8 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom8" layoutX="9.0" layoutY="1014.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblcus9" layoutX="13.0" layoutY="1061.0" text="Custom Question 9 :" visible="false">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="txtCustom9" layoutX="9.0" layoutY="1091.0" prefHeight="41.0" prefWidth="545.0" visible="false" />
+                        <Label fx:id="lblScholarshipName" layoutX="26.0" layoutY="16.0" prefHeight="32.0" prefWidth="242.0" text="Scholarship Name">
+                           <font>
+                              <Font name="Arial" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="19.0" layoutY="226.0" text="GPA">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtGPA" layoutX="64.0" layoutY="224.0" prefHeight="25.0" prefWidth="54.0" />
+                        <RadioButton fx:id="rdioBachelors" layoutX="21.0" layoutY="286.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="98.0" selected="true" text="Bachelors">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="EDUlevel" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rdioMasters" layoutX="103.0" layoutY="286.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="98.0" text="Masters" toggleGroup="$EDUlevel" />
+                        <RadioButton fx:id="rdioDoctorate" layoutX="193.0" layoutY="286.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="98.0" text="Doctorate" toggleGroup="$EDUlevel" />
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="18.0" prefWidth="934.0" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefHeight="57.0" prefWidth="826.0" HBox.hgrow="ALWAYS" />
+        <Label fx:id="statustxt" alignment="CENTER_RIGHT" font="$x3" maxWidth="-1.0" prefHeight="16.0" prefWidth="824.0" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
