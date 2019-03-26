@@ -5,6 +5,7 @@
  */
 package AdditionalScenes;
 
+import backend.Application;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -127,6 +128,40 @@ public class CreateApplicationFXMLController implements Initializable {
 
     @FXML
     private void saveApplication(ActionEvent event) {
+        String gpa = txtGPA.getText();
+        String name = Seng300.theManager.getUser();
+        String sch = lblScholarshipName.getText();
+        if(checkGPA(gpa)){
+            if(rdioBachelors.isSelected()){
+                try{
+                Application newApp = new Application(sch, name, false);
+                }
+                catch (Exception e){
+                    System.out.println("Please stop throwing exception");
+                    System.out.println("But the error was in SaveApplication in create application controller");
+                }
+            }
+            else if(rdioMasters.isSelected()){
+                try{
+                Application newApp = new Application(sch, name, false);
+                }
+                catch (Exception e){
+                    System.out.println("Please stop throwing exception");
+                    System.out.println("But the error was in SaveApplication in create application controller");
+                }
+            }
+            else {
+                try{
+                Application newApp = new Application(sch, name, false);
+                }
+                catch (Exception e){
+                    System.out.println("Please stop throwing exception");
+                    System.out.println("But the error was in SaveApplication in create application controller");
+                }
+                
+            }
+        }
+        
     }
 
     @FXML
@@ -136,5 +171,25 @@ public class CreateApplicationFXMLController implements Initializable {
     @FXML
     private void submitApplication(ActionEvent event) {
     }
+    
+    
+    private boolean checkGPA(String gpa){
+        double toCheck = 0.0;
+        try{
+            toCheck = Double.parseDouble(gpa);
+        }
+        catch( NumberFormatException e){
+            return false;
+        }
+        
+        if(toCheck >= 0.0 && toCheck <= 4.0){
+            return true;
+        }
+        else{
+            return false;
+        }  
+    }
+    
+    
     
 }

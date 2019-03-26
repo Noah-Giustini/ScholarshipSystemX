@@ -137,6 +137,7 @@ public class loginPageController implements Initializable {
         }
         if (type.equals("student")) {
                     Seng300.theManager.loadApplications("Napolean");
+                    Seng300.theManager.setUser("Napolean");
                     Parent root = FXMLLoader.load(getClass().getResource("studentMainPage.fxml"));
                     Scene sc = new Scene(root);
                     Stage s = Seng300.mainStage;

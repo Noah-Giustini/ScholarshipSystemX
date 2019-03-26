@@ -23,6 +23,7 @@ public class Manager{
         private ArrayList<Application> studentApplications = new ArrayList<Application>();
         private ArrayList<Application> draftApplications = new ArrayList<Application>();
         private boolean editMode = false;
+        private String user;
 
 	
 	/**
@@ -137,6 +138,14 @@ public class Manager{
             this.studentApplications.add(app);
         }
         
+        public String getUser(){
+            return this.user;
+        }
+        
+        public void setUser(String user){
+            this.user = user;
+        }
+        
         
         
         
@@ -240,6 +249,15 @@ public class Manager{
                 }
             }
         }
+    }
+    
+    public void loadDraftApplications(){
+        
+    }
+    
+    
+    public void getStudentApplication(String sch, String student){
+        
     }
         
 }
