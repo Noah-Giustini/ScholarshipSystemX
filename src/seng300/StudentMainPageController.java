@@ -162,6 +162,9 @@ public class StudentMainPageController implements Initializable {
         // TODO
         applicationStartUp();
         draftApplicationStartUp();
+        schStartUp();
+        System.out.println(Seng300.theManager.getScholarships());
+        
     }    
 
 
@@ -234,6 +237,7 @@ public class StudentMainPageController implements Initializable {
         r.setVisible(true);
 
     }
+
         
     private void showDraftApplicationInView(String s, Label l, RadioButton r) {
         l.setText(s.substring(0, s.length()));
@@ -267,7 +271,7 @@ public class StudentMainPageController implements Initializable {
                                 toAdd = currentApplications.get(5).getScholarship();
                                 showApplicationInView(toAdd, lblScholarship6, lbldate6, radioSchol6);
                                 if (size > 6) {
-                                    toAdd = currentApplications.get(7).getScholarship();
+                                    toAdd = currentApplications.get(6).getScholarship();
                                     showApplicationInView(toAdd, lblScholarship7, lbldate7, radioSchol7);
 
                                 }
@@ -302,7 +306,7 @@ public class StudentMainPageController implements Initializable {
                                 toAdd = allTheDraftApplications.get(5).getScholarship();
                                 showDraftApplicationInView(toAdd, lblDraft6, rdoDraft61);
                                 if (sizeDraft > 6) {
-                                    toAdd = allTheDraftApplications.get(7).getScholarship();
+                                    toAdd = allTheDraftApplications.get(6).getScholarship();
                                     showDraftApplicationInView(toAdd, lblDraft7, rdoDraft71);
                                 }
                             }
@@ -311,6 +315,42 @@ public class StudentMainPageController implements Initializable {
                 }
             }
         }
+    }
+
+    private void schStartUp() {
+        ArrayList<Scholarship> schs = Seng300.theManager.getScholarships();
+        int size = schs.size();
+        if (size > 0) {
+            String toAdd = schs.get(0).getName();
+            showDraftApplicationInView(toAdd, lblOpenSchol1, rdoDraft1);
+            if (size > 1) {
+                toAdd = schs.get(1).getName();
+                showDraftApplicationInView(toAdd, lblOpenSchol2, rdoDraft2);
+                if (size > 2) {
+                    toAdd = schs.get(2).getName();
+                    showDraftApplicationInView(toAdd, lblOpenSchol3, rdoDraft3);
+                    if (size > 3) {
+                        toAdd = schs.get(3).getName();
+                        showDraftApplicationInView(toAdd, lblOpenSchol4,rdoDraft4);
+                        if (size > 4) {
+                            toAdd = schs.get(4).getName();
+                            showDraftApplicationInView(toAdd, lblOpenSchol5, rdoDraft5);
+                            if (size > 5) {
+                                toAdd = schs.get(5).getName();
+                                showDraftApplicationInView(toAdd, lblOpenSchol6, rdoDraft6);
+                                if (size > 6) {
+                                    toAdd = schs.get(6).getName();
+                                    showDraftApplicationInView(toAdd, lblOpenSchol7, rdoDraft7);
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
     
     
