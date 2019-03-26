@@ -133,6 +133,9 @@ public class Manager{
         public ArrayList<Application> getDraftApplications(){
             return this.draftApplications;
         }
+        public void addDraftApplication(Application app){
+            this.draftApplications.add(app);
+        }
         
         public void addApplication(Application app){
             this.studentApplications.add(app);

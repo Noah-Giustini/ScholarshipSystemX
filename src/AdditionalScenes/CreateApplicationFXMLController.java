@@ -135,6 +135,7 @@ public class CreateApplicationFXMLController implements Initializable {
             if(rdioBachelors.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
+                Seng300.theManager.addDraftApplication(newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -144,6 +145,7 @@ public class CreateApplicationFXMLController implements Initializable {
             else if(rdioMasters.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
+                Seng300.theManager.addDraftApplication(newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -153,6 +155,7 @@ public class CreateApplicationFXMLController implements Initializable {
             else {
                 try{
                 Application newApp = new Application(sch, name, false);
+                Seng300.theManager.addDraftApplication(newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
