@@ -160,6 +160,8 @@ public class StudentMainPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        applicationStartUp();
+        draftApplicationStartUp();
     }    
 
 
@@ -222,5 +224,94 @@ public class StudentMainPageController implements Initializable {
         s.show(); 
         
     }
+    
+    
+    private void showApplicationInView(String s, Label l, Label d, RadioButton r) {
+        l.setText(s.substring(0, s.length() - 11));
+        d.setText(s.substring(s.length() - 11));
+        l.setVisible(true);
+        d.setVisible(true);
+        r.setVisible(true);
+
+    }
+        
+    private void showDraftApplicationInView(String s, Label l, RadioButton r) {
+        l.setText(s.substring(0, s.length() - 11));
+        l.setVisible(true);
+        r.setVisible(true);
+    }
+    
+    
+        private void applicationStartUp(){
+        ArrayList<Application> currentApplications = Seng300.theManager.getStudentApplications();
+        int size = currentApplications.size();
+        if (size > 0) {
+            String toAdd = currentApplications.get(0).getScholarship();
+
+            showApplicationInView(toAdd, lblScholarship1, lbldate1, radioSchol1);
+
+            if (size > 1) {
+                toAdd = currentApplications.get(1).getScholarship();
+                showApplicationInView(toAdd, lblScholarship2, lbldate2, radioSchol2);
+                if (size > 2) {
+                    toAdd = currentApplications.get(2).getScholarship();
+                    showApplicationInView(toAdd, lblScholarship3, lbldate3, radioSchol3);
+
+                    if (size > 3) {
+                        toAdd = currentApplications.get(3).getScholarship();
+                        showApplicationInView(toAdd, lblScholarship4, lbldate4, radioSchol4);
+                        if (size > 4) {
+                            toAdd = currentApplications.get(4).getScholarship();
+                            showApplicationInView(toAdd, lblScholarship5, lbldate5, radioSchol5);
+                            if (size > 5) {
+                                toAdd = currentApplications.get(5).getScholarship();
+                                showApplicationInView(toAdd, lblScholarship6, lbldate6, radioSchol6);
+                                if (size > 6) {
+                                    toAdd = currentApplications.get(7).getScholarship();
+                                    showApplicationInView(toAdd, lblScholarship7, lbldate7, radioSchol7);
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+        private void draftApplicationStartUp(){
+        ArrayList<Application> allTheDraftApplications = Seng300.theManager.getDraftApplications();
+        
+        int sizeDraft = allTheDraftApplications.size();
+        if (sizeDraft > 0) {
+            String toAdd = allTheDraftApplications.get(0).getScholarship();
+            showDraftApplicationInView(toAdd, lblDraft1, rdoDraft1);
+            if (sizeDraft > 1) {
+                toAdd = allTheDraftApplications.get(1).getScholarship();
+                showDraftApplicationInView(toAdd, lblDraft2, rdoDraft2);
+                if (sizeDraft > 2) {
+                    toAdd = allTheDraftApplications.get(2).getScholarship();
+                    showDraftApplicationInView(toAdd, lblDraft3, rdoDraft3);
+                    if (sizeDraft > 3) {
+                        toAdd = allTheDraftApplications.get(3).getScholarship();
+                        showDraftApplicationInView(toAdd, lblDraft4, rdoDraft4);
+                        if (sizeDraft > 4) {
+                            toAdd = allTheDraftApplications.get(4).getScholarship();
+                            showDraftApplicationInView(toAdd, lblDraft5, rdoDraft5);
+                            if (sizeDraft > 5) {
+                                toAdd = allTheDraftApplications.get(5).getScholarship();
+                                showDraftApplicationInView(toAdd, lblDraft6, rdoDraft6);
+                                if (sizeDraft > 6) {
+                                    toAdd = allTheDraftApplications.get(7).getScholarship();
+                                    showDraftApplicationInView(toAdd, lblDraft7, rdoDraft7);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
 }

@@ -21,6 +21,7 @@ public class Manager{
         private Scholarship currentScholarship;
         private Application currentApplication;
         private ArrayList<Application> studentApplications = new ArrayList<Application>();
+        private ArrayList<Application> draftApplications = new ArrayList<Application>();
         private boolean editMode = false;
 
 	
@@ -128,6 +129,16 @@ public class Manager{
             return this.studentApplications;
         }
         
+        public ArrayList<Application> getDraftApplications(){
+            return this.draftApplications;
+        }
+        
+        public void addApplication(Application app){
+            this.studentApplications.add(app);
+        }
+        
+        
+        
         
         public ArrayList<String> showSubmittedScholarships(){
             try {
@@ -208,4 +219,29 @@ public class Manager{
             }
         }
     }
+   
+    public void loadApplications(String student){
+        File folder = new File("Applications");
+        File[] listOfFiles = folder.listFiles();
+        String ending = student + ".txt";
+        int nameLength = ending.length();
+        for (File a : listOfFiles) {
+            if (a.isFile() && a.getName().endsWith(ending)) {
+                String name = a.getName().substring(0, (a.getName().length() - 4));
+                int length = a.getName().length();
+                
+                String sch = a.getName().substring(0, length - nameLength);
+                try {
+                    Application newApp = new Application(sch, student, true);
+
+                    this.addApplication(newApp);
+                } catch (Exception e) {
+                    System.out.println("Something done fucked up loading scholarships");
+                }
+            }
+        }
+    }
+        
 }
+    
+
