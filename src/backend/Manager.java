@@ -231,9 +231,9 @@ public class Manager{
             }
         }
     }
-   
-    public void loadApplications(String student){
-        File folder = new File("Applications");
+    
+    public void loadApps(String path, String student, boolean submit){
+        File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
         String ending = student + ".txt";
         int nameLength = ending.length();
@@ -244,19 +244,29 @@ public class Manager{
                 
                 String sch = a.getName().substring(0, length - nameLength);
                 try {
-                    Application newApp = new Application(sch, student, true);
-
-                    this.addApplication(newApp);
+                    
+                    Application newApp = new Application(sch, student, submit);
+                    
+                    if(submit){
+                        this.addApplication(newApp);
+                    }
+                    else{
+                        this.addDraftApplication(newApp);
+                    }
+                        
                 } catch (Exception e) {
-                    System.out.println("Something done fucked up loading scholarships");
+                    System.out.println("Something done fucked up loading applications from " + path);
                 }
             }
         }
     }
     
-    public void loadDraftApplications(){
-        
+    public void loadAllApps(String student){
+        loadApps("ApplicationDrafts", student, false);
+        loadApps("Applications", student, true);
     }
+        
+    
     
     
     public void getStudentApplication(String sch, String student){

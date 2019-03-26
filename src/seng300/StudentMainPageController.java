@@ -227,8 +227,8 @@ public class StudentMainPageController implements Initializable {
     
     
     private void showApplicationInView(String s, Label l, Label d, RadioButton r) {
-        l.setText(s.substring(0, s.length() - 11));
-        d.setText(s.substring(s.length() - 11));
+        l.setText(s.substring(0, s.length()));
+        d.setText(s.substring(s.length()));
         l.setVisible(true);
         d.setVisible(true);
         r.setVisible(true);
@@ -236,7 +236,7 @@ public class StudentMainPageController implements Initializable {
     }
         
     private void showDraftApplicationInView(String s, Label l, RadioButton r) {
-        l.setText(s.substring(0, s.length() - 11));
+        l.setText(s.substring(0, s.length()));
         l.setVisible(true);
         r.setVisible(true);
     }
@@ -285,25 +285,25 @@ public class StudentMainPageController implements Initializable {
         int sizeDraft = allTheDraftApplications.size();
         if (sizeDraft > 0) {
             String toAdd = allTheDraftApplications.get(0).getScholarship();
-            showDraftApplicationInView(toAdd, lblDraft1, rdoDraft1);
+            showDraftApplicationInView(toAdd, lblDraft1, rdoDraft11);
             if (sizeDraft > 1) {
                 toAdd = allTheDraftApplications.get(1).getScholarship();
-                showDraftApplicationInView(toAdd, lblDraft2, rdoDraft2);
+                showDraftApplicationInView(toAdd, lblDraft2, rdoDraft21);
                 if (sizeDraft > 2) {
                     toAdd = allTheDraftApplications.get(2).getScholarship();
-                    showDraftApplicationInView(toAdd, lblDraft3, rdoDraft3);
+                    showDraftApplicationInView(toAdd, lblDraft3, rdoDraft31);
                     if (sizeDraft > 3) {
                         toAdd = allTheDraftApplications.get(3).getScholarship();
-                        showDraftApplicationInView(toAdd, lblDraft4, rdoDraft4);
+                        showDraftApplicationInView(toAdd, lblDraft4, rdoDraft41);
                         if (sizeDraft > 4) {
                             toAdd = allTheDraftApplications.get(4).getScholarship();
-                            showDraftApplicationInView(toAdd, lblDraft5, rdoDraft5);
+                            showDraftApplicationInView(toAdd, lblDraft5, rdoDraft51);
                             if (sizeDraft > 5) {
                                 toAdd = allTheDraftApplications.get(5).getScholarship();
-                                showDraftApplicationInView(toAdd, lblDraft6, rdoDraft6);
+                                showDraftApplicationInView(toAdd, lblDraft6, rdoDraft61);
                                 if (sizeDraft > 6) {
                                     toAdd = allTheDraftApplications.get(7).getScholarship();
-                                    showDraftApplicationInView(toAdd, lblDraft7, rdoDraft7);
+                                    showDraftApplicationInView(toAdd, lblDraft7, rdoDraft71);
                                 }
                             }
                         }
