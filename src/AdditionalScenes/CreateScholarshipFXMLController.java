@@ -223,6 +223,7 @@ public class CreateScholarshipFXMLController implements Initializable {
         statustxt.setText("Save Succesful");
     }
     
+    @FXML
     private void addCustomQuestion(MouseEvent event) {
         
         if (!(lblcus1.isVisible())){
