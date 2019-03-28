@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import seng300.Seng300;
 
 
 public class Manager{
@@ -269,8 +270,20 @@ public class Manager{
     
     
     
-    public void getStudentApplication(String sch, String student){
-        
+    public Application getStudentApplication(String sch){
+       File file = new File("Applications" + File.separator + sch + Seng300.theManager.getUser());
+       if(file.exists()){ 
+           try{
+           Application app = new Application(sch, Seng300.theManager.getUser(), true );
+           return app;
+           }
+           catch (Exception e){
+               System.out.println("Really need to catch those exceptions");
+               System.out.println("but error was getting a specfic application");
+           }           
+       }
+       System.out.println("File not found ");
+       return null;   
     }
         
 }

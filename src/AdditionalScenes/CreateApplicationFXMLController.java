@@ -25,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import seng300.Seng300;
 
 /**
@@ -128,10 +129,9 @@ public class CreateApplicationFXMLController implements Initializable {
 
     @FXML
     private void saveApplication(ActionEvent event) {
-        String gpa = txtGPA.getText();
         String name = Seng300.theManager.getUser();
         String sch = lblScholarshipName.getText();
-        if(checkGPA(gpa)){
+        if(checkGPA()){
             if(rdioBachelors.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
@@ -152,7 +152,7 @@ public class CreateApplicationFXMLController implements Initializable {
                     System.out.println("But the error was in SaveApplication in create application controller");
                 }
             }
-            else {
+            else if(rdioDoctorate.isSelected()) {
                 try{
                 Application newApp = new Application(sch, name, false);
                 Seng300.theManager.addDraftApplication(newApp);
@@ -161,9 +161,20 @@ public class CreateApplicationFXMLController implements Initializable {
                     System.out.println("Please stop throwing exception");
                     System.out.println("But the error was in SaveApplication in create application controller");
                 }
-                
             }
         }
+        else{ //GPA not valid or missing
+            try{
+                Application newApp = new Application(sch, name, false);
+                Seng300.theManager.addDraftApplication(newApp);
+                }
+                catch (Exception e){
+                    System.out.println("Please stop throwing exception");
+                    System.out.println("But the error was in SaveApplication in create application controller");
+                }
+        }
+        
+        
         
     }
 
@@ -173,11 +184,27 @@ public class CreateApplicationFXMLController implements Initializable {
 
     @FXML
     private void submitApplication(ActionEvent event) {
+        if(isValid()){
+            String sch = lblScholarshipName.getText();
+            try{
+                Application newApp = new Application(sch, Seng300.theManager.getUser(), true);
+                Seng300.theManager.addApplication(newApp);
+                JOptionPane.showMessageDialog(null, "Application has been submitted ");
+                }
+                catch (Exception e){
+                    System.out.println("Please stop throwing exception");
+                    System.out.println("But the error was in handle submit Application in create application controller");
+                }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please enter all required fields properly ");
+        }
     }
     
     
-    private boolean checkGPA(String gpa){
-        double toCheck = 0.0;
+    private boolean checkGPA(){
+        String gpa = txtGPA.getText();
+        double toCheck;
         try{
             toCheck = Double.parseDouble(gpa);
         }
@@ -191,6 +218,17 @@ public class CreateApplicationFXMLController implements Initializable {
         else{
             return false;
         }  
+    }
+
+    private boolean isValid() {
+        if (checkGPA()){
+            //probably should do more but oh well
+            return true;
+        }
+        else {
+            return false;
+        }
+          
     }
     
     
