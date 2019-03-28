@@ -219,13 +219,35 @@ public class StudentMainPageController implements Initializable {
 
     @FXML
     private void openApplyToScholarshipWindow(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
-        Scene sc = new Scene(root);
-        Stage s = Seng300.mainStage; 
-        s.setTitle("Home");
-        s.setScene(sc);
-        s.show(); 
-        
+        ArrayList<Scholarship> schs = Seng300.theManager.getScholarships();
+        int index = 0;
+        if (radioSchol1.isSelected()) {
+            index = 0;
+        } else if (radioSchol2.isSelected()) {
+            index = 1;
+        } else if (radioSchol3.isSelected()) {
+            index = 2;
+        } else if (radioSchol4.isSelected()) {
+            index = 3;
+        } else if (radioSchol5.isSelected()) {
+            index = 4;
+        } else if (radioSchol6.isSelected()) {
+            index = 5;
+        } else if (radioSchol7.isSelected()) {
+            index = 6;
+        }
+        try {
+            Seng300.theManager.setCurrentScholarship(schs.get(index));
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
+            Scene sc = new Scene(root);
+            Stage s = Seng300.mainStage; 
+            s.setTitle("Home");
+            s.setScene(sc);
+            s.show(); 
+        }
+        catch (IndexOutOfBoundsException e) {
+
+        }
     }
     
     
