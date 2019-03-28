@@ -2,6 +2,7 @@
 package AdditionalScenes;
 //imports
 import backend.Application;
+import backend.Scholarship;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -95,13 +96,61 @@ public class CreateApplicationFXMLController implements Initializable {
     private Font x3;
     @FXML
     private Label statustxt;
+    @FXML
+    private Label GPAlbl;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Scholarship sch = Seng300.theManager.getCurrentScholarship();
+        lblScholarshipName.setText(sch.getName());
+        txtSchDescription.setText(sch.getDescription());
+        if(!sch.getGPAReq()){
+            txtGPA.setVisible(false);
+            GPAlbl.setVisible(false);
+        }
+        
+        if(!sch.getCustom1().isEmpty()){
+            lblcus1.setVisible(true);
+            lblcus1.setText(sch.getCustom1());
+            txtCustom1.setVisible(true);
+            if(!sch.getCustom2().isEmpty()){
+                lblcus2.setVisible(true);
+                lblcus2.setText(sch.getCustom2());
+                txtCustom2.setVisible(true);
+                if(!sch.getCustom3().isEmpty()){
+                    lblcus3.setVisible(true);
+                    lblcus3.setText(sch.getCustom1());
+                    txtCustom3.setVisible(true);
+                    if(!sch.getCustom4().isEmpty()){
+                        lblcus4.setVisible(true);
+                        txtCustom4.setVisible(true);
+                        if(!sch.getCustom5().isEmpty()){
+                            lblcus5.setVisible(true);
+                            txtCustom5.setVisible(true);
+                            if(!sch.getCustom6().isEmpty()){
+                                lblcus6.setVisible(true);
+                                txtCustom6.setVisible(true);
+                                if(!sch.getCustom7().isEmpty()){
+                                    lblcus7.setVisible(true);
+                                    txtCustom7.setVisible(true);
+                                    if(!sch.getCustom8().isEmpty()){
+                                        lblcus8.setVisible(true);
+                                        txtCustom8.setVisible(true);
+                                        if(!sch.getCustom9().isEmpty()){
+                                            lblcus9.setVisible(true);
+                                            txtCustom9.setVisible(true);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     //i dont think we need this
     @FXML

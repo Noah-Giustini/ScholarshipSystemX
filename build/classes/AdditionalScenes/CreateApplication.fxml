@@ -148,7 +148,7 @@
                               <Font name="Arial" size="22.0" />
                            </font>
                         </Label>
-                        <Label layoutX="19.0" layoutY="226.0" text="GPA">
+                        <Label fx:id="GPAlbl" layoutX="19.0" layoutY="226.0" text="GPA">
                            <font>
                               <Font size="15.0" />
                            </font>
