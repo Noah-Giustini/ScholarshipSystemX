@@ -195,7 +195,7 @@ public class StudentMainPageController implements Initializable {
         }
         try{
             Seng300.theManager.setCurrentApplication(apps.get(index));
-            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/StudentApplicationView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/studentApplicationView.fxml"));
             Scene sc = new Scene(root);
             Stage s = Seng300.mainStage; 
             s.setTitle("Home");
