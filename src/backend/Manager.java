@@ -285,6 +285,14 @@ public class Manager{
        System.out.println("File not found ");
        return null;   
     }
+    
+    
+    public void clearOnLogout(){
+        studentApplications.clear();
+        this.scholarshipdrafts.clear();
+        this.scholarships.clear();
+        draftApplications.clear();
+    }
         
 }
     

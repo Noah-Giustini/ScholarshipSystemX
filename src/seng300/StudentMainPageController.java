@@ -166,6 +166,22 @@ public class StudentMainPageController implements Initializable {
         System.out.println(Seng300.theManager.getScholarships());
         
     }    
+    
+    @FXML
+    private void handleLogoutStu(javafx.event.ActionEvent event){
+    try{
+        Seng300.theManager.clearOnLogout();
+        Parent root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
+        Scene sc = new Scene(root);
+        Stage s = Seng300.mainStage;
+                s.setTitle("Admin Main");
+                s.setScene(sc);
+                s.show();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML

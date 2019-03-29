@@ -187,7 +187,6 @@ public class CreateApplicationFXMLController implements Initializable {
             if(rdioBachelors.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
-                Seng300.theManager.addDraftApplication(newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -197,7 +196,6 @@ public class CreateApplicationFXMLController implements Initializable {
             else if(rdioMasters.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
-                Seng300.theManager.addDraftApplication(newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -207,7 +205,6 @@ public class CreateApplicationFXMLController implements Initializable {
             else if(rdioDoctorate.isSelected()) {
                 try{
                 Application newApp = new Application(sch, name, false);
-                Seng300.theManager.addDraftApplication(newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -218,7 +215,6 @@ public class CreateApplicationFXMLController implements Initializable {
         else{ //GPA not valid or missing
             try{
                 Application newApp = new Application(sch, name, false);
-                Seng300.theManager.addDraftApplication(newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -243,7 +239,6 @@ public class CreateApplicationFXMLController implements Initializable {
             String sch = lblScholarshipName.getText();
             try{
                 Application newApp = new Application(sch, Seng300.theManager.getUser(), true);
-                Seng300.theManager.addApplication(newApp);
                 JOptionPane.showMessageDialog(null, "Application has been submitted ");
                 }
                 catch (Exception e){
@@ -291,6 +286,7 @@ public class CreateApplicationFXMLController implements Initializable {
         }
           
     }
+    
     
     
     

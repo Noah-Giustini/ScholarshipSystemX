@@ -137,8 +137,8 @@ public class loginPageController implements Initializable {
         }
         if (type.equals("student")) {
                     //change Napolean to type once more students have been added to login
-                    Seng300.theManager.setUser("Napolean");
-                    Seng300.theManager.loadAllApps("Napolean");
+                    Seng300.theManager.setUser(loginUsernameField.getText());
+                    Seng300.theManager.loadAllApps(loginUsernameField.getText());
                     Seng300.theManager.startUp();
                     
                     Parent root = FXMLLoader.load(getClass().getResource("studentMainPage.fxml"));
