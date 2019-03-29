@@ -237,19 +237,19 @@ public class StudentMainPageController implements Initializable {
     private void openApplyToScholarshipWindow(ActionEvent event) throws IOException{
         ArrayList<Scholarship> schs = Seng300.theManager.getScholarships();
         int index = 0;
-        if (radioSchol1.isSelected()) {
+        if (rdoDraft11.isSelected()) {
             index = 0;
-        } else if (radioSchol2.isSelected()) {
+        } else if (rdoDraft2.isSelected()) {
             index = 1;
-        } else if (radioSchol3.isSelected()) {
+        } else if (rdoDraft3.isSelected()) {
             index = 2;
-        } else if (radioSchol4.isSelected()) {
+        } else if (rdoDraft4.isSelected()) {
             index = 3;
-        } else if (radioSchol5.isSelected()) {
+        } else if (rdoDraft5.isSelected()) {
             index = 4;
-        } else if (radioSchol6.isSelected()) {
+        } else if (rdoDraft6.isSelected()) {
             index = 5;
-        } else if (radioSchol7.isSelected()) {
+        } else if (rdoDraft7.isSelected()) {
             index = 6;
         }
         try {

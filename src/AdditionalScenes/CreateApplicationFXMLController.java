@@ -5,6 +5,7 @@ import backend.Application;
 import backend.Scholarship;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -183,10 +184,11 @@ public class CreateApplicationFXMLController implements Initializable {
     private void saveApplication(ActionEvent event) {
         String name = Seng300.theManager.getUser();
         String sch = lblScholarshipName.getText();
-        if(checkGPA()){
+        if(checkGPA() || !Seng300.theManager.getCurrentScholarship().getGPAReq()){
             if(rdioBachelors.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
+                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -196,6 +198,7 @@ public class CreateApplicationFXMLController implements Initializable {
             else if(rdioMasters.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
+                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -205,6 +208,7 @@ public class CreateApplicationFXMLController implements Initializable {
             else if(rdioDoctorate.isSelected()) {
                 try{
                 Application newApp = new Application(sch, name, false);
+                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -215,6 +219,7 @@ public class CreateApplicationFXMLController implements Initializable {
         else{ //GPA not valid or missing
             try{
                 Application newApp = new Application(sch, name, false);
+                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -239,6 +244,7 @@ public class CreateApplicationFXMLController implements Initializable {
             String sch = lblScholarshipName.getText();
             try{
                 Application newApp = new Application(sch, Seng300.theManager.getUser(), true);
+                maybeAddApp(Seng300.theManager.getStudentApplications(), newApp);
                 JOptionPane.showMessageDialog(null, "Application has been submitted ");
                 }
                 catch (Exception e){
@@ -285,6 +291,30 @@ public class CreateApplicationFXMLController implements Initializable {
             return false;
         }
           
+    }
+    
+    
+    /**
+     * will add the application to the given arraylist stored in manager.
+     * If an application already exists for the same scholarship then it will
+     * replace the old one with this one.
+     * So basically you can apply and save as many times as you want but only the
+     * most recent one will be saved 
+     * @param apps  arraylist to add the application to (drafts or completed)
+     * @param toAdd application to add to the arraylist
+     */
+    private void maybeAddApp(ArrayList<Application> apps, Application toAdd){
+        boolean added = false;
+        for(int i = 0; i< apps.size(); i++){
+            if (apps.get(i).getScholarship().equals(toAdd.getScholarship())){
+                apps.set(i, toAdd);
+                added = true;
+                break;
+            }
+        }
+        if(!added){
+            apps.add(toAdd);
+        }
     }
     
     
