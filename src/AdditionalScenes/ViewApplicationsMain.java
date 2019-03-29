@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//package information
 package AdditionalScenes;
-
+//import statements
 import seng300.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +13,11 @@ import javafx.stage.Stage;
  * @author Kaitlin
  */
 public class ViewApplicationsMain extends Application {
-    
+    /**
+     * start the scene
+     * @param stage the stage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
@@ -29,6 +29,7 @@ public class ViewApplicationsMain extends Application {
     }
 
     /**
+     * main
      * @param args the command line arguments
      */
     public static void main(String[] args) {
