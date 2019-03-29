@@ -24,6 +24,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import backend.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -179,6 +181,11 @@ public class MainPageController implements Initializable {
     
     @FXML
     private void editSubmitted(javafx.event.ActionEvent event) throws IOException {
+        try {
+            Seng300.theManager.findScholarships();
+        } catch (Exception ex) {
+            Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Scholarship> schols = Seng300.theManager.getScholarships();
         int index = 0;
         if (radioSchol1.isSelected()) {
@@ -218,6 +225,11 @@ public class MainPageController implements Initializable {
     
     @FXML
     private void editDraft(javafx.event.ActionEvent event) throws IOException {
+        try {
+            Seng300.theManager.findScholarshipDrafts();
+        } catch (Exception ex) {
+            Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Scholarship> schs = Seng300.theManager.getScholarshipDrafts();
         int index = 0;
         if (rdoDraft1.isSelected()) {
@@ -286,6 +298,7 @@ public class MainPageController implements Initializable {
             e.printStackTrace();
         }
     }
+    
     
     private void startUp(){
         ArrayList<String> allTheCurrentScholarships = Seng300.theManager.showSubmittedScholarships();

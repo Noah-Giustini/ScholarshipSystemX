@@ -37,7 +37,7 @@ import seng300.Seng300;
 /**
  * FXML Controller class
  *
- * @author Kaitlin
+ * @author Roxanne
  */
 public class CreateScholarshipFXMLController implements Initializable {
 
@@ -47,15 +47,23 @@ public class CreateScholarshipFXMLController implements Initializable {
     private Font x1;
     @FXML
     private Button buttonSaveProgress;
+    @FXML
     private TextField txtEnterSchName;
     @FXML
     private TextArea txtSchDescription;
+    @FXML
     private CheckBox chkGPA;
+    @FXML
     private DatePicker dateGetter;
+    @FXML
     private TextField txtAmount;
+    @FXML
     private TextField txtNumRecipients;
+    @FXML
     private CheckBox chkbach;
+    @FXML
     private CheckBox chkmaster;
+    @FXML
     private CheckBox chkDoctorate;
     @FXML
     private TextArea txtCustom1;
@@ -116,17 +124,16 @@ public class CreateScholarshipFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * If edit mode is enabled fields are auto-filled with information from draft. 
+     * Otherwise a blank scholarship creation page will be loaded.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         
         if (Seng300.theManager.getEditMode()){
-            
             Scholarship sch = Seng300.theManager.getCurrentScholarship();
-            
             txtEnterSchName.insertText(0, sch.getName());
-           
             if (!(sch.getDescription().equals("--") || sch.getDescription().trim().equals(""))){
                 txtSchDescription.insertText(0, sch.getDescription());
             }
@@ -209,7 +216,12 @@ public class CreateScholarshipFXMLController implements Initializable {
             }
         }
     }    
-
+    
+    /**
+     * If name of scholarship is given scholarship is saved to file system. 
+     * 
+     * @param event 
+     */
     @FXML
     private void handleSaveScholarship(MouseEvent event) {
         
@@ -223,6 +235,11 @@ public class CreateScholarshipFXMLController implements Initializable {
         statustxt.setText("Save Succesful");
     }
     
+    /**
+     * Allows admin to add up to 9 custom questions. 
+     * 
+     * @param event 
+     */
     @FXML
     private void addCustomQuestion(MouseEvent event) {
         
@@ -266,7 +283,13 @@ public class CreateScholarshipFXMLController implements Initializable {
             statustxt.setText("Maximum Number of Questions Reached");
         }
     }
-
+    
+    /**
+     * Allows admin to submit a scholarship if they have at least submitted a name. 
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void handleSubmitScholarship(MouseEvent event) throws IOException{
         
@@ -285,7 +308,13 @@ public class CreateScholarshipFXMLController implements Initializable {
         s.setScene(sc);
         s.show();
     }
-
+    
+    /**
+     * Loads main scholarship page without saving drafts. 
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void backFromScholarshipCreator(MouseEvent event) throws IOException {
         Seng300.theManager.setEditMode(false);
@@ -297,6 +326,11 @@ public class CreateScholarshipFXMLController implements Initializable {
         s.show();
     }
     
+    /**
+     * Gets information inputed in text fields when scholarship is saved or submitted.
+     * 
+     * @param sub 
+     */
     private void getFields(boolean sub){
         
                 boolean submit = sub;
