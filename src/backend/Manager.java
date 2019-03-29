@@ -14,7 +14,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import seng300.Seng300;
 
-
+/**
+ * Manager class communicates with backend classes, scholarship and application
+ * and makes sure required functionality for GUI controllers is provided. 
+ * 
+ * @author Owner
+ */
 public class Manager{
 
 	private ArrayList<Scholarship> scholarships = new ArrayList<Scholarship>(); 

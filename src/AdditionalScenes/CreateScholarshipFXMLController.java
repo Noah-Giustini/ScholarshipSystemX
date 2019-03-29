@@ -36,6 +36,9 @@ import seng300.Seng300;
 
 /**
  * FXML Controller class
+ * Controllers scholarship creation page in both edit and create modes.
+ * It allows users to enter information into fields to create or update
+ * a scholarship and to take a scholarship from draft to submitted status. 
  *
  * @author Roxanne
  */

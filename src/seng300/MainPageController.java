@@ -29,8 +29,10 @@ import java.util.logging.Logger;
 
 /**
  * FXML Controller class
+ * Controls the main admin page making sure scholarships are displayed correctly. 
+ * Allows admin to create or edit scholarships and to view scholarship applications.
  *
- * @author Kaitlin
+ * @author Kaitlin/Roxanne
  */
 public class MainPageController implements Initializable {
 
@@ -135,7 +137,13 @@ public class MainPageController implements Initializable {
         startUp();
     
     }
-
+    
+    /**
+     * When create new scholarship button is pressed the GUI is switched to the scholarship creation window. 
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void handleCreateNewScholarshipButtonAction(javafx.event.ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateScholarshipFXML.fxml"));
@@ -145,7 +153,13 @@ public class MainPageController implements Initializable {
         s.setScene(sc);
         s.show();
     }
-
+    
+    /**
+     * When the show applications button is pressed it shows the applications for the selected scholarship. 
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void openApplicationsWindow(javafx.event.ActionEvent event) throws IOException {
         ArrayList<Scholarship> schols = Seng300.theManager.getScholarships();
@@ -179,6 +193,13 @@ public class MainPageController implements Initializable {
 
     }
     
+    /**
+     * When button is pressed user is taken to the scholarship creation page with there submitted scholarship
+     * is loaded into the fields and ready to be edited. 
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void editSubmitted(javafx.event.ActionEvent event) throws IOException {
         try {
@@ -223,6 +244,13 @@ public class MainPageController implements Initializable {
 
     }
     
+    /**
+     * When button is pressed user is taken to the scholarship creation page with there scholarship
+     * draft loaded into the fields and ready to be edited. 
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void editDraft(javafx.event.ActionEvent event) throws IOException {
         try {
@@ -261,7 +289,15 @@ public class MainPageController implements Initializable {
         }
 
     }
-
+    
+    /**
+     * Makes submitted scholarships from file system visible on GUI.
+     * 
+     * @param s
+     * @param l
+     * @param d
+     * @param r 
+     */
     private void showScholarshipInView(String s, Label l, Label d, RadioButton r) {
         l.setText(s.substring(0, s.length() - 11));
         d.setText(s.substring(s.length() - 11));
@@ -271,6 +307,13 @@ public class MainPageController implements Initializable {
 
     }
     
+    /**
+     * Makes drafts scholarships from file system visible on GUI.
+     * 
+     * @param s
+     * @param l
+     * @param r 
+     */
     private void showDraftScholarshipInView(String s, Label l, RadioButton r) {
         l.setText(s.substring(0, s.length() - 11));
         l.setVisible(true);
@@ -282,7 +325,11 @@ public class MainPageController implements Initializable {
        startUp();
     }
     
-    
+    /**
+     * Take user to login page when button is pressed.
+     * 
+     * @param event 
+     */
     @FXML 
     private void handleLogout(javafx.event.ActionEvent event){
         try{
@@ -299,7 +346,10 @@ public class MainPageController implements Initializable {
         }
     }
     
-    
+    /**
+     * Makes sure correct labels are presented and radio buttons are pressed when scholarships are loaded
+     * into the GUI display. 
+     */
     private void startUp(){
         ArrayList<String> allTheCurrentScholarships = Seng300.theManager.showSubmittedScholarships();
         System.out.println(allTheCurrentScholarships);

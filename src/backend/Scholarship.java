@@ -11,6 +11,15 @@ import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
 
+/**
+ * Scholarship class manages the creation of scholarships and their interaction with the file system. 
+ * It allows information about scholarships to be stored in file system for later use. 
+ * Scholarship has methods to update, delete, create, edit, and retrieve information about a scholarship
+ * from the file system. 
+ * It also allows users to retrieve a list of applications associated with that scholarship in the file system.
+ * 
+ * @author Roxanne
+ */
 public class Scholarship {
 
     private boolean submit = false;

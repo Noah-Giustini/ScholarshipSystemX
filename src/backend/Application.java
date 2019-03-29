@@ -11,6 +11,14 @@ import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
 
+/**
+ * Application class manages the creation of applications and their interaction with the file system. 
+ * It allows information about applications to be stored in file system for later use.
+ * Application has methods to update, delete, create, edit, and retrieve information about an application
+ * from the file system. 
+ * 
+ * @author Roxanne
+ */
 public class Application{
 
 
@@ -549,6 +557,11 @@ public class Application{
 		return this.scholarship + "\n " + this.student + "\n Date Submitted: " + this.date + "\n GPA: " + this.gpa + "\n Education Level: " + this.edulvl + "\n Priority: " + this.priority + "\n Status: " + this.status;
 	}
         
+        /**
+         * Simple toString method created for the displaying for submitted scholarships in admin GUI
+         * 
+         * @return String with name of scholarship and date
+         */
         public String simpleToString(){
             return this.student + "\n Submitted: " + this.date + "\n Status: " + this.status;
         }
