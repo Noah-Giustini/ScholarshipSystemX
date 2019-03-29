@@ -188,7 +188,12 @@ public class CreateApplicationFXMLController implements Initializable {
             if(rdioBachelors.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
+                newApp.setEducationLevel("Bachelors");
+                if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
+                    newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+                }
                 maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
+                JOptionPane.showMessageDialog(null, "Application has been saved ");
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -198,7 +203,12 @@ public class CreateApplicationFXMLController implements Initializable {
             else if(rdioMasters.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
+                newApp.setEducationLevel("Masters");
+                if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
+                    newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+                }
                 maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
+                JOptionPane.showMessageDialog(null, "Application has been saved ");
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -208,7 +218,12 @@ public class CreateApplicationFXMLController implements Initializable {
             else if(rdioDoctorate.isSelected()) {
                 try{
                 Application newApp = new Application(sch, name, false);
+                newApp.setEducationLevel("Bachelors");
+                if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
+                    newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+                }
                 maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
+                JOptionPane.showMessageDialog(null, "Application has been saved ");
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -219,7 +234,17 @@ public class CreateApplicationFXMLController implements Initializable {
         else{ //GPA not valid or missing
             try{
                 Application newApp = new Application(sch, name, false);
+                if(this.rdioBachelors.isSelected()){
+                    newApp.setEducationLevel("Bachelors");
+                }
+                else if(this.rdioMasters.isSelected()){
+                    newApp.setEducationLevel("Masters");
+                }
+                else{ //Doctorate is selected
+                    newApp.setEducationLevel("Doctorate");
+                }
                 maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
+                JOptionPane.showMessageDialog(null, "Application has been saved ");
                 }
                 catch (Exception e){
                     System.out.println("Please stop throwing exception");
@@ -244,6 +269,16 @@ public class CreateApplicationFXMLController implements Initializable {
             String sch = lblScholarshipName.getText();
             try{
                 Application newApp = new Application(sch, Seng300.theManager.getUser(), true);
+                newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+                if(this.rdioBachelors.isSelected()){
+                    newApp.setEducationLevel("Bachelors");
+                }
+                else if(this.rdioMasters.isSelected()){
+                    newApp.setEducationLevel("Masters");
+                }
+                else{ //Doctorate is selected
+                    newApp.setEducationLevel("Doctorate");
+                }
                 maybeAddApp(Seng300.theManager.getStudentApplications(), newApp);
                 JOptionPane.showMessageDialog(null, "Application has been submitted ");
                 }

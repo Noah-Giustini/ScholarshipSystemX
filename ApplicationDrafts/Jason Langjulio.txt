@@ -5,10 +5,10 @@ Student
 julio
 
 GPA
-0.0
+4.0
 
 Education Level
---
+Masters
 
 Date
 --

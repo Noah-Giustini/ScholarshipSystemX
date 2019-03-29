@@ -123,6 +123,7 @@ public class loginPageController implements Initializable {
 
         if (type.equals("admin")) {
             try {
+                Seng300.theManager.setUser(loginUsernameField.getText());
                 Parent root = FXMLLoader.load(getClass().getResource("adminMainPage.fxml"));
                 Scene sc = new Scene(root);
                 Stage s = Seng300.mainStage;
