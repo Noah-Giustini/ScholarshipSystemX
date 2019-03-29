@@ -45,10 +45,6 @@ public class Manager{
 					scholarships.add(s);
 				}
 			}
-		
-		//for (int i = 0; i < scholarships.size(); i++){
-		//	System.out.println(scholarships.get(i));
-		//}	
 	}
 	
 	/**
@@ -73,12 +69,13 @@ public class Manager{
 				
 				}
 			}
-		
-		//for (int i = 0; i < scholarshipdrafts.size(); i++){
-		//	System.out.println(scholarshipdrafts.get(i));
-		//}	
 	}
 	
+        /**
+	* Getter that returns current scholarships
+        * 
+        * @return ArrayList of Current Scholarships
+	 */
 	public ArrayList<Scholarship> getScholarships(){
 		
 		ArrayList<Scholarship> newsch = new ArrayList<Scholarship>();
@@ -91,6 +88,11 @@ public class Manager{
 		return 	newsch;
 	}
 	
+        /**
+	* Getter that returns drafted scholarships
+        * 
+        * @return ArrayList of Drafted Scholarships
+	 */
 	public ArrayList<Scholarship> getScholarshipDrafts(){
 
 		ArrayList<Scholarship> newsch = new ArrayList<Scholarship>();
@@ -103,56 +105,122 @@ public class Manager{
 		return 	newsch;	
 	}
         
+        /**
+	* Getter that returns scholarship that is currently being worked with
+        * 
+        * @return Current Scholarship
+	 */
         public Scholarship getCurrentScholarship(){
             return this.currentScholarship;
         }
         
+        /**
+	* Setter that set scholarship that is currently being worked with
+        * 
+        * @param s, Working scholarship
+	 */
         public void setCurrentScholarship(Scholarship s){
             this.currentScholarship = s;
         }
         
+        /**
+         * Getter that gets current application that is being worked with
+         * 
+         * @return Current application
+         */
         public Application getCurrentApplication(){
             return this.currentApplication;
         }
         
+        /**
+         * Setter that sets what application is being worked with
+         * 
+         * @param s, Current application
+         */
         public void setCurrentApplication(Application s){
             this.currentApplication = s;
         }
         
+        /**
+         * Gets whether application creator should be entered in edit or create mode
+         * 
+         * @return True if edit mode should be entered
+         */
         public boolean getEditMode(){
             return this.editMode;
         }
         
+        /**
+         * Sets whether application creator should be entered in edit or create mode
+         * 
+         * @param ed 
+         */
         public void setEditMode(boolean ed){
             this.editMode = ed;
         }
         
+        /**
+         * Gets ArrayList of student applications
+         * 
+         * @return ArrayList of student applications
+         */
         public ArrayList<Application> getStudentApplications (){
             return this.studentApplications;
         }
         
+        /**
+         * Gets ArrayList of draft applications
+         * 
+         * @return ArrayList of draft applications
+         */
         public ArrayList<Application> getDraftApplications(){
             return this.draftApplications;
         }
+        
+        /**
+         * Adds an application to list of application drafts
+         * 
+         * @param app 
+         */
         public void addDraftApplication(Application app){
             this.draftApplications.add(app);
         }
         
+        /**
+         * Adds an application to the array of student applications
+         * 
+         * @param app 
+         */
         public void addApplication(Application app){
             this.studentApplications.add(app);
         }
         
+        /**
+         * Gets name of current user
+         * 
+         * @return current user
+         */
         public String getUser(){
             return this.user;
         }
         
+        /**
+         * Sets user of an application
+         * 
+         * @param user 
+         */
         public void setUser(String user){
             this.user = user;
         }
         
         
         
-        
+        /**
+         * Gets toStrings for submitted Scholarships.
+         * Used to display information about scholarships on the Gui.
+         * 
+         * @return ArrayList of toStrings of Submitted Scholarships
+         */
         public ArrayList<String> showSubmittedScholarships(){
             try {
                 findScholarships();
@@ -167,6 +235,12 @@ public class Manager{
             return toReturn;
         }
         
+        /**
+         * Gets toStrings for saved Scholarships.
+         * Used to display information about scholarships on the Gui.
+         * 
+         * @return ArrayList of toStrings of Saved Scholarships
+         */
         public ArrayList<String> showSavedScholarships(){
             try {
                 findScholarshipDrafts();
@@ -181,6 +255,21 @@ public class Manager{
             return toReturn;
         }
         
+        /**
+         * Creates a new scholarship and puts it in the submitted folder
+         * 
+         * @param schname, name of scholarship
+         * @param submit, true if scholarship should be submitted
+         * @param description, scholarship description
+         * @param gpa, true if GPA is required
+         * @param duedate, date scholarship is due by
+         * @param amt, amount of money given if scholarship is one
+         * @param numReciepients, number of students who can receive the scholarship
+         * @param bach, true if student can be bachelor
+         * @param mast, true if student can be master
+         * @param doc, true if student can be doctorate. 
+         * @param cs, custom questions 1-9
+         */
         public void addSubmittedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3, String cs4, String cs5, String cs6, String cs7, String cs8, String cs9){
             try {
                 scholarships.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3, cs4, cs5, cs6, cs7, cs8, cs9));
@@ -193,6 +282,21 @@ public class Manager{
             }
         }
         
+        /**
+         * Creates a new scholarship draft and puts it in the submitted folder
+         * 
+         * @param schname, name of scholarship
+         * @param submit, true if scholarship should be submitted
+         * @param description, scholarship description
+         * @param gpa, true if GPA is required
+         * @param duedate, date scholarship is due by
+         * @param amt, amount of money given if scholarship is one
+         * @param numReciepients, number of students who can receive the scholarship
+         * @param bach, true if student can be bachelor
+         * @param mast, true if student can be master
+         * @param doc, true if student can be doctorate. 
+         * @param cs, custom questions 1-9
+         */
         public void addSavedScholarship(String schname, boolean submit, String description, boolean gpa, String dueDate, double amt, int numReciepients, boolean bach, boolean mast, boolean doc, String cs1, String cs2, String cs3, String cs4, String cs5, String cs6, String cs7, String cs8, String cs9){
             try {
                 scholarshipdrafts.add(new Scholarship(schname, submit, description, gpa, dueDate, amt, numReciepients, bach, mast, doc, cs1, cs2, cs3, cs4, cs5, cs6, cs7, cs8, cs9));
@@ -201,6 +305,12 @@ public class Manager{
             }
         }
 	
+        /**
+         * Gets toString of applications so they can be displayed in the GUI
+         * 
+         * @param s
+         * @return 
+         */
         public ArrayList<String> showApplications( Scholarship s){
             ArrayList<String> toReturn = new ArrayList<String>();
             ArrayList<Application> apps = s.getApplications();
@@ -210,12 +320,16 @@ public class Manager{
             }
             return toReturn;
         }
-
+     
+        
     public void addSch(Scholarship newSch) {
         this.scholarships.add(newSch);
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    /**
+     * Gets scholarships from file system.
+     */
     public void startUp() {
         File folder = new File("Scholarships");
         File[] listOfFiles = folder.listFiles();
@@ -233,6 +347,13 @@ public class Manager{
         }
     }
     
+    /**
+     * Loads applications from file system.
+     * 
+     * @param path
+     * @param student
+     * @param submit 
+     */
     public void loadApps(String path, String student, boolean submit){
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
@@ -262,14 +383,22 @@ public class Manager{
         }
     }
     
+    /**
+     * Loads both application drafts and applications from file system
+     * 
+     * @param student 
+     */
     public void loadAllApps(String student){
         loadApps("ApplicationDrafts", student, false);
         loadApps("Applications", student, true);
     }
         
-    
-    
-    
+    /**
+     * Gets the applications for the current student.
+     * 
+     * @param sch
+     * @return 
+     */
     public Application getStudentApplication(String sch){
        File file = new File("Applications" + File.separator + sch + Seng300.theManager.getUser());
        if(file.exists()){ 
@@ -286,7 +415,9 @@ public class Manager{
        return null;   
     }
     
-    
+    /**
+     * Clears arrays when user logs out. 
+     */
     public void clearOnLogout(){
         studentApplications.clear();
         this.scholarshipdrafts.clear();
