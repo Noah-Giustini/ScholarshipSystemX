@@ -7,34 +7,38 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 //The Admin class is used to contain the methods that can be used only by an administrator of the system
-public class Admin{
+public class Admin {
 
     /**
-	 * confirm an application
-	 * @param s is of type Scholarship and is the scholarship that the students application is associated with
+     * confirm an application
+     *
+     * @param s is of type Scholarship and is the scholarship that the students
+     * application is associated with
      * @param a is of type Application and is the application to be confirmed
      * @return void
-	 */
-    public void confirmAward(Scholarship s, Application a) throws Exception{
+     */
+    public void confirmAward(Scholarship s, Application a) throws Exception {
         a.setStatus("Awarded");
-        s.setChosen(s.getChosen()+1);      
+        s.setChosen(s.getChosen() + 1);
         String name = s.getName();
         String student = a.getStudent();
         System.out.println("The scholarship " + name + " has been granted to student " + student + " and is awaiting their acceptance.");
     }
+
     /**
-	 * reject an application
-	 * @param s is of type Scholarship and is the scholarship that the students application is associated with
+     * reject an application
+     * @param s is of type Scholarship and is the scholarship that the students
+     * application is associated with
      * @param a is of type Application and is the application to be rejected
      * @return void
-	 */
-    public void rejectApplication(Scholarship s, Application a) throws Exception{
+     */
+    public void rejectApplication(Scholarship s, Application a) throws Exception {
         a.setStatus("Rejected");
         String name = s.getName();
         String student = a.getStudent();
         System.out.println("The application from student" + student + " has been rejected for the scholarship " + name);
     }
-    
+
     public boolean status(Scholarship s) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
@@ -50,26 +54,21 @@ public class Admin{
         int sdYear = Integer.parseInt(parts2[2]); //due date year
         boolean status = false;
 
-        if (sdYear < cdYear){
+        if (sdYear < cdYear) {
             status = true; //closed
-        }
-        else if (sdYear == cdYear){
-            if (sdMonth < cdMonth){
-            status = true; //closed
-            }
-            else if (sdMonth == cdMonth){
-                if (sdDay < cdDay){
+        } else if (sdYear == cdYear) {
+            if (sdMonth < cdMonth) {
                 status = true; //closed
-                }
-                else{
+            } else if (sdMonth == cdMonth) {
+                if (sdDay < cdDay) {
+                    status = true; //closed
+                } else {
                     status = false; // open
                 }
-            }
-            else{
+            } else {
                 status = false; // open
             }
-        }
-        else{
+        } else {
             status = false; //open
         }
         return status;
