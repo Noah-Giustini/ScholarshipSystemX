@@ -167,6 +167,11 @@ public class StudentMainPageController implements Initializable {
         
     }    
     
+    
+    /**
+     * Logouts current student and returns to the login page
+     * @param event event that triggers handler(button click)
+     */
     @FXML
     private void handleLogoutStu(javafx.event.ActionEvent event){
     try{
@@ -184,10 +189,17 @@ public class StudentMainPageController implements Initializable {
     }
 
 
+    /**
+     * Open the application view window
+     * @param event mouse click on button that triggers handler 
+     * @throws IOException 
+     */
     @FXML
     private void openStudentApplicationsWindow(ActionEvent event) throws IOException {
         ArrayList<Application> apps = Seng300.theManager.getStudentApplications();
         int index = 0;
+        
+        //checks what application was selected 
         if (radioSchol1.isSelected()){
             index = 0;
         }
@@ -210,6 +222,8 @@ public class StudentMainPageController implements Initializable {
             index = 6;
         }
         try{
+            
+            //load application view page 
             Seng300.theManager.setCurrentApplication(apps.get(index));
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/studentApplicationView.fxml"));
             Scene sc = new Scene(root);
@@ -227,16 +241,29 @@ public class StudentMainPageController implements Initializable {
         
     }
 
+    
+    /**
+     * does nothing so far
+     * Should open edit draft page
+     * @param event 
+     */
     @FXML
     private void openEditDraftPage(ActionEvent event) {
         
         
     }
 
+    /**
+     * Opens the window to apply to a specific scholarship
+     * @param event mouse click on button that triggered handler
+     * @throws IOException 
+     */
     @FXML
     private void openApplyToScholarshipWindow(ActionEvent event) throws IOException{
         ArrayList<Scholarship> schs = Seng300.theManager.getScholarships();
         int index = 0;
+        
+        //gets which application draft to load up
         if (rdoDraft11.isSelected()) {
             index = 0;
         } else if (rdoDraft2.isSelected()) {
@@ -253,6 +280,8 @@ public class StudentMainPageController implements Initializable {
             index = 6;
         }
         try {
+            
+            //load up create application window
             Seng300.theManager.setCurrentScholarship(schs.get(index));
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
             Scene sc = new Scene(root);
@@ -266,7 +295,13 @@ public class StudentMainPageController implements Initializable {
         }
     }
     
-    
+    /**
+     * Just sets up the labels and radio buttons for an application
+     * @param s string to put on label
+     * @param l label to add string to
+     * @param d label to set
+     * @param r radio button to make visible
+     */
     private void showApplicationInView(String s, Label l, Label d, RadioButton r) {
         l.setText(s.substring(0, s.length()));
         d.setText(s.substring(s.length()));
@@ -277,6 +312,12 @@ public class StudentMainPageController implements Initializable {
     }
 
         
+    /**
+     * sets up the draft applications in view
+     * @param s string to put on label
+     * @param l label to set the string on
+     * @param r radio button to set visible 
+     */
     private void showDraftApplicationInView(String s, Label l, RadioButton r) {
         l.setText(s.substring(0, s.length()));
         l.setVisible(true);
@@ -284,9 +325,15 @@ public class StudentMainPageController implements Initializable {
     }
     
     
+        /**
+         * loads up the applications for the student and sets it visible on the
+         * window
+         */
         private void applicationStartUp(){
         ArrayList<Application> currentApplications = Seng300.theManager.getStudentApplications();
         int size = currentApplications.size();
+        
+        //loads up certain amount of applications based on the size of the arraylist
         if (size > 0) {
             String toAdd = currentApplications.get(0).getScholarship();
 
@@ -321,10 +368,16 @@ public class StudentMainPageController implements Initializable {
             }
         }
     }
-        private void draftApplicationStartUp(){
+        
+    /**
+     * Shows draft applications on the window
+     */
+    private void draftApplicationStartUp(){
         ArrayList<Application> allTheDraftApplications = Seng300.theManager.getDraftApplications();
         
         int sizeDraft = allTheDraftApplications.size();
+        
+        //loads up view based on how many draft applications student have 
         if (sizeDraft > 0) {
             String toAdd = allTheDraftApplications.get(0).getScholarship();
             showDraftApplicationInView(toAdd, lblDraft1, rdoDraft11);
@@ -355,9 +408,15 @@ public class StudentMainPageController implements Initializable {
         }
     }
 
+    
+    /**
+     * loads up scholarships on the window
+     */
     private void schStartUp() {
         ArrayList<Scholarship> schs = Seng300.theManager.getScholarships();
         int size = schs.size();
+        
+        //shows scholarships in view based on how many scholarships there are 
         if (size > 0) {
             String toAdd = schs.get(0).getName();
             showDraftApplicationInView(toAdd, lblOpenSchol1, rdoDraft1);
