@@ -11,3 +11,6 @@ build/classes/AdditionalScenes/ApplicationsController.class
 *.class
 build/classes/backend/Scholarship.class
 *.properties
+dist/Seng300.html
+*.jar
+*.jnlp

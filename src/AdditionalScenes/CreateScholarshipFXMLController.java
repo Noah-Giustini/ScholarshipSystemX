@@ -424,19 +424,6 @@ public class CreateScholarshipFXMLController implements Initializable {
                     Seng300.theManager.addSavedScholarship(name, submit, desc, gpa, duedate, amount, recips, bach, mast, doc, cus1, cus2, cus3, cus4, cus5, cus6, cus7, cus8, cus9);
                 }
     }
-//what
-    @FXML
-    private void backFromApplicationCreator(ActionEvent event) {
-    }
-//why
-    @FXML
-    private void saveApplication(ActionEvent event) {
-    }
-//nani
-    @FXML
-    private void submitApplication(ActionEvent event) {
-    }
-
 }
     
 
