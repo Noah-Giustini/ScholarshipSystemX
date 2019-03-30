@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
+ * Loads the create scholarship page. 
  * 
  * @author Kaitlin
  */

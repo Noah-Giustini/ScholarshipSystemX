@@ -9,7 +9,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * Views the details of a specific application.
+ * 
  * @author Kaitlin
  */
 public class ViewApplicationsMain extends Application {

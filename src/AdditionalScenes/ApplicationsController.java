@@ -24,6 +24,10 @@ import backend.*;
 /**
  * FXML Controller class
  *
+ * Controls page that allows an admin to see a list of applications for a
+ * Scholarship. The admin can then select a scholarship to view in greater
+ * detail. 
+ * 
  * @author Kaitlin
  */
 public class ApplicationsController implements Initializable {

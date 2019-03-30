@@ -28,6 +28,10 @@ import seng300.Seng300;
 
 /**
  * FXML Controller class
+ * 
+ * Controls the application creation page.
+ * Displays application form depending on scholarship
+ * being applied to and gets entered information. 
  *
  * @author Kaitlin
  */

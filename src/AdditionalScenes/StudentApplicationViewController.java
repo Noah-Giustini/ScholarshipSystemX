@@ -19,6 +19,9 @@ import seng300.Seng300;
 /**
  * FXML Controller class
  *
+ * Controls page that allows a student to view an application's status
+ * and accept awards.
+ * 
  * @author Noah
  */
 public class StudentApplicationViewController implements Initializable {
@@ -70,8 +73,5 @@ public class StudentApplicationViewController implements Initializable {
     @FXML
     private void withdraw(ActionEvent event) {
         
-    }
-
-    
-    
+    }   
 }
