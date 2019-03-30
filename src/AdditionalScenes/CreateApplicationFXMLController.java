@@ -102,6 +102,10 @@ public class CreateApplicationFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * 
+     * Controls the application creation page.
+     * Displays application form depending on scholarship
+     * being applied to and gets entered information. 
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

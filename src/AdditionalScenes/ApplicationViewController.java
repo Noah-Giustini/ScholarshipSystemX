@@ -18,6 +18,9 @@ import seng300.Seng300;
 
 /**
  * FXML Controller class
+ * 
+ * Controls the application view page.
+ * Displays all applications for a selected scholarship on the GUI. 
  */
 public class ApplicationViewController implements Initializable {
     //instance variables

@@ -17,7 +17,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * Seng300 class launches the Gui application.
+ * Gui starts on the login page. 
+ * 
  * @author Kaitlin
  */
 

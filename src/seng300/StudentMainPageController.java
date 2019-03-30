@@ -27,6 +27,8 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
+ * Controls main student page for selecting and applying to scholarships.
+ * 
  * @author Kaitlin
  */
 public class StudentMainPageController implements Initializable {
