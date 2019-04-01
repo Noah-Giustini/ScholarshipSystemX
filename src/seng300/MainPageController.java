@@ -311,8 +311,12 @@ public class MainPageController implements Initializable {
         ArrayList<Scholarship> schols = Seng300.theManager.getScholarships();
         int index = 0;
         if (radioSchol1.isSelected()) {
+            //radioSchol1.setVisible(false);
+            //lblScholarship1.setVisible(false);
+            //lbldate1.setVisible(false);
             index = 0;
         } else if (radioSchol2.isSelected()) {
+            //radioSchol1.setSelected(true);
             index = 1;
         } else if (radioSchol3.isSelected()) {
             index = 2;
@@ -347,6 +351,7 @@ public class MainPageController implements Initializable {
         if (rdoDraft1.isSelected()) {
             index = 0;
         } else if (rdoDraft2.isSelected()) {
+            
             index = 1;
         } else if (rdoDraft3.isSelected()) {
             index = 2;
