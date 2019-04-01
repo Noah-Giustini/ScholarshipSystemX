@@ -425,9 +425,9 @@ public class Manager{
      */
     public void clearOnLogout(){
         studentApplications.clear();
-        this.scholarshipdrafts.clear();
         this.scholarships.clear();
         draftApplications.clear();
+        this.scholarshipdrafts.clear();
     }
         
 }

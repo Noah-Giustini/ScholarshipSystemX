@@ -554,8 +554,57 @@ public class Application{
 	 */
 	public String toString(){
 		 
-		return this.scholarship + "\n " + this.student + "\n Date Submitted: " + this.date + "\n GPA: " + this.gpa + "\n Education Level: " + this.edulvl + "\n Priority: " + this.priority + "\n Status: " + this.status;
-	}
+		String toReturn =  this.scholarship + "\n " + this.student + "\n Date Submitted: " + this.date + "\n GPA: " + this.gpa + "\n Education Level: " + this.edulvl + "\n Priority: " + this.priority + "\n Status: " + this.status;
+                System.out.println(this.ans1);
+                System.out.println(this.ans2);
+                System.out.println(this.ans3);
+                System.out.println(this.ans4);
+                System.out.println(this.ans5);
+                System.out.println(this.ans6);
+                System.out.println(this.ans7);
+                System.out.println(this.ans8);
+                System.out.println(this.ans9);
+                
+                
+                if (!this.ans1.equals("--")){
+                    toReturn += this.ans1 + "\n";
+                
+                }
+                if (!this.ans2.equals("--")){
+                    toReturn += this.ans2 + "\n";
+                
+                }
+                if (!this.ans3.equals("--")){
+                    toReturn += this.ans3 + "\n";
+                
+                }
+                if (!this.ans4.equals("--")){
+                    toReturn += this.ans4 + "\n";
+                
+                }
+                if (!this.ans5.equals("--")){
+                    toReturn += this.ans5 + "\n";
+                
+                }
+                if (!this.ans6.equals("--")){
+                    toReturn += this.ans6 + "\n";
+                
+                }
+                if (!this.ans6.equals("--")){
+                    toReturn += this.ans7 + "\n";
+                
+                }
+                if (!this.ans8.equals("--")){
+                    toReturn += this.ans8 + "\n";
+                
+                }
+                if (!this.ans9.equals("--")){
+                    toReturn += this.ans9 + "\n";
+                
+                }
+                return toReturn;
+        
+        }
         
         /**
          * Simple toString method created for the displaying for submitted scholarships in admin GUI
