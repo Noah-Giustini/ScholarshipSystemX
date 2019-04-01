@@ -104,6 +104,10 @@ public class CreateApplicationFXMLController implements Initializable {
     private Label statustxt;
     @FXML
     private Label GPAlbl;
+    @FXML
+    private Label PriorityLevelLbl;
+    @FXML
+    private TextField txtPriorityLvL;
 
     /**
      * Initializes the controller class.
@@ -321,7 +325,7 @@ public class CreateApplicationFXMLController implements Initializable {
         private void saveApplication(ActionEvent event) {
         String name = Seng300.theManager.getUser();
         String sch = lblScholarshipName.getText();
-        if(checkGPA() || !Seng300.theManager.getCurrentScholarship().getGPAReq()){
+        if(checkGPA() || !Seng300.theManager.getCurrentScholarship().getGPAReq() || this.GPAlbl.isVisible() == false){
             if(rdioBachelors.isSelected()){
                 try{
                 Application newApp = new Application(sch, name, false);
@@ -407,6 +411,12 @@ public class CreateApplicationFXMLController implements Initializable {
             try{
                 Application newApp = new Application(sch, Seng300.theManager.getUser(), true);
                 newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+                if (checkValidPriority()){
+                    newApp.setPriority(Integer.parseInt(txtPriorityLvL.getText()));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Priority");
+
+                }
                 if(this.rdioBachelors.isSelected()){
                     newApp.setEducationLevel("Bachelors");
                 }
@@ -416,8 +426,7 @@ public class CreateApplicationFXMLController implements Initializable {
                 else{ //Doctorate is selected
                     newApp.setEducationLevel("Doctorate");
                 }
-                System.out.println("****************************" + this.txtCustom1.getText());
-                System.out.println("****************************" + this.txtCustom2.getText());
+
                 if (this.lblcus1.isVisible()){
                     newApp.setAnswer1(this.txtCustom1.getText());
                 }
@@ -458,6 +467,21 @@ public class CreateApplicationFXMLController implements Initializable {
         }
     }
     
+    private boolean checkValidPriority(){
+        String priority =  txtPriorityLvL.getText();
+        int priorityIs;
+        try{
+            priorityIs = Integer.parseInt(priority);
+        } catch (NumberFormatException e){
+            return false;
+        }
+        
+        if (priorityIs > 0 && priorityIs < 7){
+            return true;
+        }else{
+            return false;
+        }
+    }    
     /**
      * Method to check GPA
      * @return returns a true or false value if value given was good

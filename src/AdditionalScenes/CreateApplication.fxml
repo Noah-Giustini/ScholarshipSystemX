@@ -161,6 +161,12 @@
                         </RadioButton>
                         <RadioButton fx:id="rdioMasters" layoutX="103.0" layoutY="286.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="98.0" text="Masters" toggleGroup="$EDUlevel" />
                         <RadioButton fx:id="rdioDoctorate" layoutX="193.0" layoutY="286.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="98.0" text="Doctorate" toggleGroup="$EDUlevel" />
+                        <Label fx:id="PriorityLevelLbl" layoutX="152.0" layoutY="226.0" text="Priority Level">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtPriorityLvL" layoutX="241.0" layoutY="224.0" prefHeight="25.0" prefWidth="54.0" />
               </children>
             </AnchorPane>
           </content>
