@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import backend.*;
 import seng300.Seng300;
 
 /**
@@ -64,7 +66,18 @@ public class StudentApplicationViewController implements Initializable {
      */
     @FXML
     private void accept(ActionEvent event) {
-        
+        if (Seng300.theManager.getCurrentApplication().getStatus() == "Granted"){
+            try {
+                Seng300.theManager.getCurrentApplication().setStatus("Accepted");
+                JOptionPane.showMessageDialog(null, "Success, scholarship has been accepted. \n You will be contacted shortly to recieve your award");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Something went wrong. \n Ensure all files are in the file system");
+                System.out.println("Something went horribly wrong. please ensure all files are in the file system. \n");
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "You are not permitted to accept a scholarship at this time");
+        }
     }
     /**
      * this method withdraws the student's application for the scholarship
@@ -72,6 +85,29 @@ public class StudentApplicationViewController implements Initializable {
      */
     @FXML
     private void withdraw(ActionEvent event) {
-        
-    }   
-}
+        String scholName = Seng300.theManager.getCurrentApplication().getScholarship();
+        try{
+            Scholarship schol = new Scholarship(scholName, true);
+            int chosen = schol.getChosen();
+            if (Seng300.theManager.getCurrentApplication().getStatus() == "Granted"){
+                schol.setChosen(chosen - 1);
+                Seng300.theManager.getCurrentApplication().delete();
+                Seng300.theManager.setCurrentApplication(null);
+            }
+            else if (Seng300.theManager.getCurrentApplication().getStatus() == "Accepted"){
+                JOptionPane.showMessageDialog(null, "You have already accepted this scholarship and cannot withdraw at this time");
+                Seng300.theManager.setCurrentApplication(null);
+            }
+            else{
+                Seng300.theManager.getCurrentApplication().delete();
+                Seng300.theManager.setCurrentApplication(null);
+                JOptionPane.showMessageDialog(null, "You have successfully withdrawn your application");
+            }
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "There was an error");
+            System.out.println("You threw an exception");
+        }
+    }
+}   
+

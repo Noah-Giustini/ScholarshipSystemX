@@ -59,6 +59,7 @@ public class Application{
 		
 		if (this.submit){
 			this.appfile = "Applications\\" + this.scholarship + this.student + ".txt";
+                        this.status = "Pending";
 		}
 		else{
 			this.appfile = "ApplicationDrafts\\" + this.scholarship + this.student + ".txt";
@@ -565,4 +566,10 @@ public class Application{
         public String simpleToString(){
             return this.student + "\n Submitted: " + this.date + "\n Status: " + this.status;
         }
+        
+        public void delete(){
+        File f = new File(this.appfile);
+        f.delete();
+        }
+        
 }
