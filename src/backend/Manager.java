@@ -29,6 +29,7 @@ public class Manager{
         private ArrayList<Application> studentApplications = new ArrayList<Application>();
         private ArrayList<Application> draftApplications = new ArrayList<Application>();
         private boolean editMode = false;
+        private boolean editModeApplication = false;
         private String user;
 
 	
@@ -162,6 +163,24 @@ public class Manager{
          */
         public void setEditMode(boolean ed){
             this.editMode = ed;
+        }
+        
+        /**
+         * Gets whether application creator should be entered in edit or create mode
+         * 
+         * @return True if edit mode should be entered
+         */
+        public boolean getEditModeApplication(){
+            return this.editModeApplication;
+        }
+        
+        /**
+         * Sets whether application creator should be entered in edit or create mode
+         * 
+         * @param ed 
+         */
+        public void setEditModeApplication(boolean ed){
+            this.editModeApplication = ed;
         }
         
         /**

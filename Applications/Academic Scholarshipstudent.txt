@@ -8,7 +8,7 @@ GPA
 1.2
 
 Education Level
-Bachelors
+Masters
 
 Date
 --
