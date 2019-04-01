@@ -10,6 +10,8 @@ import java.util.List;
 import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Scholarship class manages the creation of scholarships and their interaction with the file system. 
@@ -32,15 +34,15 @@ public class Scholarship {
     private int chosen = 0;
     private ArrayList<String> levels = new ArrayList<String>();
     private ArrayList<Application> applications = new ArrayList<Application>();
-    private String custom1 = "--";
-    private String custom2 = "--";
-    private String custom3 = "--";
-    private String custom4 = "--";
-    private String custom5 = "--";
-    private String custom6 = "--";
-    private String custom7 = "--";
-    private String custom8 = "--";
-    private String custom9 = "--";
+    private String custom1 = "";
+    private String custom2 = "";
+    private String custom3 = "";
+    private String custom4 = "";
+    private String custom5 = "";
+    private String custom6 = "";
+    private String custom7 = "";
+    private String custom8 = "";
+    private String custom9 = "";
     private String description = "--";
 
     /**
@@ -757,6 +759,39 @@ public class Scholarship {
     public void delete(){
         File f = new File(this.schfile);
         f.delete();
+    }
+    
+    /**
+     * Archived a scholarship
+     */
+    public void archive() {
+      
+        try {
+            findApplications();
+        } catch (Exception ex) {
+            Logger.getLogger(Scholarship.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String arch = "ArchivedScholarships\\" + this.name + ".txt";
+        
+        File f1 = new File(arch);
+        File f2 = new File(this.schfile);
+        boolean b = f2.renameTo(f1);
+        File f3 = new File(this.schfile);
+        b = f3.delete();
+        
+        
+        for(int i = 0; i < this.applications.size(); i++){
+            Application app = applications.get(i);
+            String nm = app.getAppFile();
+            
+            String arch0 = "ArchivedApplications\\" + app.getScholarship() + app.getStudent() + ".txt";
+            
+            File f11 = new File(arch0);
+            File f22 = new File(nm);
+            boolean bb = f22.renameTo(f11);
+            File f33 = new File(nm);
+            bb = f33.delete();
+        }
     }
    
 }
