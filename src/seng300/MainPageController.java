@@ -452,7 +452,7 @@ public class MainPageController implements Initializable {
                                 toAdd = allTheCurrentScholarships.get(5);
                                 showScholarshipInView(toAdd, lblScholarship6, lbldate6, radioSchol6);
                                 if (size > 6) {
-                                    toAdd = allTheCurrentScholarships.get(7);
+                                    toAdd = allTheCurrentScholarships.get(6);
                                     showScholarshipInView(toAdd, lblScholarship7, lbldate7, radioSchol7);
 
                                 }

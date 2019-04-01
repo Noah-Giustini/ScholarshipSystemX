@@ -1,35 +1,35 @@
 Name
-NEW
+4 customs
 
 Due Date
-07/03/2019
+06/03/2019
 
 GPA Required
-false
+true
 
 Amount
-0.0
+120.0
 
 Recipients
-0
+2
 
 Recipients Chosen
 0
 
 Education Level
-
+Bachelors 
 
 Custom1
-
+f
 
 Custom2
-
+s
 
 Custom3
-
+t
 
 Custom4
-
+fr
 
 Custom5
 
@@ -47,6 +47,6 @@ Custom9
 
 
 Description
-This is a draft
+f,dflkmakofnuoisnfuiaslnjkanfsdio
 
 

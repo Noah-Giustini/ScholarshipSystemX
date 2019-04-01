@@ -1,32 +1,32 @@
 Name
-Hello There
+Many Customs
 
 Due Date
-dd/mm/yyyy
+04/04/2020
 
 GPA Required
-false
+true
 
 Amount
-0.0
+200.0
 
 Recipients
-0
+2
 
 Recipients Chosen
 0
 
 Education Level
-
+Bachelors Masters 
 
 Custom1
-
+first
 
 Custom2
-
+second
 
 Custom3
-
+third
 
 Custom4
 
@@ -47,6 +47,6 @@ Custom9
 
 
 Description
-
+fn jdsaklfnkljdsanfiol;dsa
 
 
