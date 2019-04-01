@@ -232,65 +232,68 @@ public class CreateApplicationFXMLController implements Initializable {
                 }
         }
         else{
-            Scholarship sch = Seng300.theManager.getCurrentScholarship();
-            lblScholarshipName.setText(sch.getName());
-            txtSchDescription.setText(sch.getDescription());
-             if (!sch.getGPAReq()) {
-                txtGPA.setVisible(false);
-                GPAlbl.setVisible(false);
-            }
-
-            if (!sch.getCustom1().isEmpty()) {
-                lblcus1.setVisible(true);
-                lblcus1.setText(sch.getCustom1());
-                txtCustom1.setVisible(true);
-            }
-            
-            if (!sch.getCustom2().isEmpty()) {
+        Scholarship sch = Seng300.theManager.getCurrentScholarship();
+        lblScholarshipName.setText(sch.getName());
+        txtSchDescription.setText(sch.getDescription());
+        System.out.println(sch.getCustom3());
+        System.out.println(sch.getCustom4());
+        System.out.println("testing the 2 lines above");
+        if(!sch.getGPAReq()){
+            txtGPA.setVisible(false);
+            GPAlbl.setVisible(false);
+        }
+        
+        if(!sch.getCustom1().isEmpty() && !sch.getCustom1().equals("--")){
+            lblcus1.setVisible(true);
+            lblcus1.setText(sch.getCustom1());
+            txtCustom1.setVisible(true);
+            if(!sch.getCustom2().isEmpty() && !sch.getCustom2().equals("--")){
                 lblcus2.setVisible(true);
                 lblcus2.setText(sch.getCustom2());
                 txtCustom2.setVisible(true);
-            }
-            System.out.println("CUST 3: " + sch.getCustom3().isEmpty());
-            if (!sch.getCustom3().isEmpty()) {
-                lblcus3.setVisible(true);
-                lblcus3.setText(sch.getCustom3());
-                txtCustom3.setVisible(true);
-            }
-            if (!sch.getCustom4().isEmpty()) {
-                lblcus4.setVisible(true);
-                lblcus4.setText(sch.getCustom4());
-                txtCustom4.setVisible(true);
-            }
-            if (!sch.getCustom5().isEmpty()) {
-                lblcus5.setVisible(true);
-                lblcus5.setText(sch.getCustom5());
-                txtCustom5.setVisible(true);
-            }
-            if (!sch.getCustom6().isEmpty()) {
-                lblcus6.setVisible(true);
-                lblcus6.setText(sch.getCustom6());
-                txtCustom6.setVisible(true);
-            }
-            if (!sch.getCustom7().isEmpty()) {
-                lblcus7.setVisible(true);
-                lblcus7.setText(sch.getCustom7());
-                txtCustom7.setVisible(true);
-            }
-            if (!sch.getCustom8().isEmpty()) {
-                lblcus8.setVisible(true);
-                lblcus8.setText(sch.getCustom8());
-                txtCustom8.setVisible(true);
-            }
-            if (!sch.getCustom9().isEmpty()) {
-                lblcus9.setVisible(true);
-                lblcus9.setText(sch.getCustom9());
-                txtCustom9.setVisible(true);
+                System.out.println(sch.getCustom3());
+                System.out.println("If line above is blank then getcustom3 does not work");
+                if(!sch.getCustom3().isEmpty() && !sch.getCustom3().equals("--")){
+                    lblcus3.setVisible(true);
+                    lblcus3.setText(sch.getCustom3());
+                    txtCustom3.setVisible(true);
+                    if(!sch.getCustom4().isEmpty()&& !sch.getCustom4().equals("--")){
+                        lblcus4.setVisible(true);
+                        lblcus4.setText(sch.getCustom4());
+                        txtCustom4.setVisible(true);
+                        if(!sch.getCustom5().isEmpty()&& !sch.getCustom5().equals("--")){
+                            lblcus5.setVisible(true);
+                            lblcus5.setText(sch.getCustom5());
+                            txtCustom5.setVisible(true);
+                            if(!sch.getCustom6().isEmpty() && !sch.getCustom6().equals("--")){
+                                lblcus6.setVisible(true);
+                                lblcus6.setText(sch.getCustom6());
+                                txtCustom6.setVisible(true);
+                                if(!sch.getCustom7().isEmpty() && !sch.getCustom7().equals("--")){
+                                    lblcus7.setVisible(true);
+                                    lblcus7.setText(sch.getCustom7());
+                                    txtCustom7.setVisible(true);
+                                    if(!sch.getCustom8().isEmpty() && !sch.getCustom8().equals("--")){
+                                        lblcus8.setVisible(true);
+                                        lblcus8.setText(sch.getCustom8());
+                                        txtCustom8.setVisible(true);
+                                        if(!sch.getCustom9().isEmpty()&& !sch.getCustom9().equals("--")){
+                                            lblcus9.setVisible(true);
+                                            lblcus9.setText(sch.getCustom9());
+                                            txtCustom9.setVisible(true);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
+     }
         
 
-    }
+  }
 
 
 
