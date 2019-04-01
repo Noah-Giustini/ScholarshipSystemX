@@ -258,25 +258,25 @@ public class StudentMainPageController implements Initializable {
         int index = 0;
         
         //checks what application was selected 
-        if (rdoDraft1.isSelected()){
+        if (rdoDraft11.isSelected()){
             index = 0;
         }
-        else if (rdoDraft2.isSelected()){
+        else if (rdoDraft21.isSelected()){
             index = 1;
         }
-        else if (rdoDraft3.isSelected()){
+        else if (rdoDraft31.isSelected()){
             index = 2;
         }
-        else if (rdoDraft4.isSelected()){
+        else if (rdoDraft41.isSelected()){
             index = 3;
         }
-        else if (rdoDraft5.isSelected()){
+        else if (rdoDraft51.isSelected()){
             index = 4;
         }
-        else if (rdoDraft6.isSelected()){
+        else if (rdoDraft61.isSelected()){
             index = 5;
         }
-        else if (rdoDraft7.isSelected()){
+        else if (rdoDraft71.isSelected()){
             index = 6;
         }
         try{

@@ -127,11 +127,12 @@ public class CreateApplicationFXMLController implements Initializable {
             if (!sch.getGPAReq()) {
                 txtGPA.setVisible(false);
                 GPAlbl.setVisible(false);
-
-                if (!(app.getGPA() == 0)){
-                    txtGPA.insertText(0, Double.toString(app.getGPA()));
-                }
             }
+            else{
+                txtGPA.setText(String.valueOf(app.getGPA()));
+            }
+
+
 
             if (!sch.getCustom1().isEmpty()) {
                 lblcus1.setVisible(true);
@@ -243,6 +244,8 @@ public class CreateApplicationFXMLController implements Initializable {
             GPAlbl.setVisible(false);
         }
         
+        
+        
         if(!sch.getCustom1().isEmpty() && !sch.getCustom1().equals("--")){
             lblcus1.setVisible(true);
             lblcus1.setText(sch.getCustom1());
@@ -328,10 +331,65 @@ public class CreateApplicationFXMLController implements Initializable {
         private void saveApplication(ActionEvent event) {
         String name = Seng300.theManager.getUser();
         String sch = lblScholarshipName.getText();
+        try{
+            Application newApp = new Application(sch, name, false);
+            if(checkGPA()){
+                newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+            }
+            if(checkPriority()){
+                newApp.setPriority(Integer.parseInt(txtPriorityLvL.getText()));
+            }
+            
+            
+            if(rdioBachelors.isSelected()){
+                newApp.setEducationLevel("Bachelors");
+            }
+            else if (rdioMasters.isSelected()){
+                newApp.setEducationLevel("Masters");
+            }
+            else{
+                newApp.setEducationLevel("Doctorate");
+            }
+            
+            
+            //custom questions
+            if(txtCustom1.isVisible()){
+                newApp.setAnswer1(txtCustom1.getText());
+                if(txtCustom2.isVisible()){
+                    newApp.setAnswer2(txtCustom2.getText());
+                    if(txtCustom3.isVisible()){
+                        newApp.setAnswer3(txtCustom3.getText());
+                        if(txtCustom4.isVisible()){
+                            newApp.setAnswer4(txtCustom4.getText());
+                            if(txtCustom5.isVisible()){
+                                newApp.setAnswer5(txtCustom5.getText());
+                                if(txtCustom6.isVisible()){
+                                    newApp.setAnswer6(txtCustom6.getText());
+                                    if(txtCustom7.isVisible()){
+                                        newApp.setAnswer7(txtCustom7.getText());
+                                        if(txtCustom8.isVisible()){
+                                            newApp.setAnswer8(txtCustom8.getText());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            //END OF CUSTOM QUESTIONS
+            
+        
+
+    }
+        catch(Exception e){
+          System.out.println("damn you roxanne");
+        }
+        /*
         if(checkGPA() || !Seng300.theManager.getCurrentScholarship().getGPAReq() || this.GPAlbl.isVisible() == false){
             if(rdioBachelors.isSelected()){
                 try{
-                Application newApp = new Application(sch, name, false);
+                //Application newApp = new Application(sch, name, false);
                 newApp.setEducationLevel("Bachelors");
                 if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
                     newApp.setGPA(Double.parseDouble(txtGPA.getText()));
@@ -346,7 +404,7 @@ public class CreateApplicationFXMLController implements Initializable {
             }
             else if(rdioMasters.isSelected()){
                 try{
-                Application newApp = new Application(sch, name, false);
+                //Application newApp = new Application(sch, name, false);
                 newApp.setEducationLevel("Masters");
                 if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
                     newApp.setGPA(Double.parseDouble(txtGPA.getText()));
@@ -361,7 +419,7 @@ public class CreateApplicationFXMLController implements Initializable {
             }
             else if(rdioDoctorate.isSelected()) {
                 try{
-                Application newApp = new Application(sch, name, false);
+                //Application newApp = new Application(sch, name, false);
                 newApp.setEducationLevel("Bachelors");
                 if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
                     newApp.setGPA(Double.parseDouble(txtGPA.getText()));
@@ -377,7 +435,7 @@ public class CreateApplicationFXMLController implements Initializable {
         }
         else{ //GPA not valid or missing
             try{
-                Application newApp = new Application(sch, name, false);
+                //Application newApp = new Application(sch, name, false);
                 if(this.rdioBachelors.isSelected()){
                     newApp.setEducationLevel("Bachelors");
                 }
@@ -395,6 +453,7 @@ public class CreateApplicationFXMLController implements Initializable {
                     System.out.println("But the error was in SaveApplication in create application controller");
                 }
         }
+        */
         
         
         
@@ -544,8 +603,24 @@ public class CreateApplicationFXMLController implements Initializable {
             apps.add(toAdd);
         }
     }
+
     
-    
+    /**
+     * checks whether Priority is valid 
+     * @return true if it is valid
+     */
+    private boolean checkPriority() {
+        try{
+            int pri = Integer.parseInt(txtPriorityLvL.getText());
+            if(pri > 0 && pri < 6){
+                return true;
+            }
+        }
+        catch(NumberFormatException e){
+            
+        }
+        return false;
+    }
     
     
 }

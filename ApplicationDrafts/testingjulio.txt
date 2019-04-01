@@ -5,10 +5,10 @@ Student
 julio
 
 GPA
-2.4
+3.4
 
 Education Level
-Bachelors
+Doctorate
 
 Date
 --
@@ -17,13 +17,13 @@ Status
 --
 
 Priority
-0
+2
 
 Answer1
---
+sup dude
 
 Answer2
---
+idk
 
 Answer3
 --
