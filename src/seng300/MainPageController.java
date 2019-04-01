@@ -128,6 +128,10 @@ public class MainPageController implements Initializable {
     private Label schstatuslbl;
     @FXML
     private Button buttonEdit;
+    @FXML
+    private Button ButtonScholarshipDelete;
+    @FXML
+    private Button ButtonDelScholarshipDrafts;
 
     /**
      * Initializes the controller class.
@@ -290,6 +294,83 @@ public class MainPageController implements Initializable {
 
     }
     
+     /**
+     * When delete scholarship button is pressed user that scholarship and it's corresponding drafts are 
+     * archived. 
+     * 
+     * @param event
+     * @throws IOException 
+     */
+    @FXML
+    private void deleteScholarshipSubmitted(javafx.event.ActionEvent event) throws IOException {
+        try {
+            Seng300.theManager.findScholarships();
+        } catch (Exception ex) {
+            Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList<Scholarship> schols = Seng300.theManager.getScholarships();
+        int index = 0;
+        if (radioSchol1.isSelected()) {
+            //radioSchol1.setVisible(false);
+            //lblScholarship1.setVisible(false);
+            //lbldate1.setVisible(false);
+            index = 0;
+        } else if (radioSchol2.isSelected()) {
+            //radioSchol1.setSelected(true);
+            index = 1;
+        } else if (radioSchol3.isSelected()) {
+            index = 2;
+        } else if (radioSchol4.isSelected()) {
+            index = 3;
+        } else if (radioSchol5.isSelected()) {
+            index = 4;
+        } else if (radioSchol6.isSelected()) {
+            index = 5;
+        } else if (radioSchol7.isSelected()) {
+            index = 6;
+        }
+            schols.get(index).archive();
+            startUp();
+    }
+
+    /**
+     * When delete scholarship draft button is pressed that scholarship draft is deleted.
+     * 
+     * @param event
+     * @throws IOException 
+     */
+    @FXML
+    private void deleteScholarshipDraft(javafx.event.ActionEvent event) throws IOException {
+        try {
+            Seng300.theManager.findScholarshipDrafts();
+        } catch (Exception ex) {
+            Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList<Scholarship> schs = Seng300.theManager.getScholarshipDrafts();
+        int index = 0;
+        if (rdoDraft1.isSelected()) {
+            index = 0;
+        } else if (rdoDraft2.isSelected()) {
+            
+            index = 1;
+        } else if (rdoDraft3.isSelected()) {
+            index = 2;
+        } else if (rdoDraft4.isSelected()) {
+            index = 3;
+        } else if (rdoDraft5.isSelected()) {
+            index = 4;
+        } else if (rdoDraft6.isSelected()) {
+            index = 5;
+        } else if (rdoDraft7.isSelected()) {
+            index = 6;
+        }
+        try {
+            schs.get(index).delete();
+            startUp();
+        } catch (IndexOutOfBoundsException e) {
+        }
+    }
+    
     /**
      * Makes submitted scholarships from file system visible on GUI.
      * 
@@ -376,7 +457,7 @@ public class MainPageController implements Initializable {
                                 toAdd = allTheCurrentScholarships.get(5);
                                 showScholarshipInView(toAdd, lblScholarship6, lbldate6, radioSchol6);
                                 if (size > 6) {
-                                    toAdd = allTheCurrentScholarships.get(7);
+                                    toAdd = allTheCurrentScholarships.get(6);
                                     showScholarshipInView(toAdd, lblScholarship7, lbldate7, radioSchol7);
 
                                 }

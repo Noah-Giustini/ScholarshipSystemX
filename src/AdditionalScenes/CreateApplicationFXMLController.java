@@ -1,6 +1,7 @@
 //package details
 package AdditionalScenes;
 //imports
+
 import backend.Application;
 import backend.Scholarship;
 import java.io.IOException;
@@ -28,14 +29,14 @@ import seng300.Seng300;
 
 /**
  * FXML Controller class
- * 
- * Controls the application creation page.
- * Displays application form depending on scholarship
- * being applied to and gets entered information. 
+ *
+ * Controls the application creation page. Displays application form depending
+ * on scholarship being applied to and gets entered information.
  *
  * @author Kaitlin
  */
 public class CreateApplicationFXMLController implements Initializable {
+
     //instance variables
     @FXML
     private Button buttonBack;
@@ -106,64 +107,75 @@ public class CreateApplicationFXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
-     * 
-     * Controls the application creation page.
-     * Displays application form depending on scholarship
-     * being applied to and gets entered information. 
+     *
+     * Controls the application creation page. Displays application form
+     * depending on scholarship being applied to and gets entered information.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Scholarship sch = Seng300.theManager.getCurrentScholarship();
         lblScholarshipName.setText(sch.getName());
         txtSchDescription.setText(sch.getDescription());
-        if(!sch.getGPAReq()){
+        if (!sch.getGPAReq()) {
             txtGPA.setVisible(false);
             GPAlbl.setVisible(false);
         }
-        
-        if(!sch.getCustom1().isEmpty()){
+
+        if (!sch.getCustom1().isEmpty()) {
             lblcus1.setVisible(true);
             lblcus1.setText(sch.getCustom1());
             txtCustom1.setVisible(true);
-            if(!sch.getCustom2().isEmpty()){
-                lblcus2.setVisible(true);
-                lblcus2.setText(sch.getCustom2());
-                txtCustom2.setVisible(true);
-                if(!sch.getCustom3().isEmpty()){
-                    lblcus3.setVisible(true);
-                    lblcus3.setText(sch.getCustom1());
-                    txtCustom3.setVisible(true);
-                    if(!sch.getCustom4().isEmpty()){
-                        lblcus4.setVisible(true);
-                        txtCustom4.setVisible(true);
-                        if(!sch.getCustom5().isEmpty()){
-                            lblcus5.setVisible(true);
-                            txtCustom5.setVisible(true);
-                            if(!sch.getCustom6().isEmpty()){
-                                lblcus6.setVisible(true);
-                                txtCustom6.setVisible(true);
-                                if(!sch.getCustom7().isEmpty()){
-                                    lblcus7.setVisible(true);
-                                    txtCustom7.setVisible(true);
-                                    if(!sch.getCustom8().isEmpty()){
-                                        lblcus8.setVisible(true);
-                                        txtCustom8.setVisible(true);
-                                        if(!sch.getCustom9().isEmpty()){
-                                            lblcus9.setVisible(true);
-                                            txtCustom9.setVisible(true);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
+        if (!sch.getCustom2().isEmpty()) {
+            lblcus2.setVisible(true);
+            lblcus2.setText(sch.getCustom2());
+            txtCustom2.setVisible(true);
+        }
+        System.out.println("CUST 3: " + sch.getCustom3().isEmpty());
+        if (!sch.getCustom3().isEmpty()) {
+            lblcus3.setVisible(true);
+            lblcus3.setText(sch.getCustom3());
+            txtCustom3.setVisible(true);
+        }
+        if (!sch.getCustom4().isEmpty()) {
+            lblcus4.setVisible(true);
+            lblcus4.setText(sch.getCustom4());
+            txtCustom4.setVisible(true);
+        }
+        if (!sch.getCustom5().isEmpty()) {
+            lblcus5.setVisible(true);
+            lblcus5.setText(sch.getCustom5());
+            txtCustom5.setVisible(true);
+        }
+        if (!sch.getCustom6().isEmpty()) {
+            lblcus6.setVisible(true);
+            lblcus6.setText(sch.getCustom6());
+            txtCustom6.setVisible(true);
+        }
+        if (!sch.getCustom7().isEmpty()) {
+            lblcus7.setVisible(true);
+            lblcus7.setText(sch.getCustom7());
+            txtCustom7.setVisible(true);
+        }
+        if (!sch.getCustom8().isEmpty()) {
+            lblcus8.setVisible(true);
+            lblcus8.setText(sch.getCustom8());
+            txtCustom8.setVisible(true);
+        }
+        if (!sch.getCustom9().isEmpty()) {
+            lblcus9.setVisible(true);
+            lblcus9.setText(sch.getCustom9());
+            txtCustom9.setVisible(true);
+        }
+        
+
     }
+
+
+
     //i dont think we need this
     @FXML
-    private void backFromScholarshipCreator(MouseEvent event) {
+        private void backFromScholarshipCreator(MouseEvent event) {
     }
     /**
      * This method will take a user from the application creator back to the main page
@@ -171,7 +183,7 @@ public class CreateApplicationFXMLController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void backFromApplicationCreator (ActionEvent event) throws IOException {
+        private void backFromApplicationCreator (ActionEvent event) throws IOException {
         Seng300.theManager.setEditMode(false);
         Parent root = FXMLLoader.load(getClass().getResource("/seng300/studentMainPage.fxml"));
         Scene sc = new Scene(root);
@@ -182,14 +194,14 @@ public class CreateApplicationFXMLController implements Initializable {
     }
     //i dont think we need these
     @FXML
-    private void handleSaveScholarship(MouseEvent event) {
+        private void handleSaveScholarship(MouseEvent event) {
     }
     /**
      * This method will save a draft application 
      * @param event mouse event generated by clicking the save button
      */
     @FXML
-    private void saveApplication(ActionEvent event) {
+        private void saveApplication(ActionEvent event) {
         String name = Seng300.theManager.getUser();
         String sch = lblScholarshipName.getText();
         if(checkGPA() || !Seng300.theManager.getCurrentScholarship().getGPAReq()){
@@ -265,14 +277,14 @@ public class CreateApplicationFXMLController implements Initializable {
     }
     //i dont think we need this
     @FXML
-    private void handleSubmitScholarship(MouseEvent event) {
+        private void handleSubmitScholarship(MouseEvent event) {
     }
     /**
      * This method will submit the inputs for a new application
      * @param event a mouse event generated by clicking the submit button
      */
     @FXML
-    private void submitApplication(ActionEvent event) {
+        private void submitApplication(ActionEvent event) {
         if(isValid()){
             String sch = lblScholarshipName.getText();
             try{
@@ -286,6 +298,35 @@ public class CreateApplicationFXMLController implements Initializable {
                 }
                 else{ //Doctorate is selected
                     newApp.setEducationLevel("Doctorate");
+                }
+                System.out.println("****************************" + this.txtCustom1.getText());
+                System.out.println("****************************" + this.txtCustom2.getText());
+                if (this.lblcus1.isVisible()){
+                    newApp.setAnswer1(this.txtCustom1.getText());
+                }
+                if (this.lblcus2.isVisible()){
+                    newApp.setAnswer2(this.txtCustom2.getText());
+                }
+                if (this.lblcus3.isVisible()){
+                    newApp.setAnswer3(this.txtCustom3.getText());
+                }
+                if (this.lblcus4.isVisible()){
+                    newApp.setAnswer4(this.txtCustom4.getText());
+                }
+                if (this.lblcus5.isVisible()){
+                    newApp.setAnswer5(this.txtCustom5.getText());
+                }
+                if (this.lblcus6.isVisible()){
+                    newApp.setAnswer6(this.txtCustom6.getText());
+                }
+                if (this.lblcus7.isVisible()){
+                    newApp.setAnswer7(this.txtCustom7.getText());
+                }
+                if (this.lblcus8.isVisible()){
+                    newApp.setAnswer8(this.txtCustom8.getText());
+                }
+                if (this.lblcus9.isVisible()){
+                    newApp.setAnswer9(this.txtCustom9.getText());
                 }
                 maybeAddApp(Seng300.theManager.getStudentApplications(), newApp);
                 JOptionPane.showMessageDialog(null, "Application has been submitted ");

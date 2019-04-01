@@ -1,32 +1,32 @@
 Name
-aqw
+Many Customs
 
 Due Date
-23/03/2019
+04/04/2020
 
 GPA Required
 true
 
 Amount
-123.0
+200.0
 
 Recipients
-0
+2
 
 Recipients Chosen
 0
 
 Education Level
-
+Bachelors Masters 
 
 Custom1
-dfasfasdfasd
+first
 
 Custom2
-asdfasd
+second
 
 Custom3
-asdfasdfasdf
+third
 
 Custom4
 
@@ -47,6 +47,6 @@ Custom9
 
 
 Description
-rtqqwerqwer
+fn jdsaklfnkljdsanfiol;dsa
 
 
