@@ -530,6 +530,11 @@ public class StudentMainPageController implements Initializable {
      * loads up scholarships on the window
      */
     private void schStartUp() {
+        try {
+            Seng300.theManager.findScholarships();
+        } catch (Exception ex) {
+            Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Scholarship> schs = Seng300.theManager.getScholarships();
         int size = schs.size();
         
