@@ -215,6 +215,7 @@ public class CreateScholarshipFXMLController implements Initializable {
             }
         }
     }    
+    
     /**
      * This method will save a draft scholarship that is not yet ready to be published
      * @param event a mouse event that is generated when the save button is clicked

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -104,8 +106,6 @@ public class StudentMainPageController implements Initializable {
     @FXML
     private Button viewApplicationsButton;
     @FXML
-    private Button refreshMainAdminPage;
-    @FXML
     private Button buttonEditDraft;
     @FXML
     private Label schstatuslbl;
@@ -155,6 +155,8 @@ public class StudentMainPageController implements Initializable {
     private Label lblDraft6;
     @FXML
     private Label lblDraft7;
+    @FXML
+    private Button ButtonEditSubmit;
 
     /**
      * Initializes the controller class.
@@ -227,6 +229,7 @@ public class StudentMainPageController implements Initializable {
             
             //load application view page 
             Seng300.theManager.setCurrentApplication(apps.get(index));
+            Seng300.theManager.setEditModeApplication(false);
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/studentApplicationView.fxml"));
             Scene sc = new Scene(root);
             Stage s = Seng300.mainStage; 
@@ -245,13 +248,124 @@ public class StudentMainPageController implements Initializable {
 
     
     /**
-     * does nothing so far
-     * Should open edit draft page
+     * Opens edit draft page with information filled out
+     * 
      * @param event 
      */
     @FXML
     private void openEditDraftPage(ActionEvent event) {
+       ArrayList<Application> apps = Seng300.theManager.getDraftApplications();
+        int index = 0;
         
+        //checks what application was selected 
+        if (rdoDraft1.isSelected()){
+            index = 0;
+        }
+        else if (rdoDraft2.isSelected()){
+            index = 1;
+        }
+        else if (rdoDraft3.isSelected()){
+            index = 2;
+        }
+        else if (rdoDraft4.isSelected()){
+            index = 3;
+        }
+        else if (rdoDraft5.isSelected()){
+            index = 4;
+        }
+        else if (rdoDraft6.isSelected()){
+            index = 5;
+        }
+        else if (rdoDraft7.isSelected()){
+            index = 6;
+        }
+        try{
+            
+            //load application view page 
+            Seng300.theManager.setCurrentApplication(apps.get(index));
+           try {
+               Scholarship sch0 = new Scholarship(apps.get(index).getScholarship(), true);
+               Seng300.theManager.setCurrentScholarship(sch0);
+           } catch (Exception ex) {
+               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            Seng300.theManager.setEditModeApplication(true);
+            Parent root;
+           try {
+               root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
+               Scene sc = new Scene(root);
+               Stage s = Seng300.mainStage; 
+               s.setTitle("Home");
+               s.setScene(sc);
+               s.show(); 
+           } catch (IOException ex) {
+               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        }
+        catch(IndexOutOfBoundsException e){
+            
+        } 
+        
+    }
+    
+    /**
+     * Opens edit draft page with information filled out
+     * 
+     * @param event 
+     */
+    @FXML
+    private void openEditSubmittedPage(ActionEvent event) {
+       ArrayList<Application> apps = Seng300.theManager.getStudentApplications();
+        int index = 0;
+        
+        //checks what application was selected 
+        if (radioSchol1.isSelected()){
+            index = 0;
+        }
+        else if (radioSchol2.isSelected()){
+            index = 1;
+        }
+        else if (radioSchol3.isSelected()){
+            index = 2;
+        }
+        else if (radioSchol4.isSelected()){
+            index = 3;
+        }
+        else if (radioSchol5.isSelected()){
+            index = 4;
+        }
+        else if (radioSchol6.isSelected()){
+            index = 5;
+        }
+        else if (radioSchol7.isSelected()){
+            index = 6;
+        }
+        try{
+            
+            //load application view page 
+            Seng300.theManager.setCurrentApplication(apps.get(index));
+           try {
+               Scholarship sch0 = new Scholarship(apps.get(index).getScholarship(), true);
+               Seng300.theManager.setCurrentScholarship(sch0);
+           } catch (Exception ex) {
+               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            Seng300.theManager.setEditModeApplication(true);
+            Parent root;
+           try {
+               root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
+               Scene sc = new Scene(root);
+               Stage s = Seng300.mainStage; 
+               s.setTitle("Home");
+               s.setScene(sc);
+               s.show(); 
+           } catch (IOException ex) {
+               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        }
+        catch(IndexOutOfBoundsException e){
+            
+        } 
         
     }
 
@@ -285,6 +399,7 @@ public class StudentMainPageController implements Initializable {
             
             //load up create application window
             Seng300.theManager.setCurrentScholarship(schs.get(index));
+            Seng300.theManager.setEditModeApplication(false);
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
             Scene sc = new Scene(root);
             Stage s = Seng300.mainStage; 

@@ -8,7 +8,7 @@ GPA
 0.0
 
 Education Level
---
+Bachelors
 
 Date
 --
