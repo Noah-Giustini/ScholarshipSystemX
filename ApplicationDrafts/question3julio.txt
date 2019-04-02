@@ -1,11 +1,11 @@
 Scholarship
-testing
+question3
 
 Student
 julio
 
 GPA
-3.6
+0.0
 
 Education Level
 Masters
@@ -17,13 +17,13 @@ Status
 --
 
 Priority
-4
+2
 
 Answer1
-jh
+gfcjg
 
 Answer2
-hg
+hgkvhk
 
 Answer3
 --

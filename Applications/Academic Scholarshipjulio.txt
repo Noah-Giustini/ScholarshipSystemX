@@ -8,7 +8,7 @@ GPA
 0.0
 
 Education Level
---
+Masters
 
 Date
 --
@@ -17,7 +17,7 @@ Status
 --
 
 Priority
-0
+3
 
 Answer1
 --

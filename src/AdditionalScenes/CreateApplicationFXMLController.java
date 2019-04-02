@@ -131,6 +131,9 @@ public class CreateApplicationFXMLController implements Initializable {
             else{
                 txtGPA.setText(String.valueOf(app.getGPA()));
             }
+            if(app.getPriority() != 0){
+                this.txtPriorityLvL.setText(String.valueOf(app.getPriority()));
+            }
 
 
 
@@ -468,11 +471,14 @@ public class CreateApplicationFXMLController implements Initializable {
      */
     @FXML
         private void submitApplication(ActionEvent event) {
+        Scholarship sch1 = Seng300.theManager.getCurrentScholarship();
         if(isValid()){
             String sch = lblScholarshipName.getText();
             try{
                 Application newApp = new Application(sch, Seng300.theManager.getUser(), true);
-                newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+                if(sch1.getGPAReq()){
+                    newApp.setGPA(Double.parseDouble(txtGPA.getText()));
+                }
                 if (checkValidPriority()){
                     newApp.setPriority(Integer.parseInt(txtPriorityLvL.getText()));
                 } else {
@@ -570,8 +576,8 @@ public class CreateApplicationFXMLController implements Initializable {
      * @return returns true or false based on the input fields for the page
      */
     private boolean isValid() {
-        if (checkGPA()){
-            //probably should do more but oh well
+        Scholarship sch = Seng300.theManager.getCurrentScholarship();
+        if (checkGPA() || !sch.getGPAReq() ){
             return true;
         }
         else {
