@@ -131,7 +131,7 @@ public class loginPageController implements Initializable {
                 s.setScene(sc);
                 s.show();
             } catch (IOException e) {
-                System.out.println("Something done fucked up");
+                e.printStackTrace();
             }
             
 

@@ -132,6 +132,8 @@ public class MainPageController implements Initializable {
     private Button ButtonScholarshipDelete;
     @FXML
     private Button ButtonDelScholarshipDrafts;
+    @FXML
+    private Button viewArchivedScholarshipButton;
 
     /**
      * Initializes the controller class.
@@ -156,6 +158,26 @@ public class MainPageController implements Initializable {
         s.setTitle("Create Scholarship");
         s.setScene(sc);
         s.show();
+    }
+    
+    /**
+     * When the view archived scholarships button is pressed, this switches to the correct window
+     * @param event 
+     */
+    @FXML
+    private void openArchivedScholarshipsWindow(javafx.event.ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/archivedScholarships.fxml"));
+            Scene sc = new Scene(root); 
+            Stage s = Seng300.mainStage;
+            s.setTitle("Archived Scholarships");
+            s.setScene(sc);
+            s.show();          
+        } catch (IOException e) {
+            System.out.println("ERROR: IOException thrown when archived scholarships button is pressed!");
+        }
+            
+
     }
     
     /**
