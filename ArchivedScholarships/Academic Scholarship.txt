@@ -1,26 +1,26 @@
 Name
-New Draft
+Academic Scholarship
 
 Due Date
 dd/mm/yyyy
 
 GPA Required
-true
+false
 
 Amount
-1234.0
+0.0
 
 Recipients
-6
+0
 
 Recipients Chosen
 0
 
 Education Level
-Masters 
+
 
 Custom1
-This is a custom question?
+
 
 Custom2
 
@@ -47,6 +47,6 @@ Custom9
 
 
 Description
-This is a new demo draft. 
+--
 
 

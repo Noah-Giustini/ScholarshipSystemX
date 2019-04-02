@@ -129,6 +129,26 @@ public class Manager{
             this.currentScholarship = s;
         }
         
+         /**
+	* Setter that set scholarship that is currently being worked with
+        * 
+        * @param s, Working scholarship
+	 */
+        public void clearScholarships(){
+            ArrayList<Scholarship> clear = new ArrayList<Scholarship>();
+            this.scholarships = clear;
+        }
+        
+         /**
+	* Setter that set scholarship that is currently being worked with
+        * 
+        * @param s, Working scholarship
+	 */
+        public void clearScholarshipDrafts(){
+            ArrayList<Scholarship> clear = new ArrayList<Scholarship>();
+            this.scholarshipdrafts = clear;
+        }
+        
         /**
          * Getter that gets current application that is being worked with
          * 

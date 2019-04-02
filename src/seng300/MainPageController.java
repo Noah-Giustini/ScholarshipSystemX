@@ -330,6 +330,7 @@ public class MainPageController implements Initializable {
             index = 6;
         }
             schols.get(index).archive();
+            Seng300.theManager.clearScholarships();
             startUp();
     }
 
@@ -366,6 +367,7 @@ public class MainPageController implements Initializable {
         }
         try {
             schs.get(index).delete();
+            Seng300.theManager.clearScholarshipDrafts();
             startUp();
         } catch (IndexOutOfBoundsException e) {
         }
