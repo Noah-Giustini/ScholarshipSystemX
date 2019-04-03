@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -10,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng300.loginPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seng300.loginPageController">
    <children>
       <ImageView fitHeight="809.0" fitWidth="912.0" pickOnBounds="true">
          <image>
@@ -23,11 +28,11 @@
             <Font name="Georgia" size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="loginUsernameField" layoutX="358.0" layoutY="307.0" onMouseClicked="#clearErrorDueToClick" prefHeight="25.0" prefWidth="196.0" promptText="Enter your username">
+      <TextField fx:id="loginUsernameField" layoutX="358.0" layoutY="307.0" onKeyPressed="#enterOnLoginField" onMouseClicked="#clearErrorDueToClick" prefHeight="25.0" prefWidth="196.0" promptText="Enter your username">
          <font>
             <Font name="Georgia" size="13.0" />
          </font></TextField>
-      <PasswordField fx:id="loginPasswordField" layoutX="358.0" layoutY="380.0" onMouseClicked="#clearErrorDueToClick" prefHeight="25.0" prefWidth="196.0" promptText="Enter your password">
+      <PasswordField fx:id="loginPasswordField" layoutX="358.0" layoutY="380.0" onKeyPressed="#enterOnLoginField" onMouseClicked="#clearErrorDueToClick" prefHeight="25.0" prefWidth="196.0" promptText="Enter your password">
          <font>
             <Font name="Georgia" size="13.0" />
          </font></PasswordField>

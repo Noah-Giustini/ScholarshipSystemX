@@ -2,13 +2,13 @@ Scholarship
 question3
 
 Student
-julio
+student
 
 GPA
 0.0
 
 Education Level
-Masters
+Doctorate
 
 Date
 --
@@ -17,13 +17,13 @@ Status
 --
 
 Priority
-2
+3
 
 Answer1
-gfcjg
+--
 
 Answer2
-hgkvhk
+--
 
 Answer3
 --

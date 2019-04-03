@@ -453,7 +453,6 @@ public class StudentMainPageController implements Initializable {
         //loads up certain amount of applications based on the size of the arraylist
         if (size > 0) {
             String toAdd = currentApplications.get(0).getScholarship();
-
             showApplicationInView(toAdd, lblScholarship1, lbldate1, radioSchol1);
 
             if (size > 1) {
@@ -493,6 +492,7 @@ public class StudentMainPageController implements Initializable {
         ArrayList<Application> allTheDraftApplications = Seng300.theManager.getDraftApplications();
         
         int sizeDraft = allTheDraftApplications.size();
+        System.out.println("there should be " + sizeDraft + " drafts ");
         
         //loads up view based on how many draft applications student have 
         if (sizeDraft > 0) {

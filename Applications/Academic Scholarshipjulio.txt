@@ -1,23 +1,23 @@
 Scholarship
-Jason Lang
+Academic Scholarship
 
 Student
 julio
 
 GPA
-4.0
+0.0
 
 Education Level
-Masters
+Doctorate
 
 Date
 --
 
 Status
---
+Pending
 
 Priority
-0
+2
 
 Answer1
 --

@@ -4,6 +4,7 @@ package AdditionalScenes;
 
 import backend.Application;
 import backend.Scholarship;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -342,8 +343,7 @@ public class CreateApplicationFXMLController implements Initializable {
             if(checkPriority()){
                 newApp.setPriority(Integer.parseInt(txtPriorityLvL.getText()));
             }
-            
-            
+
             if(rdioBachelors.isSelected()){
                 newApp.setEducationLevel("Bachelors");
             }
@@ -381,83 +381,14 @@ public class CreateApplicationFXMLController implements Initializable {
                 }
             }
             //END OF CUSTOM QUESTIONS
-            
+            Seng300.theManager.addDraftApplication(newApp);
+            JOptionPane.showMessageDialog(null, "Application has been saved ");
+        }   
         
-
-    }
+        
         catch(Exception e){
           System.out.println("damn you roxanne");
         }
-        /*
-        if(checkGPA() || !Seng300.theManager.getCurrentScholarship().getGPAReq() || this.GPAlbl.isVisible() == false){
-            if(rdioBachelors.isSelected()){
-                try{
-                //Application newApp = new Application(sch, name, false);
-                newApp.setEducationLevel("Bachelors");
-                if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
-                    newApp.setGPA(Double.parseDouble(txtGPA.getText()));
-                }
-                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
-                JOptionPane.showMessageDialog(null, "Application has been saved ");
-                }
-                catch (Exception e){
-                    System.out.println("Please stop throwing exception");
-                    System.out.println("But the error was in SaveApplication in create application controller");
-                }
-            }
-            else if(rdioMasters.isSelected()){
-                try{
-                //Application newApp = new Application(sch, name, false);
-                newApp.setEducationLevel("Masters");
-                if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
-                    newApp.setGPA(Double.parseDouble(txtGPA.getText()));
-                }
-                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
-                JOptionPane.showMessageDialog(null, "Application has been saved ");
-                }
-                catch (Exception e){
-                    System.out.println("Please stop throwing exception");
-                    System.out.println("But the error was in SaveApplication in create application controller");
-                }
-            }
-            else if(rdioDoctorate.isSelected()) {
-                try{
-                //Application newApp = new Application(sch, name, false);
-                newApp.setEducationLevel("Bachelors");
-                if(Seng300.theManager.getCurrentScholarship().getGPAReq()){
-                    newApp.setGPA(Double.parseDouble(txtGPA.getText()));
-                }
-                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
-                JOptionPane.showMessageDialog(null, "Application has been saved ");
-                }
-                catch (Exception e){
-                    System.out.println("Please stop throwing exception");
-                    System.out.println("But the error was in SaveApplication in create application controller");
-                }
-            }
-        }
-        else{ //GPA not valid or missing
-            try{
-                //Application newApp = new Application(sch, name, false);
-                if(this.rdioBachelors.isSelected()){
-                    newApp.setEducationLevel("Bachelors");
-                }
-                else if(this.rdioMasters.isSelected()){
-                    newApp.setEducationLevel("Masters");
-                }
-                else{ //Doctorate is selected
-                    newApp.setEducationLevel("Doctorate");
-                }
-                maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
-                JOptionPane.showMessageDialog(null, "Application has been saved ");
-                }
-                catch (Exception e){
-                    System.out.println("Please stop throwing exception");
-                    System.out.println("But the error was in SaveApplication in create application controller");
-                }
-        }
-        */
-        
         
         
     }
@@ -481,9 +412,6 @@ public class CreateApplicationFXMLController implements Initializable {
                 }
                 if (checkValidPriority()){
                     newApp.setPriority(Integer.parseInt(txtPriorityLvL.getText()));
-                } else {
-                    JOptionPane.showMessageDialog(null, "Invalid Priority");
-
                 }
                 if(this.rdioBachelors.isSelected()){
                     newApp.setEducationLevel("Bachelors");
@@ -524,14 +452,13 @@ public class CreateApplicationFXMLController implements Initializable {
                 }
                 maybeAddApp(Seng300.theManager.getStudentApplications(), newApp);
                 JOptionPane.showMessageDialog(null, "Application has been submitted ");
-                }
-                catch (Exception e){
-                    System.out.println("Please stop throwing exception");
-                    System.out.println("But the error was in handle submit Application in create application controller");
-                }
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Please enter all required fields properly ");
+                deleteDraft(newApp);
+
+            }
+            catch (Exception e){
+                System.out.println("Please stop throwing exception");
+                System.out.println("But the error was in handle submit Application in create application controller");
+            }
         }
     }
     
@@ -577,11 +504,13 @@ public class CreateApplicationFXMLController implements Initializable {
      */
     private boolean isValid() {
         Scholarship sch = Seng300.theManager.getCurrentScholarship();
-        if (checkGPA() || !sch.getGPAReq() ){
+        if ((checkGPA() || !sch.getGPAReq()) && checkPriority() ){
             return true;
         }
         else {
+            JOptionPane.showMessageDialog(null, "invalid GPA ");
             return false;
+            
         }
           
     }
@@ -625,7 +554,20 @@ public class CreateApplicationFXMLController implements Initializable {
         catch(NumberFormatException e){
             
         }
+        JOptionPane.showMessageDialog(null, "Invalid Priority");
         return false;
+    }
+    
+    private void deleteDraft(Application app){
+        String schApp = app.getScholarship();
+        for (Application a : Seng300.theManager.getDraftApplications()){
+            if (schApp.equals(a.getScholarship())){
+                Seng300.theManager.getDraftApplications().remove(a);
+                a.delete();
+                break;
+            }
+        }
+        
     }
     
     
