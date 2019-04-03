@@ -100,8 +100,11 @@ public class StudentApplicationViewController implements Initializable {
             }
             else{
                 Seng300.theManager.getCurrentApplication().delete();
+                Seng300.theManager.getStudentApplications().remove(Seng300.theManager.getCurrentApplication());
                 Seng300.theManager.setCurrentApplication(null);
+                this.applicationInfo.setText("Application has been deleted");
                 JOptionPane.showMessageDialog(null, "You have successfully withdrawn your application");
+                
             }
         }
         catch (Exception e){
