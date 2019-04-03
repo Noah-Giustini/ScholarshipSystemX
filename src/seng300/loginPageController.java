@@ -26,6 +26,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -63,6 +65,24 @@ public class loginPageController implements Initializable {
     @FXML
     private void clearErrorDueToClick(MouseEvent event) {
         hideErrorMessage();
+    }
+    
+    /**
+     * This method allows the user to press the enter key in the login fields
+     * instead of clicking login with the mouse
+     * @param event The key event
+     */
+    @FXML
+    private void enterOnLoginField(KeyEvent event) {
+        if(event.getCode() == KeyCode.ENTER) {  //if event is from enter key
+            try {
+                login(new ActionEvent());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            
+        }
+        
     }
 
     /**
