@@ -7,6 +7,7 @@ package AdditionalScenes;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import seng300.Seng300;
+import backend.*;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This class is the fxml controller for the archivedScholarships fxml page.
@@ -75,17 +80,19 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
     private RadioButton radioSchol7;
     
     
+    private ArrayList<Scholarship> archivedScholarshipList = new ArrayList<>(); //list of archived scholarships
+    
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+        //loadArchivedScholarships();
     }
     
     /*
     TODO
-        -Add method to go back for back button
         -Read in at most 7 archived scholarships from folder
         -Display those 7 scholarships
     */
@@ -102,5 +109,37 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
         } catch (IOException e) {
             System.out.println("ERROR: IOException thrown when archived scholarships button is pressed!");
         }
+    }
+    
+    
+
+    /**
+     * This method loads the archived scholarships from the folder and displays
+     * it in the fxml window
+     */
+    private void loadArchivedScholarships() {
+        //look in Seng300\ArchivedScholarships and load the first 7
+        this.archivedScholarshipList.clear();
+        
+        File dir = new File("ArchivedScholarships\\");
+	File[] directoryListing = dir.listFiles();
+		
+	if (directoryListing != null) {     //goes through archived scholarships file and loads into array list
+		for (File child : directoryListing) { 	
+                    try {
+                        String schname = child.getName().substring(0, child.getName().length() - 4);
+                        Scholarship s = new Scholarship(schname, true);
+                        this.archivedScholarshipList.add(s);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+		}
+	}
+        
+        //for each loop for testing!
+        for(Scholarship s:archivedScholarshipList) {
+            System.out.println(s.toString());
+        }
+        
     }
 }
