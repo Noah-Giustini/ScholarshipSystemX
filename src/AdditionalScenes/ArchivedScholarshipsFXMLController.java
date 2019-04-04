@@ -105,6 +105,41 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
         -Display those 7 scholarships
     */
     
+    
+    /**
+     * This brings up a new page of all the archived applications for the selected
+     * archived scholarship when the viewArchivedApplications button is clicked
+     * @param event The event fired when the viewArchivedApplications button is clicked
+     */
+    @FXML
+    private void viewArchivedApplications(javafx.event.ActionEvent event) {
+        String scholarshipName = "";
+        
+        if(radioSchol1.isSelected()) {      //checks which scholarship was selected
+            scholarshipName = lblScholarship1.getText();
+        } else if (radioSchol2.isSelected()) {
+            scholarshipName = lblScholarship2.getText();
+        } else if (radioSchol3.isSelected()) {
+            scholarshipName = lblScholarship3.getText();
+        } else if (radioSchol4.isSelected()) {
+            scholarshipName = lblScholarship4.getText();
+        } else if (radioSchol5.isSelected()) {
+            scholarshipName = lblScholarship5.getText();
+        } else if (radioSchol6.isSelected()) {
+            scholarshipName = lblScholarship6.getText();
+        } else if (radioSchol7.isSelected()) {
+            scholarshipName = lblScholarship7.getText();
+        }
+        //name is now found, we can now find the archived applications in the folder
+        
+        
+        
+    }
+    
+    /**
+     * This takes the user back to the main admin page when the back button is clicked
+     * @param event The event fired when the back button is clicked
+     */
     @FXML
     private void backToMainPage(javafx.event.ActionEvent event) {
         try {
@@ -150,7 +185,7 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
         }
         
     }
-    
+   
     /**
      * This method displays up to 7 loaded archived scholarships.
      */
