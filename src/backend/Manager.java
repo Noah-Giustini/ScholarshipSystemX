@@ -385,7 +385,7 @@ public class Manager{
 
                     addSch(newSch);
                 } catch (Exception e) {
-                    System.out.println("Something done fucked up loading scholarships");
+                    System.out.println("Something done went wrong loading scholarships");
                 }
             }
         }

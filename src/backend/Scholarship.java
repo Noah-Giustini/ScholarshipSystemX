@@ -70,6 +70,25 @@ public class Scholarship {
             newScholarship();
         }
     }
+    
+        /**
+     * Constructor. Scholarship constructor that loads an archived scholarship
+     *
+     * @param schname is the name of the archived scholarship given by the user
+     */
+    public Scholarship(String schname) throws Exception {
+
+        this.name = schname;
+        this.submit = submit;
+
+       
+        this.schfile = "ArchivedScholarships\\" + schname + ".txt";
+        
+
+        File f = new File(this.schfile);
+        loadScholarship();
+        
+    }
 
     /**
      * Constructor. Scholarship constructor used when loading in all
@@ -534,15 +553,11 @@ public class Scholarship {
 
                     String appname = child.getName();
                     String stuname = appname.substring(this.name.length(), appname.length() - 4);
-                    //System.out.println(stuname);
                     Application a = new Application(this.name, stuname, true);
                     applications.add(a);
                 }
             }
         }
-        //for (int i = 0; i < applications.size(); i++){
-        //	System.out.println(applications.get(i));
-        //}	
     }
 
     /**
