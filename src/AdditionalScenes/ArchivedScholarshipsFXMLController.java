@@ -132,7 +132,19 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
         }
         //name is now found, we can now find the archived applications in the folder
         
+        //pass the scholarshipName to the controller and switch to it
+        ArchivedApplicationsFXMLController.setDesiredScholarship(scholarshipName);
         
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/archivedApplications.fxml"));
+            Scene sc = new Scene(root); 
+            Stage s = Seng300.mainStage;
+            s.setTitle("Archived Applications for " + scholarshipName);
+            s.setScene(sc);
+            s.show();          
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         
     }
     
@@ -179,11 +191,7 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
 		}
 	}
         
-        //for each loop for testing!
-        for(Scholarship s:archivedScholarshipList) {
-            System.out.println(s.toString());
-        }
-        
+
     }
    
     /**
