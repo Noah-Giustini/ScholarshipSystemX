@@ -1,11 +1,11 @@
 Scholarship
-Jason Lang
+wertwe
 
 Student
 julio
 
 GPA
-2.4
+0.0
 
 Education Level
 Bachelors
@@ -14,35 +14,35 @@ Date
 --
 
 Status
-Pending
+--
 
 Priority
 1
 
 Answer1
-fds
+--
 
 Answer2
-sd
+--
 
 Answer3
-sfsd
+--
 
 Answer4
-sdf
+--
 
 Answer5
-cdsv
+--
 
 Answer6
-fsdf
+--
 
 Answer7
-fsdf
+--
 
 Answer8
-dsf
+--
 
 Answer9
-
+--
 

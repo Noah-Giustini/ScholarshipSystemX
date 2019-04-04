@@ -110,6 +110,10 @@ public class CreateApplicationFXMLController implements Initializable {
     private Label PriorityLevelLbl;
     @FXML
     private ChoiceBox priChoice;
+    @FXML
+    private Label dateLbl;
+    @FXML
+    private Label dueDateLbl;
 
     /**
      * Initializes the controller class.
@@ -126,10 +130,12 @@ public class CreateApplicationFXMLController implements Initializable {
             }
         }
         priChoice.setValue(priChoice.getItems().get(0));
+       
         
         if(Seng300.theManager.getEditModeApplication()){
             Application app = Seng300.theManager.getCurrentApplication();
             Scholarship sch = Seng300.theManager.getCurrentScholarship();
+            dateLbl.setText(sch.getDueDate());
             if(!priChoice.getItems().contains(app.getPriority()) ){
                 priChoice.getItems().add(app.getPriority());
                 priChoice.setValue(app.getPriority());
@@ -247,6 +253,7 @@ public class CreateApplicationFXMLController implements Initializable {
         }
         else{
         Scholarship sch = Seng300.theManager.getCurrentScholarship();
+        dateLbl.setText(sch.getDueDate());
         lblScholarshipName.setText(sch.getName());
         txtSchDescription.setText(sch.getDescription());
         System.out.println(sch.getCustom3());

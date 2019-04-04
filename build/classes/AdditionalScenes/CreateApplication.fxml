@@ -72,7 +72,7 @@
           <content>
             <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="1143.0" prefWidth="707.0">
               <children>
-                        <ImageView fitHeight="1199.0" fitWidth="713.0" layoutY="-11.0" pickOnBounds="true">
+                        <ImageView fitHeight="1199.0" fitWidth="713.0" layoutX="29.0" layoutY="-5.0" pickOnBounds="true">
                            <image>
                               <Image url="@pink-marble-texture-background-abstract-marble-texture-natural-patterns_41389-205.jpg" />
                            </image>
@@ -179,6 +179,16 @@
                            </font>
                         </Label>
                         <ChoiceBox fx:id="priChoice" layoutX="255.0" layoutY="224.0" prefWidth="150.0" />
+                        <Label fx:id="dueDateLbl" layoutX="273.0" layoutY="65.0" text="Due Date:">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dateLbl" layoutX="352.0" layoutY="62.0" prefHeight="25.0" prefWidth="98.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
               </children>
             </AnchorPane>
           </content>

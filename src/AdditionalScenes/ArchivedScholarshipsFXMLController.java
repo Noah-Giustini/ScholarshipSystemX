@@ -183,7 +183,7 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
 		for (File child : directoryListing) { 	
                     try {
                         String schname = child.getName().substring(0, child.getName().length() - 4);
-                        Scholarship s = new Scholarship(schname, true);
+                        Scholarship s = new Scholarship(schname);
                         this.archivedScholarshipList.add(s);
                     } catch (Exception e) {
                         e.printStackTrace();
