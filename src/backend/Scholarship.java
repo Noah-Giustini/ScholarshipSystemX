@@ -633,22 +633,22 @@ public class Scholarship {
                 setCustom3(line);
             } else if (line.equals("Custom4")) {
                 line = br.readLine();
-                setCustom3(line);
+                setCustom4(line);
             } else if (line.equals("Custom5")) {
                 line = br.readLine();
-                setCustom3(line);
+                setCustom5(line);
             } else if (line.equals("Custom6")) {
                 line = br.readLine();
-                setCustom3(line);
+                setCustom6(line);
             } else if (line.equals("Custom7")) {
                 line = br.readLine();
-                setCustom3(line);
+                setCustom7(line);
             } else if (line.equals("Custom8")) {
                 line = br.readLine();
-                setCustom3(line);
+                setCustom8(line);
             } else if (line.equals("Custom9")) {
                 line = br.readLine();
-                setCustom3(line);
+                setCustom9(line);
             } else if (line.equals("Description")) {
                 line = br.readLine();
                 setDescription(line);

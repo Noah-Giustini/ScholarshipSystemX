@@ -2,13 +2,13 @@ Scholarship
 testing
 
 Student
-julio
+student
 
 GPA
-0.0
+3.0
 
 Education Level
-Doctorate
+Bachelors
 
 Date
 --
@@ -17,13 +17,13 @@ Status
 Pending
 
 Priority
-2
+4
 
 Answer1
-sfd
+Hey
 
 Answer2
-dsf
+There
 
 Answer3
 --

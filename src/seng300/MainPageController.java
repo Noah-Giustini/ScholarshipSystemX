@@ -352,7 +352,28 @@ public class MainPageController implements Initializable {
             index = 6;
         }
             schols.get(index).archive();
-            Seng300.theManager.clearScholarships();
+            Seng300.theManager.clearScholarships();        
+            lblScholarship1.setText("");
+            lblScholarship2.setText("");
+            lblScholarship3.setText("");
+            lblScholarship4.setText("");
+            lblScholarship5.setText("");
+            lblScholarship6.setText("");
+            lblScholarship7.setText("");
+            lbldate1.setText("");
+            lbldate2.setText("");
+            lbldate3.setText("");
+            lbldate4.setText("");
+            lbldate5.setText("");
+            lbldate6.setText("");
+            lbldate7.setText("");
+            radioSchol1.setVisible(false);
+            radioSchol2.setVisible(false);
+            radioSchol3.setVisible(false);
+            radioSchol4.setVisible(false);
+            radioSchol5.setVisible(false);
+            radioSchol6.setVisible(false);
+            radioSchol7.setVisible(false);  
             startUp();
     }
 
@@ -390,6 +411,20 @@ public class MainPageController implements Initializable {
         try {
             schs.get(index).delete();
             Seng300.theManager.clearScholarshipDrafts();
+            lblDraft1.setText("");
+            lblDraft2.setText("");
+            lblDraft3.setText("");
+            lblDraft4.setText("");
+            lblDraft5.setText("");
+            lblDraft6.setText("");
+            lblDraft7.setText("");
+            rdoDraft1.setVisible(false);
+            rdoDraft2.setVisible(false);
+            rdoDraft3.setVisible(false);
+            rdoDraft4.setVisible(false);
+            rdoDraft5.setVisible(false);
+            rdoDraft6.setVisible(false);
+            rdoDraft7.setVisible(false);
             startUp();
         } catch (IndexOutOfBoundsException e) {
         }
