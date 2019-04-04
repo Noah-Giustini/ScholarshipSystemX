@@ -45,6 +45,20 @@ public class StudentApplicationViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.applicationInfo.setText(Seng300.theManager.getCurrentApplication().toString());
+        String status = Seng300.theManager.getCurrentApplication().getStatus();
+        if (status.equals("Pending") ||status.equals("Accepted")){
+            this.acceptButton.setVisible(false);
+        }
+        else {
+            this.acceptButton.setVisible(true);
+        }
+        if (status.equals(status.equals("Accepted"))){
+            this.withdrawButton.setVisible(false);
+        }
+        else {
+            this.withdrawButton.setVisible(true);
+        }
+        
     }    
     /**
      * This method takes us back to the student main page from the view application page
@@ -66,7 +80,7 @@ public class StudentApplicationViewController implements Initializable {
      */
     @FXML
     private void accept(ActionEvent event) {
-        if (Seng300.theManager.getCurrentApplication().getStatus() == "Granted"){
+        if (Seng300.theManager.getCurrentApplication().getStatus().equals("Granted")){
             try {
                 Seng300.theManager.getCurrentApplication().setStatus("Accepted");
                 JOptionPane.showMessageDialog(null, "Success, scholarship has been accepted. \n You will be contacted shortly to recieve your award");
@@ -93,6 +107,9 @@ public class StudentApplicationViewController implements Initializable {
                 schol.setChosen(chosen - 1);
                 Seng300.theManager.getCurrentApplication().delete();
                 Seng300.theManager.setCurrentApplication(null);
+                this.acceptButton.setVisible(false);
+                this.withdrawButton.setVisible(false);
+                JOptionPane.showMessageDialog(null, "You have successfully withdrawn your application");
             }
             else if (Seng300.theManager.getCurrentApplication().getStatus() == "Accepted"){
                 JOptionPane.showMessageDialog(null, "You have already accepted this scholarship and cannot withdraw at this time");
@@ -102,8 +119,10 @@ public class StudentApplicationViewController implements Initializable {
                 Seng300.theManager.getCurrentApplication().delete();
                 Seng300.theManager.getStudentApplications().remove(Seng300.theManager.getCurrentApplication());
                 Seng300.theManager.setCurrentApplication(null);
+                this.withdrawButton.setVisible(false);
                 this.applicationInfo.setText("Application has been deleted");
                 JOptionPane.showMessageDialog(null, "You have successfully withdrawn your application");
+                
                 
             }
         }

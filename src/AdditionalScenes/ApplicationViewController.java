@@ -41,6 +41,13 @@ public class ApplicationViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.applicationInfo.setText(Seng300.theManager.getCurrentApplication().toString());
+        String status = Seng300.theManager.getCurrentApplication().getStatus();
+        if (status.equals("Granted") ||status.equals("Accepted")){
+            this.awardButton.setVisible(false);
+        }
+        else {
+            this.awardButton.setVisible(true);
+        }
     }    
 
     /**

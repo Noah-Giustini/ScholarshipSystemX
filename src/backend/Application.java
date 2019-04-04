@@ -560,16 +560,16 @@ public class Application{
 	
 	public String toString(){
 		 
-		String toReturn =  this.scholarship + "\n " + this.student + "\n Date Submitted: " + this.date + "\n GPA: " + this.gpa + "\n Education Level: " + this.edulvl + "\n Priority: " + this.priority + "\n Status: " + this.status;
-                System.out.println(this.ans1);
-                System.out.println(this.ans2);
-                System.out.println(this.ans3);
-                System.out.println(this.ans4);
-                System.out.println(this.ans5);
-                System.out.println(this.ans6);
-                System.out.println(this.ans7);
-                System.out.println(this.ans8);
-                System.out.println(this.ans9);
+		String toReturn =  this.scholarship + "\n " + this.student + "\n Date Submitted: " + this.date + "\n GPA: " + this.gpa + "\n Education Level: " + this.edulvl + "\n Priority: " + this.priority + "\n Status: " + this.status + "\n";
+                //System.out.println(this.ans1);
+                //System.out.println(this.ans2);
+                //System.out.println(this.ans3);
+                //System.out.println(this.ans4);
+                //System.out.println(this.ans5);
+                //System.out.println(this.ans6);
+                //System.out.println(this.ans7);
+                //System.out.println(this.ans8);
+                //System.out.println(this.ans9);
                 
                 
                 if (!this.ans1.equals("--")){
