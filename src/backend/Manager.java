@@ -468,7 +468,16 @@ public class Manager{
         draftApplications.clear();
         this.scholarshipdrafts.clear();
     }
+    
+    public boolean[] getPriority(){
+        boolean[] pri = new boolean[5];
+        int i = 0;
+        for(Application a : this.studentApplications){
+            pri[a.getPriority() - 1] = true;
+        }
         
+        return pri;
+    }
 }
     
 
