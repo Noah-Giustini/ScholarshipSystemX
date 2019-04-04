@@ -527,12 +527,18 @@ public class CreateApplicationFXMLController implements Initializable {
     private boolean isValid() {
         Scholarship sch = Seng300.theManager.getCurrentScholarship();
         if ((checkGPA() || !sch.getGPAReq()) && checkPriority() ){
-            return true;
+            if(checkCustoms()){
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Please answer all the questions. ");
+            }
         }
         else {
             return false;
-            
+   
         }
+        return false;
           
     }
     
@@ -587,6 +593,85 @@ public class CreateApplicationFXMLController implements Initializable {
             }
         }
         
+    }
+    
+    
+    /**
+     * Sorry for this function but whatever it works. It makes sure
+     * The hardest decisions require the strongest wills
+     * -Thanos 2018
+     * It will make sure the answers to the questions arent blank
+     * @return true if answered all questions
+     */
+    private boolean checkCustoms(){
+             if(txtCustom1.isVisible()){
+                if(txtCustom1.getText().isEmpty()){
+                    return false;
+                }
+                else{
+                    if(txtCustom2.isVisible()){
+                        if(txtCustom2.getText().isEmpty()){
+                            return false;
+                        }
+                        else{
+    
+                            if(txtCustom3.isVisible()){
+                                if(txtCustom3.getText().isEmpty()){
+                                    return false;
+                                }
+                                else{ 
+                                    if(txtCustom4.isVisible()){
+                                        if(txtCustom4.getText().isEmpty()){
+                                            return false;
+                                        }
+                                        else{
+                                            if(txtCustom5.isVisible()){
+                                                if(txtCustom5.getText().isEmpty()){
+                                                    return false;
+                                                }
+                                                else{
+                                                    if(txtCustom6.isVisible()){
+                                                        if(txtCustom6.getText().isEmpty()){
+                                                            return false;
+                                                        }
+                                                    else{
+                                                        if(txtCustom7.isVisible()){
+                                                            if(txtCustom7.getText().isEmpty()){
+                                                                return false;
+                                                            }
+                                                            else{
+                                                                if(txtCustom8.isVisible()){
+                                                                    if(txtCustom8.getText().isEmpty()){
+                                                                        return false;
+                                                                    }
+                                                                    else{
+                                                                        if(txtCustom9.isVisible()){
+                                                                            if(txtCustom9.getText().isEmpty()){
+                                                                                return false;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                            }
+                                        
+                                                        
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        return true;
     }
     
     

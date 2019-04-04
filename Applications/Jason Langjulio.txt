@@ -5,10 +5,10 @@ Student
 julio
 
 GPA
-0.0
+2.4
 
 Education Level
-Masters
+Bachelors
 
 Date
 --
@@ -20,28 +20,28 @@ Priority
 1
 
 Answer1
-
+fds
 
 Answer2
-
+sd
 
 Answer3
-
+sfsd
 
 Answer4
-
+sdf
 
 Answer5
-
+cdsv
 
 Answer6
-
+fsdf
 
 Answer7
-
+fsdf
 
 Answer8
-
+dsf
 
 Answer9
 
