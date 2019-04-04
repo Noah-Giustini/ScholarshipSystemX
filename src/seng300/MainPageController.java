@@ -174,7 +174,7 @@ public class MainPageController implements Initializable {
             s.setScene(sc);
             s.show();          
         } catch (IOException e) {
-            System.out.println("ERROR: IOException thrown when archived scholarships button is pressed!");
+            e.printStackTrace();
         }
             
 

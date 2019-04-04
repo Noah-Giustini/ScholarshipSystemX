@@ -59,6 +59,8 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
     @FXML
     private Label lbldate5;
     @FXML
+    private Label lblScholarship6;
+    @FXML
     private Label lbldate6;
     @FXML
     private Label lblScholarship7;
@@ -82,18 +84,24 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
     
     private ArrayList<Scholarship> archivedScholarshipList = new ArrayList<>(); //list of archived scholarships
     
+    /*
+    BUGS I've noticed
+        -When you delete a scholarship and go click view archived scholarships and go back,
+         the deleted scholarship is still in the current scholarship scrollpane
+    */
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //loadArchivedScholarships();
+        loadArchivedScholarships();
+        displayArchivedScholarships();
     }
     
     /*
     TODO
-        -Read in at most 7 archived scholarships from folder
+        -Read in scholarships from folder
         -Display those 7 scholarships
     */
     
@@ -107,7 +115,7 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
             s.setScene(sc);
             s.show();          
         } catch (IOException e) {
-            System.out.println("ERROR: IOException thrown when archived scholarships button is pressed!");
+            e.printStackTrace();
         }
     }
     
@@ -141,5 +149,70 @@ public class ArchivedScholarshipsFXMLController implements Initializable {
             System.out.println(s.toString());
         }
         
+    }
+    
+    /**
+     * This method displays up to 7 loaded archived scholarships.
+     */
+    private void displayArchivedScholarships() {
+        //goes through the arrayList and grabs the first 7 archived scholarships
+        int i = 0;
+        
+        for(Scholarship s:archivedScholarshipList) {
+            switch(i + 1) {
+                case 1:
+                    lblScholarship1.setText(s.getName());
+                    lbldate1.setText(s.getDueDate());
+                    lblScholarship1.setVisible(true);
+                    lbldate1.setVisible(true);
+                    radioSchol1.setVisible(true);
+                    break;
+                case 2:
+                    lblScholarship2.setText(s.getName());
+                    lbldate2.setText(s.getDueDate());
+                    lblScholarship2.setVisible(true);
+                    lbldate2.setVisible(true);
+                    radioSchol2.setVisible(true);
+                    break;
+                case 3:
+                    lblScholarship3.setText(s.getName());
+                    lbldate3.setText(s.getDueDate());
+                    lblScholarship3.setVisible(true);
+                    lbldate3.setVisible(true);
+                    radioSchol3.setVisible(true);
+                    break;
+                case 4:
+                    lblScholarship4.setText(s.getName());
+                    lbldate4.setText(s.getDueDate());
+                    lblScholarship4.setVisible(true);
+                    lbldate4.setVisible(true);
+                    radioSchol4.setVisible(true);
+                    break;
+                case 5:
+                    lblScholarship5.setText(s.getName());
+                    lbldate5.setText(s.getDueDate());
+                    lblScholarship5.setVisible(true);
+                    lbldate5.setVisible(true);
+                    radioSchol5.setVisible(true);
+                    break;
+                case 6:
+                    lblScholarship6.setText(s.getName());
+                    lbldate6.setText(s.getDueDate());
+                    lblScholarship6.setVisible(true);
+                    lbldate6.setVisible(true);
+                    radioSchol6.setVisible(true);
+                    break;
+                case 7:
+                    lblScholarship7.setText(s.getName());
+                    lbldate7.setText(s.getDueDate());
+                    lblScholarship7.setVisible(true);
+                    lbldate7.setVisible(true);
+                    radioSchol7.setVisible(true);
+                    break;
+            }
+            
+            i++;
+    
+        }
     }
 }
