@@ -1,5 +1,5 @@
 Scholarship
-Academic Scholarship
+wertwe
 
 Student
 julio
@@ -8,16 +8,16 @@ GPA
 0.0
 
 Education Level
-Bachelors
+Masters
 
 Date
 --
 
 Status
---
+Pending
 
 Priority
-5
+1
 
 Answer1
 --

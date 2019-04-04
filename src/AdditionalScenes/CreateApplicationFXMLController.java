@@ -353,6 +353,9 @@ public class CreateApplicationFXMLController implements Initializable {
             if(checkPriority()){
                 newApp.setPriority((Integer) priChoice.getValue());
             }
+            else{
+                newApp.setPriority((Integer)priChoice.getItems().get(0));
+            }
 
             if(rdioBachelors.isSelected()){
                 newApp.setEducationLevel("Bachelors");
@@ -422,9 +425,6 @@ public class CreateApplicationFXMLController implements Initializable {
                 }
                 if (checkPriority()){
                     newApp.setPriority((Integer) priChoice.getValue());
-                }
-                else{
-                    newApp.setPriority((Integer)priChoice.getItems().get(0));
                 }
                 if(this.rdioBachelors.isSelected()){
                     newApp.setEducationLevel("Bachelors");
