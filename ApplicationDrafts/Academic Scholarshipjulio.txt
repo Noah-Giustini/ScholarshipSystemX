@@ -1,5 +1,5 @@
 Scholarship
-testing
+Academic Scholarship
 
 Student
 julio
@@ -8,22 +8,22 @@ GPA
 0.0
 
 Education Level
-Doctorate
+Bachelors
 
 Date
 --
 
 Status
-Pending
+--
 
 Priority
-2
+5
 
 Answer1
-sfd
+--
 
 Answer2
-dsf
+--
 
 Answer3
 --
