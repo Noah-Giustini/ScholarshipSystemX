@@ -1,5 +1,5 @@
 Scholarship
-testing
+question3
 
 Student
 julio
@@ -8,7 +8,7 @@ GPA
 0.0
 
 Education Level
-Doctorate
+Masters
 
 Date
 --
@@ -17,13 +17,13 @@ Status
 Pending
 
 Priority
-2
+1
 
 Answer1
-sfd
+--
 
 Answer2
-dsf
+--
 
 Answer3
 --

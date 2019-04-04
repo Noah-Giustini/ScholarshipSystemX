@@ -346,6 +346,7 @@ public class CreateApplicationFXMLController implements Initializable {
         String sch = lblScholarshipName.getText();
         try{
             Application newApp = new Application(sch, name, false);
+            
             if(checkGPA()){
                 newApp.setGPA(Double.parseDouble(txtGPA.getText()));
             }
@@ -390,7 +391,7 @@ public class CreateApplicationFXMLController implements Initializable {
                 }
             }
             //END OF CUSTOM QUESTIONS
-            Seng300.theManager.addDraftApplication(newApp);
+            maybeAddApp(Seng300.theManager.getDraftApplications(), newApp);
             JOptionPane.showMessageDialog(null, "Application has been saved ");
         }   
         
@@ -416,11 +417,14 @@ public class CreateApplicationFXMLController implements Initializable {
             String sch = lblScholarshipName.getText();
             try{
                 Application newApp = new Application(sch, Seng300.theManager.getUser(), true);
-                if(sch1.getGPAReq()){
+                if(sch1.getGPAReq() && Seng300.theManager.getCurrentScholarship().getGPAReq()){
                     newApp.setGPA(Double.parseDouble(txtGPA.getText()));
                 }
                 if (checkPriority()){
                     newApp.setPriority((Integer) priChoice.getValue());
+                }
+                else{
+                    newApp.setPriority((Integer)priChoice.getItems().get(0));
                 }
                 if(this.rdioBachelors.isSelected()){
                     newApp.setEducationLevel("Bachelors");
@@ -494,24 +498,28 @@ public class CreateApplicationFXMLController implements Initializable {
      * @return returns a true or false value if value given was good
      */
     private boolean checkGPA(){
-        String gpa = txtGPA.getText();
-        double toCheck;
-        try{
-            toCheck = Double.parseDouble(gpa);
-        }
-        catch( NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "invalid GPA ");
+        if(!Seng300.theManager.getCurrentScholarship().getGPAReq()){
             return false;
         }
+            String gpa = txtGPA.getText();
+            double toCheck;
+            try{
+                toCheck = Double.parseDouble(gpa);
+            }
+            catch( NumberFormatException e){
+                JOptionPane.showMessageDialog(null, "invalid GPA ");
+                return false;
+            }
         
-        if(toCheck >= 0.0 && toCheck <= 4.0){
-            return true;
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "invalid GPA ");
-            return false;
-        }  
-    }
+            if(toCheck >= 0.0 && toCheck <= 4.0){
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "invalid GPA ");
+                return false;
+            }  
+ }
+    
     /**
      * method to confirm that the input fields have been properly filled out
      * @return returns true or false based on the input fields for the page
