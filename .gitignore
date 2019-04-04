@@ -14,3 +14,4 @@ build/classes/backend/Scholarship.class
 dist/Seng300.html
 *.jar
 *.jnlp
+build/
