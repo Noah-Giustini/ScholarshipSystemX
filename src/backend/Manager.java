@@ -478,6 +478,22 @@ public class Manager{
         
         return pri;
     }
+    
+    /**
+     * gets a scholarship based on the name if none found will return null
+     * that should never happen tho
+     * @param name name of the scholarship
+     * @return scholarship with the name
+     */
+    public Scholarship getCertainScholarship(String name){
+        for (Scholarship s : this.scholarships){
+            if(s.getName().equals(name)){
+                return s;
+            }
+        }
+        
+        return null;
+    }
 }
     
 

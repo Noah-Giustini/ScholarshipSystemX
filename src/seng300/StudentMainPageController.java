@@ -9,7 +9,10 @@ import backend.Application;
 import backend.Scholarship;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +28,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -168,6 +172,9 @@ public class StudentMainPageController implements Initializable {
         draftApplicationStartUp();
         schStartUp();
         System.out.println(Seng300.theManager.getScholarships());
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+ 
         
     }    
     
@@ -230,6 +237,10 @@ public class StudentMainPageController implements Initializable {
             //load application view page 
             Seng300.theManager.setCurrentApplication(apps.get(index));
             Seng300.theManager.setEditModeApplication(false);
+            Scholarship schToCheck = Seng300.theManager.getCertainScholarship(apps.get(index).getScholarship());
+ //2016/11/16 12:08:43
+            
+            
             Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/studentApplicationView.fxml"));
             Scene sc = new Scene(root);
             Stage s = Seng300.mainStage; 
@@ -283,24 +294,29 @@ public class StudentMainPageController implements Initializable {
             
             //load application view page 
             Seng300.theManager.setCurrentApplication(apps.get(index));
-           try {
-               Scholarship sch0 = new Scholarship(apps.get(index).getScholarship(), true);
-               Seng300.theManager.setCurrentScholarship(sch0);
-           } catch (Exception ex) {
-               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
-           }
-            Seng300.theManager.setEditModeApplication(true);
-            Parent root;
-           try {
-               root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
-               Scene sc = new Scene(root);
-               Stage s = Seng300.mainStage; 
-               s.setTitle("Home");
-               s.setScene(sc);
-               s.show(); 
-           } catch (IOException ex) {
-               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
-           }
+            
+            Scholarship currentSch = Seng300.theManager.getCertainScholarship(apps.get(index).getScholarship());
+            if(checkDate(currentSch.getDueDate())){
+            
+                try {
+                    Scholarship sch0 = new Scholarship(apps.get(index).getScholarship(), true);
+                    Seng300.theManager.setCurrentScholarship(sch0);
+                } catch (Exception ex) {
+                    Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Seng300.theManager.setEditModeApplication(true);
+                Parent root;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
+                    Scene sc = new Scene(root);
+                    Stage s = Seng300.mainStage; 
+                    s.setTitle("Home");
+                    s.setScene(sc);
+                    s.show(); 
+                } catch (IOException ex) {
+                    Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         catch(IndexOutOfBoundsException e){
             
@@ -344,24 +360,27 @@ public class StudentMainPageController implements Initializable {
             
             //load application view page 
             Seng300.theManager.setCurrentApplication(apps.get(index));
-           try {
-               Scholarship sch0 = new Scholarship(apps.get(index).getScholarship(), true);
-               Seng300.theManager.setCurrentScholarship(sch0);
-           } catch (Exception ex) {
-               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
-           }
-            Seng300.theManager.setEditModeApplication(true);
-            Parent root;
-           try {
-               root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
-               Scene sc = new Scene(root);
-               Stage s = Seng300.mainStage; 
-               s.setTitle("Home");
-               s.setScene(sc);
-               s.show(); 
-           } catch (IOException ex) {
-               Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
-           }
+            Scholarship currentSch = Seng300.theManager.getCertainScholarship(apps.get(index).getScholarship());
+            if(checkDate(currentSch.getDueDate())){
+                try {
+                    Scholarship sch0 = new Scholarship(apps.get(index).getScholarship(), true);
+                    Seng300.theManager.setCurrentScholarship(sch0);
+                } catch (Exception ex) {
+                    Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Seng300.theManager.setEditModeApplication(true);
+                Parent root;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
+                    Scene sc = new Scene(root);
+                    Stage s = Seng300.mainStage; 
+                    s.setTitle("Home");
+                    s.setScene(sc);
+                    s.show(); 
+                } catch (IOException ex) {
+                    Logger.getLogger(StudentMainPageController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         catch(IndexOutOfBoundsException e){
             
@@ -399,13 +418,17 @@ public class StudentMainPageController implements Initializable {
             
             //load up create application window
             Seng300.theManager.setCurrentScholarship(schs.get(index));
-            Seng300.theManager.setEditModeApplication(false);
-            Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
-            Scene sc = new Scene(root);
-            Stage s = Seng300.mainStage; 
-            s.setTitle("Home");
-            s.setScene(sc);
-            s.show(); 
+            Scholarship currentSch = Seng300.theManager.getCertainScholarship(schs.get(index).getName());
+            if(checkDate(currentSch.getDueDate())){
+            
+                Seng300.theManager.setEditModeApplication(false);
+                Parent root = FXMLLoader.load(getClass().getResource("/AdditionalScenes/CreateApplication.fxml"));
+                Scene sc = new Scene(root);
+                Stage s = Seng300.mainStage; 
+                s.setTitle("Home");
+                s.setScene(sc);
+                s.show(); 
+            }
         }
         catch (IndexOutOfBoundsException e) {
 
@@ -571,6 +594,49 @@ public class StudentMainPageController implements Initializable {
         }
 
     }
+    
+    /**
+     * Compares todays date with the due date of an application
+     * @param due the string with date format of type dd/mm/yyyy
+     * @return true if due date has not passed 
+     */
+    private boolean checkDate(String due){
+        if(due.equals("dd/mm/yyyy")){
+            return true;
+        }
+        else{
+            String[] day = due.split("/");
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            String today = dateFormat.format(date);
+            String[] today2 = today.split("/");
+            
+            int year = Integer.parseInt(today2[2]);
+            int year2 = Integer.parseInt(day[2]);
+            if(year > year2){
+                JOptionPane.showMessageDialog(null, "Unable to apply. Deadline has passed ");
+                return false;
+            }
+            int month = Integer.parseInt(today2[1]);
+            int month2 = Integer.parseInt(day[1]);
+            if(month > month2){
+                JOptionPane.showMessageDialog(null, "Unable to apply. Deadline has passed ");
+                return false;
+            }
+            int day2 = Integer.parseInt(today2[0]);
+            int day3 = Integer.parseInt(day[0]);
+            
+            if(day2> day3){
+                JOptionPane.showMessageDialog(null, "Unable to apply. Deadline has passed ");
+                return false;
+            }
+            
+            return true;
+            
+        }
+    }
+    
+    
     
     
 }
