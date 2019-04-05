@@ -586,6 +586,15 @@ public class CreateApplicationFXMLController implements Initializable {
             return true;
         }
  
+        if(Seng300.theManager.getEditModeApplication()){
+            String sch = Seng300.theManager.getCurrentApplication().getScholarship();
+            Application app = Seng300.theManager.getStudentApplication(sch);
+            if(!(app == null)){
+                if(app.getPriority() == (Integer) priChoice.getValue()){
+                    return true;
+                }
+            }
+        }
         JOptionPane.showMessageDialog(null, "Priority already in use");
         return false;
     }

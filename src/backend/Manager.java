@@ -438,13 +438,13 @@ public class Manager{
     }
         
     /**
-     * Gets the applications for the current student.
-     * 
-     * @param sch
-     * @return 
+     * Gets the applications for the current student based on the name of the 
+     * scholarship.
+     * @param sch name of the scholarship
+     * @return Application if it exists null if no such application exists
      */
     public Application getStudentApplication(String sch){
-       File file = new File("Applications" + File.separator + sch + Seng300.theManager.getUser());
+       File file = new File("Applications" + File.separator + sch + Seng300.theManager.getUser() + ".txt");
        if(file.exists()){ 
            try{
            Application app = new Application(sch, Seng300.theManager.getUser(), true );
