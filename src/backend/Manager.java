@@ -421,7 +421,7 @@ public class Manager{
                     }
                         
                 } catch (Exception e) {
-                    System.out.println("Something done fucked up loading applications from " + path);
+                    System.out.println("Something went wrong loading applications from " + path);
                 }
             }
         }
@@ -451,8 +451,7 @@ public class Manager{
            return app;
            }
            catch (Exception e){
-               System.out.println("Really need to catch those exceptions");
-               System.out.println("but error was getting a specfic application");
+               System.out.println("there was an error getting a specfic application");
            }           
        }
        System.out.println("File not found ");

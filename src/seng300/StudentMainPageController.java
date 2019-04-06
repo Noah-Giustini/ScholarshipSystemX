@@ -171,7 +171,6 @@ public class StudentMainPageController implements Initializable {
         applicationStartUp();
         draftApplicationStartUp();
         schStartUp();
-        System.out.println(Seng300.theManager.getScholarships());
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date date = new Date();
  
@@ -358,10 +357,16 @@ public class StudentMainPageController implements Initializable {
         }
         try{
             
+
+            JOptionPane.showMessageDialog(null, "You are not allowed to edit this application at this time");
+
             //load application view page 
             Seng300.theManager.setCurrentApplication(apps.get(index));
             Scholarship currentSch = Seng300.theManager.getCertainScholarship(apps.get(index).getScholarship());
-            if(checkDate(currentSch.getDueDate())){
+            if (!Seng300.theManager.getCurrentApplication().getStatus().equals("Pending")){
+                JOptionPane.showMessageDialog(null, "You are not allowed to edit this application at this time");
+            }
+            if(checkDate(currentSch.getDueDate()) && Seng300.theManager.getCurrentApplication().getStatus().equals("Pending")){
                 try {
                     Scholarship sch0 = new Scholarship(apps.get(index).getScholarship(), true);
                     Seng300.theManager.setCurrentScholarship(sch0);
@@ -515,7 +520,6 @@ public class StudentMainPageController implements Initializable {
         ArrayList<Application> allTheDraftApplications = Seng300.theManager.getDraftApplications();
         
         int sizeDraft = allTheDraftApplications.size();
-        System.out.println("there should be " + sizeDraft + " drafts ");
         
         //loads up view based on how many draft applications student have 
         if (sizeDraft > 0) {

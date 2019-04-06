@@ -172,7 +172,6 @@ public class CreateApplicationFXMLController implements Initializable {
                      txtCustom2.insertText(0, app.getAnswer2());
                 }
             }
-            System.out.println("CUST 3: " + sch.getCustom3().isEmpty());
             if (!sch.getCustom3().isEmpty()) {
                 lblcus3.setVisible(true);
                 lblcus3.setText(sch.getCustom3());
@@ -256,9 +255,6 @@ public class CreateApplicationFXMLController implements Initializable {
         dateLbl.setText(sch.getDueDate());
         lblScholarshipName.setText(sch.getName());
         txtSchDescription.setText(sch.getDescription());
-        System.out.println(sch.getCustom3());
-        System.out.println(sch.getCustom4());
-        System.out.println("testing the 2 lines above");
         if(!sch.getGPAReq()){
             txtGPA.setVisible(false);
             GPAlbl.setVisible(false);
@@ -274,8 +270,6 @@ public class CreateApplicationFXMLController implements Initializable {
                 lblcus2.setVisible(true);
                 lblcus2.setText(sch.getCustom2());
                 txtCustom2.setVisible(true);
-                System.out.println(sch.getCustom3());
-                System.out.println("If line above is blank then getcustom3 does not work");
                 if(!sch.getCustom3().isEmpty() && !sch.getCustom3().equals("--")){
                     lblcus3.setVisible(true);
                     lblcus3.setText(sch.getCustom3());
@@ -407,7 +401,7 @@ public class CreateApplicationFXMLController implements Initializable {
         
         
         catch(Exception e){
-          System.out.println("damn you roxanne");
+          System.out.println("There was an exception thrown");
         }
         
         
@@ -476,8 +470,7 @@ public class CreateApplicationFXMLController implements Initializable {
 
             }
             catch (Exception e){
-                System.out.println("Please stop throwing exception");
-                System.out.println("But the error was in handle submit Application in create application controller");
+                System.out.println("An exception has been thrown");
             }
         }
     }

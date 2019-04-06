@@ -79,7 +79,7 @@ public class ApplicationViewController implements Initializable {
             }
             catch (Exception e){
                 JOptionPane.showMessageDialog(null, "Something went wrong. \n Ensure all files are in the file system");
-                System.out.println("Something went horribly wrong. please ensure all files are in the file system. \n");
+                System.out.println("Something went wrong. please ensure all files are in the file system. \n");
             }
         }
         else {

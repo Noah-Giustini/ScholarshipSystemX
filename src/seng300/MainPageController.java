@@ -492,7 +492,6 @@ public class MainPageController implements Initializable {
      */
     private void startUp(){
         ArrayList<String> allTheCurrentScholarships = Seng300.theManager.showSubmittedScholarships();
-        System.out.println(allTheCurrentScholarships);
         int size = allTheCurrentScholarships.size();
         if (size > 0) {
             String toAdd = allTheCurrentScholarships.get(0);
@@ -529,7 +528,6 @@ public class MainPageController implements Initializable {
         }
         
         ArrayList<String> allTheDraftScholarships = Seng300.theManager.showSavedScholarships();
-        System.out.println(allTheDraftScholarships);
         int sizeDraft = allTheDraftScholarships.size();
         if (sizeDraft > 0) {
             String toAdd = allTheDraftScholarships.get(0);

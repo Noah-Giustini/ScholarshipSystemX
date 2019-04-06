@@ -86,7 +86,7 @@ public class StudentApplicationViewController implements Initializable {
                 JOptionPane.showMessageDialog(null, "Success, scholarship has been accepted. \n You will be contacted shortly to recieve your award");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Something went wrong. \n Ensure all files are in the file system");
-                System.out.println("Something went horribly wrong. please ensure all files are in the file system. \n");
+                System.out.println("Something went wrong. please ensure all files are in the file system. \n");
             }
         }
         else {
@@ -103,7 +103,7 @@ public class StudentApplicationViewController implements Initializable {
         try{
             Scholarship schol = new Scholarship(scholName, true);
             int chosen = schol.getChosen();
-            if (Seng300.theManager.getCurrentApplication().getStatus() == "Granted"){
+            if (Seng300.theManager.getCurrentApplication().getStatus().equals("Granted")){
                 schol.setChosen(chosen - 1);
                 Seng300.theManager.getCurrentApplication().delete();
                 Seng300.theManager.setCurrentApplication(null);
@@ -111,7 +111,7 @@ public class StudentApplicationViewController implements Initializable {
                 this.withdrawButton.setVisible(false);
                 JOptionPane.showMessageDialog(null, "You have successfully withdrawn your application");
             }
-            else if (Seng300.theManager.getCurrentApplication().getStatus() == "Accepted"){
+            else if (Seng300.theManager.getCurrentApplication().getStatus().equals("Accepted")){
                 JOptionPane.showMessageDialog(null, "You have already accepted this scholarship and cannot withdraw at this time");
                 Seng300.theManager.setCurrentApplication(null);
             }
